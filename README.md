@@ -12,7 +12,7 @@ The project has just started though.
 
 Things to-do:
 
-[ ] Set up the environment.
+[x] Set up the environment.
 [ ] Make Sure About i18n.
 [ ] Make index page.
     [ ] TopBar
