@@ -33,7 +33,7 @@ jobs:
           # Path to the local folder you want to copy.
           local: /
           # Path on the remote server to copy to.
-          remote: ./museumGithub
+          remote: /
           # Hostname or IP address of the server.
           host: 62.234.147.251
           # Username for authentication.
