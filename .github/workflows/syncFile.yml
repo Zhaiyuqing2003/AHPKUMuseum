@@ -29,9 +29,7 @@ jobs:
         uses: actions/setup-node@v2
       - run: npm install
       - run: npx parcel build ./src/*.html ./src/*/*.html
-      
-      - name: Commit the build file back to repository
-      - run: |
+      - run: | 
           git config user.name Zhaiyuqing2003
           git config user.email ${{ secrets.ZHAIYUQING_EMAIL }}
           git add .
