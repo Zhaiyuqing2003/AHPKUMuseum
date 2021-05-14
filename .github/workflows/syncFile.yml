@@ -31,7 +31,7 @@ jobs:
         uses: garygrossgarten/github-action-scp@v0.7.3
         with:
           # Path to the local folder you want to copy.
-          local: /dist
+          local: ./dist
           # Path on the remote server to copy to.
           remote: /home/ubuntu/server/museum/website
           # Hostname or IP address of the server.
