@@ -12,23 +12,23 @@ The project has just started though.
 
 Things to-do:
 
--[] Set up the environment.
--[] Make Sure About i18n.
--[] Make index page.
-    -[] TopBar
-        -[] Icon
-        -[] Name
-        -[] Dark/Light Mode
-        -[] Language
-        -[] Search
-    -[] Bottom Bar
-    -[] Background Image
-    -[] Timeline
-    -[] Side Bar
-    -[] School Song
-    -[] Content
-        -[] School Head
-        -[] School Song / Icon / History
-        -[] School View
-        -[] School Culture --> Houses / Festival
--[] File System --- A lot
+- [ ] Set up the environment.
+- [ ] Make Sure About i18n.
+- [ ] Make index page.
+  - [ ] TopBar
+    - [ ] Icon
+    - [ ] Name
+    - [ ] Dark/Light Mode
+    - [ ] Language
+    - [ ] Search
+  - [ ] Bottom Bar
+  - [ ] Background Image
+  - [ ] Timeline
+  - [ ] Side Bar
+  - [ ] School Song
+  - [ ] Content
+    - [ ] School Head
+    - [ ] School Song / Icon / History
+    - [ ] School View
+    - [ ] School Culture --> Houses / Festival
+- [ ] File System --- A lot
