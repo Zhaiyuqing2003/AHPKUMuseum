@@ -31,12 +31,12 @@ jobs:
         uses: garygrossgarten/github-action-scp@v0.7.3
         with:
           # Path to the local folder you want to copy.
-          local: /
+          local: /dist
           # Path on the remote server to copy to.
-          remote: /
+          remote: /home/ubuntu/server/museum/website
           # Hostname or IP address of the server.
           host: 62.234.147.251
           # Username for authentication.
-          username: root
+          username: ubuntu
           # Password for password-based user authentication.
           password: ${{ secrets.SSH_PASSWORD }}
