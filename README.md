@@ -12,14 +12,26 @@ The project has just started though.
 
 Things to-do:
 
-- [ ] Set up the environment.
-- [ ] Make Sure About i18n.
+- [x] Set up the environment.
+  - [x] Github Actions
+    - [x] Auto-Build Parcel
+    - [x] Back-Commit To Branch Main
+    - [x] Upload To Server
+  - [ ] Server Environment
+    - [x] Node
+    - [x] Nohup environment
+    - [x] Express-Based App.
+    - [ ] Data Upload (Limited By Current Server Storage - Only to 40GB)
+- [x] General Libraries
+  - [x] Dark-Light Mode
+  - [x] i18n
+    - [ ] (Optional) i18n Third-Party Translation
 - [ ] Make index page.
   - [ ] TopBar
     - [ ] Icon
     - [ ] Name
-    - [ ] Dark/Light Mode
-    - [ ] Language
+    - [ ] Dark/Light Mode Button
+    - [ ] Language Change Button
     - [ ] Search
   - [ ] Bottom Bar
   - [ ] Background Image

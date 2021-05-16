@@ -1,3 +1,3 @@
 # SET-UP PIPELINE FOR LOCAL PREVIEW
 
-parcel  ./src/*.html ./src/*/*.html
+parcel ./src/**/*.html --out-dir localDist
