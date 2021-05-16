@@ -28,7 +28,7 @@ jobs:
       - name: Build with Parcel
         uses: actions/setup-node@v2
       - run: npm install
-      - run: npx parcel build ./src/*.html
+      - run: npx parcel ./src/*.html ./src/*/*.html
       - run: |
           git config user.name Zhaiyuqing2003
           git config user.email ${{ secrets.ZHAIYUQING_EMAIL }}
