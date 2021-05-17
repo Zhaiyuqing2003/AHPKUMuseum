@@ -51,3 +51,5 @@ jobs:
           username: ubuntu
           # Password for password-based user authentication.
           password: ${{ secrets.SSH_PASSWORD }}
+          # Clean directory before uploading.
+          rmRemote: true
