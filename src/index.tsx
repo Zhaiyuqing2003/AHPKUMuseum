@@ -37,7 +37,7 @@ const useAppStyle = makeStyles((theme) => ({
 
 function main(): void{
     const container = document.querySelector("#container")
-    ReactDOM.render(<Suspense fallback = ""><App /></Suspense>, container)
+    ReactDOM.render(<Suspense fallback = " "><App /></Suspense>, container)
 }
 
 function App(){
