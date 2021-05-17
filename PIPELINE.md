@@ -1,3 +1,9 @@
-# SET-UP PIPELINE FOR LOCAL PREVIEW
+# SET-UP PIPELINE
 
-parcel ./src/**/*.html --out-dir localDist
+## FOR LOCAL PREVIEW
+
+npx parcel serve ./src/**/*.html ./src/locales/**/*.json --dist-dir localDist
+
+## GITHUB ACTION PARCEL
+
+npx parcel build ./src/**/*.html ./src/locales/**/*.json
