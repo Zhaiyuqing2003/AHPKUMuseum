@@ -47,12 +47,12 @@ function createAppTheme(modeType: ModeType, languageType: LanguageType){
     switch (languageType){
         case LanguageType.en:
         case LanguageType.en_US:
-            fontName = FontType.NotoSerifSC
+            fontName = FontType.Roboto
             break;
         case LanguageType.zh:
         case LanguageType.zh_CN:
         default:
-            fontName = FontType.NotoSerifSC
+            fontName = FontType.Roboto
             break;
     }
 

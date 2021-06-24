@@ -44,8 +44,9 @@ const useAppBarStyle = makeStyles((theme) => ({
         [theme.breakpoints.up("sm")] : {
             marginRight : theme.spacing(2)
         },
-        [theme.breakpoints.down("xs")] : {
-            marginRight : theme.spacing(1.5)
+        [theme.breakpoints.down("sm")] : {
+            marginRight : theme.spacing(1.5),
+            marginLeft : theme.spacing(-0.5)
         }
     },
     icons : {
@@ -76,18 +77,30 @@ const useAppBarStyle = makeStyles((theme) => ({
         paddingLeft : theme.spacing(2)
     },
     appBar : {
+        WebkitBackdropFilter : "blur(10px)",
+        backdropFilter : "blur(10px)",
         transition : "ease-in-out 0.3s box-shadow,ease-in-out 0.3s background-color"
     },
     translateButton : {
         height : theme.spacing(3.25),
-        width : theme.spacing(3.25)
+        width : theme.spacing(3.25),
+        marginLeft : theme.spacing(0.5),
+        [theme.breakpoints.down(theme.breakpoints.values.laptop)] : {
+            marginRight : theme.spacing(-1),
+            marginLeft : theme.spacing(0.75)
+        }
+    },
+    expandMoreButton : {
+        marginLeft : theme.spacing(-0.65),
+        marginRight : theme.spacing(0.5)
+    },
+    languageMenuButton : {
+        
     }
 }))
 
 function ChangeLanguageMenu({ anchorEl, open, onClose } : ChangeLanguageMenuPropsType){
     function handleClose(event){
-        console.log(event.currentTarget)
-        console.log("value " + event.currentTarget.dataset.value)
         onClose(event.currentTarget.dataset.value)
     }
 
@@ -198,13 +211,10 @@ export default function({
     })
 
 
-
-
     return (<AppBar
         style = {{
             backgroundColor : appTopBarColor,
             boxShadow : isScrollToTop ? theme.shadows[0] : theme.shadows[4],
-            backdropFilter : "blur(10px)"
         }}
         className = { classes.appBar }>
         <Toolbar className = { classes.toolBar }>
@@ -216,12 +226,13 @@ export default function({
                 { t("websiteTitle") }
             </Typography>
             <Button
-                startIcon = { <TranslateIcon className = { classes.translateButton } /> }
-                endIcon = { <ExpandMoreIcon /> }
+                color = "inherit"
                 variant = "text"
-                size = "large"
+                size = "medium"
+                startIcon = { <TranslateIcon className = { classes.translateButton } /> }
+                endIcon = { <ExpandMoreIcon className = { classes.expandMoreButton }/> }
                 onClick = { openChangeLanguageMenu }
-                color = "inherit">{
+                className = { classes.languageMenuButton } >{
                 isChangeLanguageButtonHidden ? "" : t(languageType) 
             }
             </Button>

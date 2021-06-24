@@ -20,17 +20,37 @@ import {
 
 import BreakPointsType from "../utils/BreakPointsType"
 import useDeviceWidthQuery from "../utils/useDeviceWidthQuery"
+import SeasonType from "../utils/SeasonType"
+import useSeason from "../utils/useSeason"
 
 
 //@ts-ignore
-import summerDesktop from "../images/index/boardDesktop.jpg"
+import springDesktop from "../images/index/SpringDesktop.jpg"
 //@ts-ignore
-import summerTablet from "../images/index/boardLaptop.jpg"
+import springLaptop from "../images/index/SpringLaptop.jpg"
 //@ts-ignore
-import summerMobile from "../images/index/boardMobile.jpg"
+import springMobile from "../images/index/SpringMobile.jpg"
 
-import useOnceEffect from "../utils/useOnceEffect";
+//@ts-ignore
+import summerDesktop from "../images/index/SummerDesktop.jpg"
+//@ts-ignore
+import summerLaptop from "../images/index/SummerLaptop.jpg"
+//@ts-ignore
+import summerMobile from "../images/index/SummerMobile.jpg"
 
+//@ts-ignore
+import autumnDesktop from "../images/index/AutumnDesktop.jpg"
+//@ts-ignore
+import autumnLaptop from "../images/index/AutumnLaptop.jpg"
+//@ts-ignore
+import autumnMobile from "../images/index/AutumnMobile.jpg"
+
+//@ts-ignore
+import winterDesktop from "../images/index/WinterDesktop.jpg"
+//@ts-ignore
+import winterLaptop from "../images/index/WinterLaptop.jpg"
+//@ts-ignore
+import winterMobile from "../images/index/WinterMobile.jpg"
 
 const useIndexPageFrontContentStyle = makeStyles((theme) => ({
     cardMedia : {
@@ -39,15 +59,43 @@ const useIndexPageFrontContentStyle = makeStyles((theme) => ({
 }))
 
 
-function useImageDir(deviceMediaQuery : CustomBreakPointsType){
-    if (deviceMediaQuery === BreakPointsType.mobileS ||
-        deviceMediaQuery === BreakPointsType.mobileM ||
-        deviceMediaQuery === BreakPointsType.mobileL){
-        return summerMobile
-    } else if (deviceMediaQuery === BreakPointsType.tablet){
-        return summerTablet
-    } else {
-        return summerDesktop
+function useImageDir(deviceMediaQuery : CustomBreakPointsType, seasonQuery: SeasonType){
+    switch (deviceMediaQuery){
+        case BreakPointsType.mobileS:
+        case BreakPointsType.mobileM:
+        case BreakPointsType.mobileL:
+            switch (seasonQuery){
+                case SeasonType.Spring:
+                    return springMobile
+                case SeasonType.Summer:
+                    return summerMobile
+                case SeasonType.Autumn:
+                    return autumnMobile
+                case SeasonType.Winter:
+                    return winterMobile
+            }
+        case BreakPointsType.tablet:
+            switch (seasonQuery){
+                case SeasonType.Spring:
+                    return springLaptop
+                case SeasonType.Summer:
+                    return summerLaptop
+                case SeasonType.Autumn:
+                    return autumnLaptop
+                case SeasonType.Winter:
+                    return winterLaptop
+            }
+        default:
+            switch (seasonQuery){
+                case SeasonType.Spring:
+                    return springDesktop
+                case SeasonType.Summer:
+                    return summerDesktop
+                case SeasonType.Autumn:
+                    return autumnDesktop
+                case SeasonType.Winter:
+                    return winterDesktop
+            }
     }
 }
 
@@ -57,9 +105,9 @@ export default function(){
 
 
     const deviceWidthQuery = useDeviceWidthQuery(theme)
-    const imageDir = useImageDir(deviceWidthQuery)
+    const season = useSeason();
 
-
+    const imageDir = useImageDir(deviceWidthQuery, SeasonType.Autumn)
 
     return (<Card>
         <CardMedia
