@@ -2,7 +2,6 @@
   "name": "AHPKUMuseum",
   "version": "1.0.0",
   "description": "The online history museum for Affiliated High School of Peking University.\r It's Currently under development. This open-source project only include the front-end source code. The server-side code and resources are not included due to potential copy-right problems.\r The website link for the museum is 62.234.147.251:8000, the link might change cuz the current server does not have enough storage.",
-  "main": "./src/index.html",
   "dependencies": {
     "@emotion/react": "^11.4.0",
     "@emotion/styled": "^11.3.0",
