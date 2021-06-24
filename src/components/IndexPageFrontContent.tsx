@@ -23,11 +23,11 @@ import useDeviceWidthQuery from "../utils/useDeviceWidthQuery"
 
 
 //@ts-ignore
-import summerDesktop from "url:../images/index/boardDesktop.jpg"
+import summerDesktop from "../images/index/boardDesktop.jpg"
 //@ts-ignore
-import summerTablet from "url:../images/index/boardLaptop.jpg"
+import summerTablet from "../images/index/boardLaptop.jpg"
 //@ts-ignore
-import summerMobile from "url:../images/index/boardMobile.jpg"
+import summerMobile from "../images/index/boardMobile.jpg"
 
 import useOnceEffect from "../utils/useOnceEffect";
 
