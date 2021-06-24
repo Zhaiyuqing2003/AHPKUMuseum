@@ -1,4 +1,4 @@
-import ThemeType from "./ThemeType"
+import ModeType from "./ModeType"
 
 //@ts-ignore
 import WebsiteIconLightHref from "../icons/indexLight.svg"
@@ -10,8 +10,8 @@ const WEBSITE_ICON_HREF = {
     DARK : WebsiteIconDarkHref
 } as const;
 
-export default function changeWebIconTheme(themeType: ThemeType){
-    const iconHref = WEBSITE_ICON_HREF[themeType === ThemeType.LIGHT ? "LIGHT" : "DARK"]
+export default function changeWebIconTheme(modeType: ModeType){
+    const iconHref = WEBSITE_ICON_HREF[modeType === ModeType.LIGHT ? "LIGHT" : "DARK"]
 
     const iconElement = document.querySelector("link[rel=icon]") as HTMLLinkElement | null;
 

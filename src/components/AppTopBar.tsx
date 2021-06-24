@@ -4,7 +4,9 @@ import {
     useMemo
 } from "react";
 
-import { makeStyles } from "@material-ui/core"
+import { ThemeProvider, useTheme } from "@material-ui/core/styles"
+import { makeStyles, createStyles } from "@material-ui/core/styles"
+import { Theme } from "@material-ui/core/styles";
 
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -26,7 +28,14 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore"
 import LanguageType from "../utils/LanguageType"
 import LanguageList from "../utils/LanguageList"
 
+import FontType from "../utils/FontType"
+import ModeType from "../utils/ModeType"
+import createAppTheme from "../utils/AppTheme"
+import useOnceEffect from "../utils/useOnceEffect";
+import useDeviceWidthQuery from "../utils/useDeviceWidthQuery";
+
 import { useTranslation } from "react-i18next"
+import BreakPointsType from "../utils/BreakPointsType";
 
 const useAppBarStyle = makeStyles((theme) => ({
     museumIcon : {
@@ -44,17 +53,36 @@ const useAppBarStyle = makeStyles((theme) => ({
     },
     title : {
         flexGrow : 1,
-        letterSpacing : "0.11rem",
-        fontWeight : "bold",
-        fontSize : "1.3rem",
+        fontWeight : 700,
         userSelect : "none",
+    },
+    titleEn : {
+        letterSpacing : theme.spacing(0.12),
+        wordSpacing : theme.spacing(0.16),
+        fontSize : theme.spacing(3),
+        fontWeight : 550,
+        marginTop : theme.spacing(-0.2)
+    },
+    titleZh : {
+        //fontFamily : FontType.ZhiMingXing,
+        //fontSize : theme.spacing(3.8),
+        //fontWeight : 500,
+        letterSpacing : theme.spacing(0.22),
+        paddingTop : theme.spacing(0),
+        fontSize : theme.spacing(2.6),
     },
     toolBar : {
         paddingRight : theme.spacing(1),
         paddingLeft : theme.spacing(2)
     },
+    appBar : {
+        transition : "ease-in-out 0.3s box-shadow,ease-in-out 0.3s background-color"
+    },
+    translateButton : {
+        height : theme.spacing(3.25),
+        width : theme.spacing(3.25)
+    }
 }))
-console.log(LanguageList)
 
 function ChangeLanguageMenu({ anchorEl, open, onClose } : ChangeLanguageMenuPropsType){
     function handleClose(event){
@@ -63,7 +91,7 @@ function ChangeLanguageMenu({ anchorEl, open, onClose } : ChangeLanguageMenuProp
         onClose(event.currentTarget.dataset.value)
     }
 
-    const { t, i18n } = useTranslation("appTopBar");
+    const { t } = useTranslation("appTopBar");
 
     return (<Menu
         anchorEl = { anchorEl }
@@ -80,42 +108,129 @@ function ChangeLanguageMenu({ anchorEl, open, onClose } : ChangeLanguageMenuProp
     </Menu>)
 }
 
+function useWebsiteTitleFontFamilyClassName(classes, languageType : LanguageType){
+    return languageType === (LanguageType.zh_CN || LanguageType.zh)
+                ? classes.titleZh
+                : classes.titleEn
+}
 
-export default function({ languageType, onChangeLanguage } : AppTopBarPropsType){
+function useAppTopBarColor(theme : Theme , modeType: ModeType, isScrollToTop: boolean){
+    if (modeType === ModeType.LIGHT){
+        if (isScrollToTop){
+            return theme.palette.primary.dark.replace(")", ",0.45)")
+        } else {
+            return theme.palette.primary.dark
+        }
+    } else {
+        if (isScrollToTop){
+            return theme.palette.background.paper + "77"
+        } else {
+            return theme.palette.background.paper
+        }
+    }
+}
+
+function useIsChangeLanguageButtonHidden(deviceWidthQuery: CustomBreakPointsType){
+    console.log(BreakPointsType[deviceWidthQuery])
+    switch (deviceWidthQuery){
+        case BreakPointsType.mobileL:
+        case BreakPointsType.mobileM:
+        case BreakPointsType.mobileS:
+        case BreakPointsType.tablet:
+            return true;
+        default:
+            return false;
+    }
+}
+
+export default function({
+        onChangeLanguageType : triggerChangeLanguageTypeEvent,
+        onChangeModeType : triggerChangeModeTypeEvent
+    } : AppTopBarPropsType){
+
+
+    const theme = useTheme();
     const classes = useAppBarStyle()
-    const { t, i18n } = useTranslation("appTopBar")
+
+    const { appOptions : { modeType, languageType }} = theme
+
+    const { t } = useTranslation("appTopBar")
+
+    const [isScrollToTop, setIsScrollToTop] = useState(false);
     const [anchorEl, setAnchorEl] = useState(null)
-    const open = Boolean(anchorEl)
+
+    const websiteTitleFontFamilyClassName = useWebsiteTitleFontFamilyClassName(classes, languageType)
+    const appTopBarColor = useAppTopBarColor(theme, modeType, isScrollToTop);
+    const deviceWidthQuery = useDeviceWidthQuery(theme)
+    const isChangeLanguageButtonHidden = useIsChangeLanguageButtonHidden(deviceWidthQuery)
+    
 
     function openChangeLanguageMenu(event){
         setAnchorEl(event.currentTarget)
     }
-
     function closeChangeLanguageMenu(languageType: LanguageType){
         if (languageType !== undefined){
             console.log("THE LANGUAGE TYPE IS " + languageType)
-            onChangeLanguage(languageType)
+            triggerChangeLanguageTypeEvent(languageType)
         }
 
         setAnchorEl(null)
     }
+    function toggleModeType(){
+        const toggledModeType =
+            (modeType === ModeType.LIGHT)
+                ? ModeType.DARK
+                : ModeType.LIGHT;
 
-    return (<AppBar>
+        triggerChangeModeTypeEvent(toggledModeType)
+    }
+
+    useOnceEffect(() => {
+        let changeAppBarTransparency = () => {
+            if (window.pageYOffset <= 0){
+                setIsScrollToTop(true);
+            } else {
+                setIsScrollToTop(false);
+            }
+        }
+        changeAppBarTransparency()
+        document.addEventListener("scroll", changeAppBarTransparency);
+    })
+
+
+
+
+    return (<AppBar
+        style = {{
+            backgroundColor : appTopBarColor,
+            boxShadow : isScrollToTop ? theme.shadows[0] : theme.shadows[4],
+            backdropFilter : "blur(10px)"
+        }}
+        className = { classes.appBar }>
         <Toolbar className = { classes.toolBar }>
             <SvgIcon size = "large" className = { classes.museumIcon } component = { MuseumIcon } />
-            <Typography variant = "button" component = "div" className = { classes.title }>
+            <Typography
+                component = "div"
+                variant = "h5"
+                className = { `${classes.title} ${ websiteTitleFontFamilyClassName }` }>
                 { t("websiteTitle") }
             </Typography>
             <Button
-                startIcon = { <TranslateIcon/> }
+                startIcon = { <TranslateIcon className = { classes.translateButton } /> }
                 endIcon = { <ExpandMoreIcon /> }
                 variant = "text"
+                size = "large"
                 onClick = { openChangeLanguageMenu }
-                color = "inherit">
-                { t(languageType) }
+                color = "inherit">{
+                isChangeLanguageButtonHidden ? "" : t(languageType) 
+            }
             </Button>
-            <IconButton edge="end" color = "inherit" className = { classes.icons }>
-                <Brightness4Icon />
+            <IconButton
+                edge="end"
+                color = "inherit"
+                className = { classes.icons }
+                onClick = { toggleModeType }>
+                <Brightness4Icon/>
             </IconButton>
             <IconButton edge="end" color = "inherit" className = { classes.icons }>
                 <InvertColorsIcon />
@@ -125,15 +240,15 @@ export default function({ languageType, onChangeLanguage } : AppTopBarPropsType)
             </IconButton>
             <ChangeLanguageMenu
                 anchorEl = { anchorEl }
-                open = { open }
+                open = { Boolean(anchorEl) }
                 onClose = { closeChangeLanguageMenu }/>
         </Toolbar>
     </AppBar>)
 }
 
 type AppTopBarPropsType = {
-    languageType : LanguageType,
-    onChangeLanguage : (languageType: LanguageType) => void
+    onChangeLanguageType : (languageType: LanguageType) => void,
+    onChangeModeType : (modeType: ModeType) => void
 }
 
 type ChangeLanguageMenuPropsType = {

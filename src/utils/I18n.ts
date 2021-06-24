@@ -36,14 +36,3 @@ i18next
 export default i18next;
 
 
-declare global{
-    type I18NextResource = {
-        [index in I18nLanguage]: {
-            translation: {
-                [index: string]: string;
-            };
-        };
-    };
-    type I18nLanguageList = ["en-US", "zh-CN", "en", "zh"]
-    type I18nLanguage = I18nLanguageList[number]
-}

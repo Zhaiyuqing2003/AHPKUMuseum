@@ -5,6 +5,14 @@ enum LanguageType{
     en = "en"
 }
 
-
+declare global{
+    type I18NextResource = {
+        [index in LanguageType]: {
+            translation: {
+                [index: string]: string;
+            };
+        };
+    };
+}
 
 export default LanguageType;

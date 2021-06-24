@@ -10,29 +10,32 @@ import ReactDOM from "react-dom"
 
 import {
     CssBaseline,
-    ThemeProvider,
     useMediaQuery,
-    Container,
-    makeStyles,
+    Container
 } from "@material-ui/core"
 
-import AppTopBar from "./components/AppTopBar"
+import { makeStyles } from "@material-ui/core/styles"
+import { ThemeProvider } from "@material-ui/core/styles"
+
+import StyledEngineProvider from "@material-ui/core/StyledEngineProvider"
 
 import './utils/I18n'
 import { useTranslation } from "react-i18next"
 
-import ThemeType from "./utils/ThemeType"
+import ModeType from "./utils/ModeType"
 import LanguageType from "./utils/LanguageType"
 
 import createAppTheme from "./utils/AppTheme"
-import changeWebIconTheme from "./utils/changeWebIconTheme"
+import changeWebIconTheme from "./utils/WebIconTheme"
 
-import "@fontsource/roboto-slab";
-import "@fontsource/noto-serif-sc"
+import "./utils/FontDependencies";
 
+import AppTopBar from "./components/AppTopBar"
+import IndexPageFrontContent from "./components/IndexPageFrontContent"
+import AppContainer from "./components/AppContainer"
 
 const useAppStyle = makeStyles((theme) => ({
-    
+
 }))
 
 function main(): void{
@@ -41,9 +44,9 @@ function main(): void{
 }
 
 function App(){
-    const [themeType, setThemeType] = useState(ThemeType.LIGHT)
+    const [modeType, setModeType] = useState(ModeType.LIGHT)
     const [languageType, setLanguageType] = useState(LanguageType.zh_CN)
-    const isUserThemeTypeDark = useMediaQuery("(prefers-color-scheme: dark)");
+    const isUserModeTypeDark = useMediaQuery("(prefers-color-scheme: dark)");
 
     const classes = useAppStyle()
 
@@ -52,14 +55,14 @@ function App(){
     useEffect(() => {
         console.log("THEME MEDIA QUERY CHANGE DETECTED")
 
-        setThemeType(isUserThemeTypeDark ? ThemeType.DARK : ThemeType.LIGHT)
-    }, [isUserThemeTypeDark])
+        setModeType(isUserModeTypeDark ? ModeType.DARK : ModeType.LIGHT)
+    }, [isUserModeTypeDark])
 
     useEffect(() => {
         console.log("THEME CHANGE DETECTED")
 
-        changeWebIconTheme(themeType)
-    }, [themeType])
+        changeWebIconTheme(modeType)
+    }, [modeType])
 
     useEffect(() => {
         i18n.changeLanguage(languageType, () => {
@@ -67,23 +70,30 @@ function App(){
         })
     }, [languageType])
 
-    console.log(themeType)
+    console.log("modeType: " + modeType)
 
-    function changeLanguage(languageType : LanguageType){
+    function changeLanguageType(languageType : LanguageType){
         setLanguageType(languageType)
     }
 
-    return (<ThemeProvider theme = {
-            useMemo(() => createAppTheme(themeType, languageType), [themeType, languageType])
+    function changeModeType(modeType : ModeType){
+        setModeType(modeType)
+    }
+
+    return (<StyledEngineProvider injectFirst = { true }>
+        <ThemeProvider theme = {
+            useMemo(() => createAppTheme(modeType, languageType), [modeType, languageType])
         }>
-        <CssBaseline />
-        <Container>
-            <AppTopBar
-                languageType = { languageType }
-                onChangeLanguage = { changeLanguage }
-            />
-        </Container>
-    </ThemeProvider>)
+                <CssBaseline />
+                <AppTopBar
+                    onChangeLanguageType = { changeLanguageType }
+                    onChangeModeType = { changeModeType }
+                />
+                <AppContainer maxWidth = { false } disableGutters>
+                    <IndexPageFrontContent />
+                </AppContainer>
+        </ThemeProvider>
+    </StyledEngineProvider>)
 }
 
 
