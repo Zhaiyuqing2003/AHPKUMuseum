@@ -107,7 +107,7 @@ export default function(){
     const deviceWidthQuery = useDeviceWidthQuery(theme)
     const season = useSeason();
 
-    const imageDir = useImageDir(deviceWidthQuery, SeasonType.Autumn)
+    const imageDir = useImageDir(deviceWidthQuery, season)
 
     return (<Card>
         <CardMedia
