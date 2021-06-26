@@ -33,6 +33,7 @@ import "./utils/FontDependencies";
 import AppTopBar from "./components/AppTopBar"
 import IndexPageFrontContent from "./components/IndexPageFrontContent"
 import AppContainer from "./components/AppContainer"
+import AppMusicBar from "./components/AppMusicBar"
 
 const useAppStyle = makeStyles((theme) => ({
 
@@ -92,6 +93,7 @@ function App(){
                 <AppContainer maxWidth = { false } disableGutters>
                     <IndexPageFrontContent />
                 </AppContainer>
+                <AppMusicBar/>
         </ThemeProvider>
     </StyledEngineProvider>)
 }
