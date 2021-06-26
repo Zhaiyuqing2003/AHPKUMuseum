@@ -33,7 +33,10 @@ import "./utils/FontDependencies";
 import AppTopBar from "./components/AppTopBar"
 import IndexPageFrontContent from "./components/IndexPageFrontContent"
 import AppContainer from "./components/AppContainer"
+
 import MobileTimeline from './components/IndexTimeline'
+import AppMusicBar from "./components/AppMusicBar"
+
 const useAppStyle = makeStyles((theme) => ({
 
 }))
@@ -93,6 +96,7 @@ function App(){
                     <IndexPageFrontContent />
                     <MobileTimeline></MobileTimeline>
                 </AppContainer>
+                <AppMusicBar/>
         </ThemeProvider>
     </StyledEngineProvider>)
 }

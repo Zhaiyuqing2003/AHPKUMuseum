@@ -30,7 +30,7 @@ import springDesktop from "../images/index/SpringDesktop.jpg"
 import springLaptop from "../images/index/SpringLaptop.jpg"
 //@ts-ignore
 import springMobile from "../images/index/SpringMobile.jpg"
-
+  
 //@ts-ignore
 import summerDesktop from "../images/index/SummerDesktop.jpg"
 //@ts-ignore

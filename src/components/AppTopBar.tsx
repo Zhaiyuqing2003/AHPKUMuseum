@@ -49,7 +49,7 @@ const useAppBarStyle = makeStyles((theme) => ({
             marginLeft : theme.spacing(-0.5)
         }
     },
-    icons : {
+    iconButton : {
         margin : theme.spacing(0, 0),
     },
     title : {
@@ -58,19 +58,22 @@ const useAppBarStyle = makeStyles((theme) => ({
         userSelect : "none",
     },
     titleEn : {
+        fontFamily : FontType.Benne,
         letterSpacing : theme.spacing(0.12),
         wordSpacing : theme.spacing(0.16),
         fontSize : theme.spacing(3),
-        fontWeight : 550,
-        marginTop : theme.spacing(-0.2)
+        marginTop : theme.spacing(0.8),
+        fontWeight : 700,
     },
     titleZh : {
         //fontFamily : FontType.ZhiMingXing,
         //fontSize : theme.spacing(3.8),
         //fontWeight : 500,
+        fontFamily : FontType.NotoSerifSC,
         letterSpacing : theme.spacing(0.22),
         paddingTop : theme.spacing(0),
         fontSize : theme.spacing(2.6),
+        marginTop : theme.spacing(-0.2),
     },
     toolBar : {
         paddingRight : theme.spacing(1),
@@ -95,7 +98,7 @@ const useAppBarStyle = makeStyles((theme) => ({
         marginRight : theme.spacing(0.5)
     },
     languageMenuButton : {
-        
+        fontWeight : 700
     }
 }))
 
@@ -200,7 +203,7 @@ export default function({
 
     useOnceEffect(() => {
         let changeAppBarTransparency = () => {
-            if (window.pageYOffset <= 0){
+            if (window.pageYOffset <= 30){
                 setIsScrollToTop(true);
             } else {
                 setIsScrollToTop(false);
@@ -237,16 +240,15 @@ export default function({
             }
             </Button>
             <IconButton
-                edge="end"
                 color = "inherit"
-                className = { classes.icons }
+                className = { classes.iconButton }
                 onClick = { toggleModeType }>
                 <Brightness4Icon/>
             </IconButton>
-            <IconButton edge="end" color = "inherit" className = { classes.icons }>
+            <IconButton color = "inherit" className = { classes.iconButton }>
                 <InvertColorsIcon />
             </IconButton>
-            <IconButton edge="end" color = "inherit" className = { classes.icons }>
+            <IconButton color = "inherit" className = { classes.iconButton }>
                 <MenuIcon />
             </IconButton>
             <ChangeLanguageMenu
