@@ -8,6 +8,7 @@ import {
     CardContent,
     Toolbar,
     Box,
+    Grid,
     Typography,
     Button,
     useTheme,
@@ -23,6 +24,9 @@ import useDeviceWidthQuery from "../utils/useDeviceWidthQuery"
 import SeasonType from "../utils/SeasonType"
 import useSeason from "../utils/useSeason"
 
+import { useTranslation } from "react-i18next"
+
+import FontType from "../utils/FontType"
 
 //@ts-ignore
 import springDesktop from "../images/index/seasons/SpringDesktop.jpg"
@@ -54,7 +58,21 @@ import winterMobile from "../images/index/seasons/WinterMobile.jpg"
 
 const useIndexPageFrontContentStyle = makeStyles((theme) => ({
     cardMedia : {
-        height : "110vh"
+        height : "100vh"
+    },
+    cardContent : {
+        position : "absolute",
+        top : 0,
+        height : "100vh",
+        width : "100%",
+        padding : "0px !important",
+        display : "flex",
+        flexDirection : "column",
+    },
+    seasonText : {
+        userSelect : "none",
+        color : "rgba(255, 255, 255, 0.7)",
+        padding : theme.spacing(2)
     }
 }))
 
@@ -99,20 +117,74 @@ function useImageDir(deviceMediaQuery : CustomBreakPointsType, seasonQuery: Seas
     }
 }
 
+function useSeasonText(seasonQuery: SeasonType){
+    switch (seasonQuery){
+        case SeasonType.Spring:
+            return "spring"
+        case SeasonType.Summer:
+            return "summer"
+        case SeasonType.Autumn:
+            return "autumn"
+        case SeasonType.Winter:
+            return "winter"
+        default:
+            return "autumn"
+    }
+}
+
 export default function(){
     const theme = useTheme()
     const classes = useIndexPageFrontContentStyle()
+    const { t } = useTranslation("indexPageFrontContent")
+
+
+    const [season, setSeason] = useState(SeasonType.Summer)
 
 
     const deviceWidthQuery = useDeviceWidthQuery(theme)
-    const season = useSeason();
+    //const season = useSeason();
 
-    const imageDir = useImageDir(deviceWidthQuery, SeasonType.Summer)
+    const imageDir = useImageDir(deviceWidthQuery, season)
+    const seasonText = useSeasonText(season)
+
+    const changeSeason = (season: SeasonType) => {
+        setSeason(season)
+    }
+
+    // @ts-ignore
+    window.changeSeason = changeSeason
 
     return (<Card>
         <CardMedia
             image = { imageDir }
             className = { classes.cardMedia }>
         </CardMedia>
+        <CardContent className = { classes.cardContent }>
+            <Toolbar></Toolbar>
+            <Grid>
+                <Typography fontFamily = { FontType.MaShanZheng }>
+                    时代的记忆
+                </Typography>
+            </Grid>
+            <Grid flexGrow = { 1 } container alignItems = "flex-end">
+                <Box>
+                    <Grid container className = { classes.seasonText }>
+                        <Typography 
+                            fontFamily = { FontType.MaShanZheng } 
+                            fontSize = { theme.spacing(3) }
+                            lineHeight = { 1.67 }>
+                            { t("AHPKU") }·
+                        </Typography>
+                        <Typography 
+                            fontFamily = { FontType.LongCang } 
+                            fontWeight = "bold"
+                            fontSize = { theme.spacing(3) }>
+                            { t(seasonText) }
+                        </Typography>
+                    </Grid>
+                </Box>
+            </Grid>
+            <Toolbar></Toolbar>
+        </CardContent>
     </Card>)
 }

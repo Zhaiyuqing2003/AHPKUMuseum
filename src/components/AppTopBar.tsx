@@ -20,7 +20,6 @@ import Menu from "@material-ui/core/Menu";
 
 import MuseumIcon from "./MuseumIcon";
 import Brightness4Icon from "@material-ui/icons/Brightness4";
-import InvertColorsIcon from "@material-ui/icons/InvertColors";
 import MenuIcon from "@material-ui/icons/Menu"
 import TranslateIcon from "@material-ui/icons/Translate";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore"
@@ -51,10 +50,10 @@ const useAppBarStyle = makeStyles((theme) => ({
     },
     iconButton : {
         margin : theme.spacing(0, 0),
+        padding : theme.spacing()
     },
     title : {
         flexGrow : 1,
-        fontWeight : 700,
         userSelect : "none",
     },
     titleEn : {
@@ -69,11 +68,11 @@ const useAppBarStyle = makeStyles((theme) => ({
         //fontFamily : FontType.ZhiMingXing,
         //fontSize : theme.spacing(3.8),
         //fontWeight : 500,
-        fontFamily : FontType.NotoSerifSC,
-        letterSpacing : theme.spacing(0.22),
+        fontFamily : FontType.MaShanZheng,
+        letterSpacing : theme.spacing(0.1),
         paddingTop : theme.spacing(0),
-        fontSize : theme.spacing(2.6),
         marginTop : theme.spacing(-0.2),
+        fontSize : theme.spacing(3)
     },
     toolBar : {
         paddingRight : theme.spacing(1),
@@ -101,28 +100,6 @@ const useAppBarStyle = makeStyles((theme) => ({
         fontWeight : 700
     }
 }))
-
-function ChangeLanguageMenu({ anchorEl, open, onClose } : ChangeLanguageMenuPropsType){
-    function handleClose(event){
-        onClose(event.currentTarget.dataset.value)
-    }
-
-    const { t } = useTranslation("appTopBar");
-
-    return (<Menu
-        anchorEl = { anchorEl }
-        open = { open }
-        onClose = { handleClose }
-      >{
-        LanguageList.map((language) => {
-            console.log(language)
-            return (<MenuItem key = { language } onClick = { handleClose } data-value = { language }>
-                { t(language) }
-            </MenuItem>)
-        })
-      }
-    </Menu>)
-}
 
 function useWebsiteTitleFontFamilyClassName(classes, languageType : LanguageType){
     return languageType === (LanguageType.zh_CN || LanguageType.zh)
@@ -198,6 +175,29 @@ function useTitleTypeString(deviceWidthQuery: CustomBreakPointsType, languageTyp
         default:
             return "websiteTitleMiddle"
     }
+}
+
+
+function ChangeLanguageMenu({ anchorEl, open, onClose } : ChangeLanguageMenuPropsType){
+    function handleClose(event){
+        onClose(event.currentTarget.dataset.value)
+    }
+
+    const { t } = useTranslation("appTopBar");
+
+    return (<Menu
+        anchorEl = { anchorEl }
+        open = { open }
+        onClose = { handleClose }
+      >{
+        LanguageList.map((language) => {
+            console.log(language)
+            return (<MenuItem key = { language } onClick = { handleClose } data-value = { language }>
+                { t(language) }
+            </MenuItem>)
+        })
+      }
+    </Menu>)
 }
 
 export default function({
@@ -281,15 +281,17 @@ export default function({
             }
             </Button>
             <IconButton
+                size = "large"
                 color = "inherit"
-                className = { classes.iconButton }
                 onClick = { toggleModeType }>
                 <Brightness4Icon/>
             </IconButton>
             {/* <IconButton color = "inherit" className = { classes.iconButton }>
                 <InvertColorsIcon />
             </IconButton> */}
-            <IconButton color = "inherit" className = { classes.iconButton }>
+            <IconButton 
+                size = "large"
+                color = "inherit">
                 <MenuIcon />
             </IconButton>
             <ChangeLanguageMenu
