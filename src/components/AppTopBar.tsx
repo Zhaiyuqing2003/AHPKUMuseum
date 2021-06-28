@@ -4,8 +4,8 @@ import {
     useMemo
 } from "react";
 
-import { ThemeProvider, useTheme } from "@material-ui/core/styles"
-import { makeStyles, createStyles } from "@material-ui/core/styles"
+import { useTheme } from "@material-ui/core/styles"
+import { makeStyles } from "@material-ui/styles"
 import { Theme } from "@material-ui/core/styles";
 
 import AppBar from "@material-ui/core/AppBar";
@@ -159,6 +159,47 @@ function useIsChangeLanguageButtonHidden(deviceWidthQuery: CustomBreakPointsType
     }
 }
 
+function useTitleTypeString(deviceWidthQuery: CustomBreakPointsType, languageType: LanguageType){
+    switch (languageType){
+        case LanguageType.en:
+        case LanguageType.en_US:
+            switch (deviceWidthQuery){
+                case BreakPointsType.mobileS:
+                case BreakPointsType.mobileM:
+                case BreakPointsType.mobileL:
+                    return "websiteTitleShort"
+                case BreakPointsType.tablet:
+                    return "websiteTitleMiddle"
+                case BreakPointsType.laptop:
+                case BreakPointsType.desktop:
+                    return "websiteTitleLong"
+                case BreakPointsType.fourK:
+                    return "websiteTitleFourK"
+                default:
+                    return "websiteTitleMiddle";
+            }
+        case LanguageType.zh:
+        case LanguageType.zh_CN:
+            switch (deviceWidthQuery){
+                case BreakPointsType.mobileS:
+                case BreakPointsType.mobileM:
+                    return "websiteTitleShort"
+                case BreakPointsType.mobileL:
+                    return "websiteTitleMiddle"
+                case BreakPointsType.tablet:
+                case BreakPointsType.laptop:
+                case BreakPointsType.desktop:
+                    return "websiteTitleLong"
+                case BreakPointsType.fourK:
+                    return "websiteTitleFourK"
+                default:
+                    return "websiteTitleMiddle";
+            }
+        default:
+            return "websiteTitleMiddle"
+    }
+}
+
 export default function({
         onChangeLanguageType : triggerChangeLanguageTypeEvent,
         onChangeModeType : triggerChangeModeTypeEvent
@@ -178,15 +219,15 @@ export default function({
     const websiteTitleFontFamilyClassName = useWebsiteTitleFontFamilyClassName(classes, languageType)
     const appTopBarColor = useAppTopBarColor(theme, modeType, isScrollToTop);
     const deviceWidthQuery = useDeviceWidthQuery(theme)
-    const isChangeLanguageButtonHidden = useIsChangeLanguageButtonHidden(deviceWidthQuery)
-    
 
+    const isChangeLanguageButtonHidden = useIsChangeLanguageButtonHidden(deviceWidthQuery)
+    const titleTypeString = useTitleTypeString(deviceWidthQuery, languageType)
+    
     function openChangeLanguageMenu(event){
         setAnchorEl(event.currentTarget)
     }
     function closeChangeLanguageMenu(languageType: LanguageType){
         if (languageType !== undefined){
-            console.log("THE LANGUAGE TYPE IS " + languageType)
             triggerChangeLanguageTypeEvent(languageType)
         }
 
@@ -202,7 +243,7 @@ export default function({
     }
 
     useOnceEffect(() => {
-        let changeAppBarTransparency = () => {
+        const changeAppBarTransparency = () => {
             if (window.pageYOffset <= 30){
                 setIsScrollToTop(true);
             } else {
@@ -225,9 +266,9 @@ export default function({
             <Typography
                 component = "div"
                 variant = "h5"
-                className = { `${classes.title} ${ websiteTitleFontFamilyClassName }` }>
-                { t("websiteTitle") }
-            </Typography>
+                className = { `${classes.title} ${ websiteTitleFontFamilyClassName }` }>{ 
+                    t(titleTypeString)
+            }</Typography>
             <Button
                 color = "inherit"
                 variant = "text"
@@ -245,9 +286,9 @@ export default function({
                 onClick = { toggleModeType }>
                 <Brightness4Icon/>
             </IconButton>
-            <IconButton color = "inherit" className = { classes.iconButton }>
+            {/* <IconButton color = "inherit" className = { classes.iconButton }>
                 <InvertColorsIcon />
-            </IconButton>
+            </IconButton> */}
             <IconButton color = "inherit" className = { classes.iconButton }>
                 <MenuIcon />
             </IconButton>

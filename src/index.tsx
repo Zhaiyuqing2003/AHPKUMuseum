@@ -5,20 +5,18 @@ import {
     useMemo,
     Suspense
 } from "react"
-import useOnceEffect from "./utils/useOnceEffect"
 import ReactDOM from "react-dom"
 
 import {
     CssBaseline,
     useMediaQuery,
-    Container
 } from "@material-ui/core"
 
-import { makeStyles } from "@material-ui/core/styles"
+import { makeStyles } from "@material-ui/styles"
 import { ThemeProvider } from "@material-ui/core/styles"
 
 import StyledEngineProvider from "@material-ui/core/StyledEngineProvider"
-
+ 
 import './utils/I18n'
 import { useTranslation } from "react-i18next"
 
@@ -34,7 +32,7 @@ import AppTopBar from "./components/AppTopBar"
 import IndexPageFrontContent from "./components/IndexPageFrontContent"
 import AppContainer from "./components/AppContainer"
 
-import MobileTimeline from './components/IndexTimeline'
+import IndexPageTimeline from './components/IndexPageTimeline'
 import AppMusicBar from "./components/AppMusicBar"
 
 const useAppStyle = makeStyles((theme) => ({
@@ -87,16 +85,16 @@ function App(){
         <ThemeProvider theme = {
             useMemo(() => createAppTheme(modeType, languageType), [modeType, languageType])
         }>
-                <CssBaseline />
-                <AppTopBar
-                    onChangeLanguageType = { changeLanguageType }
-                    onChangeModeType = { changeModeType }
-                />
-                <AppContainer maxWidth = { false } disableGutters>
-                    <IndexPageFrontContent />
-                    <MobileTimeline></MobileTimeline>
-                </AppContainer>
-                <AppMusicBar/>
+            <CssBaseline />
+            <AppTopBar
+                onChangeLanguageType = { changeLanguageType }
+                onChangeModeType = { changeModeType }
+            />
+            <AppContainer>
+                <IndexPageFrontContent />
+                <IndexPageTimeline />
+            </AppContainer>
+            <AppMusicBar/>
         </ThemeProvider>
     </StyledEngineProvider>)
 }

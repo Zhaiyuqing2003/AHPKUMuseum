@@ -10,7 +10,7 @@ import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import PauseIcon from '@material-ui/icons/Pause';
 import SkipNextIcon from '@material-ui/icons/SkipNext';
 import SkipPreviousIcon from '@material-ui/icons/SkipPrevious';
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/styles";
 
 import mediaTagsQuery from "jsmediatags"
 
@@ -21,6 +21,10 @@ import useUpdateEffect from "../utils/useUpdateEffect"
 import school from "../audios/school.mp3"
 //@ts-ignore
 import country from "../audios/country.mp3"
+
+declare module '@material-ui/styles'{
+    interface DefaultTheme extends Theme {}
+}
 
 
 const useAppMusicBarStyle = makeStyles((theme) => ({
@@ -228,13 +232,9 @@ function MusicSlider({ audio, onLoaded } : MusicSliderProps){
 
     useEffect(() => {
         if (audio.readyState > 1){
-            setTimeout(() => {
-                onLoaded()
-            }, 10000)
+            onLoaded()
         } else {
-            setTimeout(() => {
-                onLoaded()
-            }, 10000)
+            onLoaded()
         }
     }, [audio])
 

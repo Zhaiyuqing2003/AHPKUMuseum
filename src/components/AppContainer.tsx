@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Container } from "@material-ui/core"
-import { makeStyles } from "@material-ui/core/styles"
+import { makeStyles } from "@material-ui/styles"
 
 const useAppContainerStyle = makeStyles({
     container : {
@@ -9,10 +9,13 @@ const useAppContainerStyle = makeStyles({
 })
 
 export default function(props){
-    const { children, ...others } = props;
+    const { children } = props;
     const classes = useAppContainerStyle();
 
-    return (<Container { ...others } className = { classes.container }>
+    return (<Container
+                disableGutters  
+                maxWidth = { false } 
+                className = { classes.container }>
         { props.children }
     </Container>)
 }

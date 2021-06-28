@@ -32,5 +32,5 @@ export default function useDeviceWidthQuery(theme: Theme){
         }
     }
 
-    return BreakPointsType.desktop
+    return BreakPointsType.fourK
 }
