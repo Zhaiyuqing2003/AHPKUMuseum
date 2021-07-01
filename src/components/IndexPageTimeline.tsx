@@ -9,10 +9,42 @@ import TimelineDot from '@material-ui/lab/TimelineDot';
 import Typography from '@material-ui/core/Typography';
 import Avatar from "@material-ui/core/Avatar";
 import Grid from "@material-ui/core/Grid";
-import { Box, Paper, CardHeader } from "@material-ui/core"
+import { Box, Paper, CardHeader, Card } from "@material-ui/core";
+import { makeStyles, useTheme } from "@material-ui/styles"
+import ButtonBase from '@material-ui/core/ButtonBase';
+import { Theme } from "@material-ui/core/styles"
 
-import { useTheme } from "@material-ui/core"
+declare module '@material-ui/styles'{
+    interface DefaultTheme extends Theme{}
+}
 
+const useStyles = makeStyles((theme) => ({
+    root: {
+      flexGrow: 1,
+    },
+    card: {
+        backdropFilter : 'blur(20px)',
+        backgroundColor : theme.palette.primary.main + "77",
+        WebkitBackdropFilter : "blur(10px)",
+        
+    },
+    paper: {
+      padding: theme.spacing(2),
+      margin: 'auto',
+      maxWidth: 500,
+    },
+    image: {
+      width: 128,
+      height: 128,
+    },
+    img: {
+      margin: 'auto',
+      display: 'block',
+      maxWidth: '100%',
+      maxHeight: '100%',
+    },
+  }));
+  
 //@ts-ignore
 import headmasterOne from "../images/index/headmasters/headmasterOne.jpg"
 //@ts-ignore
@@ -145,32 +177,72 @@ const headmasters: headmasterItem[] = [{
 
 export default function IndexPageTimeline() {
     const theme = useTheme()
-
+    const classes = useStyles()
     return (<Timeline position="alternate">{
-        headmasters.map(({ name, position, picture }, index) => (<TimelineItem key = { index }>
+        headmasters.map(({ name, position, picture }, index) => ( 
+        <>
+        <TimelineItem key = { index }>
+           
             <TimelineSeparator>
-                <TimelineConnector sx = {{ height : 40 }}/>
+                <TimelineConnector sx = {{ height : 20 }}/>
                     <TimelineDot />
-                <TimelineConnector sx = {{ height : 40 }}/>
+                <TimelineConnector sx = {{ height : 20 }}/>
             </TimelineSeparator>
-
+        
             <TimelineContent sx = {{ py : '12px', px : 2 }}>
-                <Grid container alignItems = "center" flexDirection = {
+                
+                <Grid container alignItems = "center" flexDirection = 
+                {
                     index % 2 === 0 ? "row" : "row-reverse"
-                }>
-                    <Grid item>
-                        <Avatar 
-                            src={ picture } 
-                            sx = {{ 
-                                height : theme.spacing(7), width : theme.spacing(7)
-                            }} />
+                }
+                spacing = {2}
+                padding = {2}
+                >
+                <Paper className = {classes.card}>
+                    <Grid container spacing = {2}
+                    padding = {2}
+                    flexDirection = 
+                    {
+                        index % 2 === 0 ? "row" : "row-reverse"
+                    }>
+                         <Grid item>
+                                <Avatar 
+                                    src={ picture } 
+                                    sx = {{ 
+                                        height : theme.spacing(7), width : theme.spacing(7)
+                                    }} />
+                            </Grid>
+                        <Grid item>
+                                <Typography>{ name }</Typography>
+                        </Grid>   
+                        <Grid item>
+                                <Typography>{ name + '1' }</Typography>
+                        </Grid>   
                     </Grid>
-                    <Grid item>
-                        <Typography>{ name }</Typography>
-                    </Grid>
-                </Grid>
+                    
+                </Paper>
+                <Grid container></Grid>
+                <Grid container></Grid>
+                </Grid>   
+
             </TimelineContent>
-        </TimelineItem>))
+       
+        </TimelineItem>
+        <TimelineItem>
+                <TimelineSeparator>
+                    <TimelineConnector />
+                </TimelineSeparator>
+                <TimelineContent />
+          </TimelineItem>
+          <TimelineItem>
+                <TimelineSeparator>
+                    <TimelineConnector />
+                </TimelineSeparator>
+                <TimelineContent />
+          </TimelineItem>          
+      
+        </>
+))
     }</Timeline>)
 }
 
