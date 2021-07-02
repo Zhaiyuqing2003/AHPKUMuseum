@@ -66,6 +66,8 @@ import headmasterNine from "../images/index/headmasters/headmasterNine.jpg"
 //@ts-ignore
 import headmasterTen from "../images/index/headmasters/headmasterTen.jpg"
 
+import { useTranslation } from "react-i18next"
+
 // const headmasters: headmasterItem[] = [{
 //     name: "尹企卓",
 //     position : [{
@@ -176,54 +178,54 @@ import headmasterTen from "../images/index/headmasters/headmasterTen.jpg"
 
 
 const headmasters: headmasterItem[] = [{
-    name: "尹企卓",
-    position : '校长',
+    name: 'YinQiZhuo',
+    position : 'XiaoZhang',
     year : '1960-1966',
     picture: headmasterOne,
 }, 
 {
-    name: "刘美德",
-    position : '常务副校长',
+    name: "LiuMeiDe",
+    position : 'ChangWuFuXiaoZhang',
     year : '1960-1972',
     picture: headmasterTwo,
 }, {
-    name: "贾世起",
-    position : '革委会主任',
+    name: "JiaShiQi",
+    position : 'GeWeiHuiZhuRen',
     year: '1968-1971',
     picture: headmasterThree,
 }, {
-    name: "孟广平",
-    position : "校长",
+    name: "MengGuangPing",
+    position : "XiaoZhang",
     year :"1971-1980",
     picture: headmasterFour,
 }, {
-    name: "夏学之",
-    position : "代校长 校长",
+    name: "XiaXueZhi",
+    position : "DaiXiaoZhang XiaoZhang",
     year : "1980.7-1984.4 1985-1992",
     picture: headmasterFive,
 }, {
-    name: "陈剑刚",
-    position : "校长",
+    name: "ChenJianGang",
+    position : "XiaoZhang",
     year : "1984.5-1985.1",
     picture: headmasterSix,
 }, {
-    name: "毛美华",
-    position : "校长",
+    name: "MaoMeiHua",
+    position : "XiaoZhang",
     year : "1992.7-1997.7",
     picture: headmasterSeven,
 }, {
-    name: "赵钰琳",
-    position : "校长",
+    name: "ZhaoYuLin",
+    position : "XiaoZhang",
     year : "1997.7-2001.10",
     picture: headmasterEight,
 }, {
-    name: "康健",
-    position : "校长 党委书记",
+    name: "KangJian",
+    position : "XiaoZhang",
     year : "2001.11-2009",
     picture: headmasterNine,
 }, {
-    name: "王铮",
-    position : "校长",
+    name: "WangZheng",
+    position : "XiaoZhang",
     year : '2009-',
     picture: headmasterTen,
 }]
@@ -231,6 +233,7 @@ const headmasters: headmasterItem[] = [{
 export default function IndexPageTimeline() {
     const theme = useTheme()
     const classes = useStyles()
+    const { t } = useTranslation("indexPageTimeline");
     return (<Timeline position="alternate">{
         // headmasters.map(({ name, position, picture }, index) => ( 
             headmasters.map(({ name, year, position, picture }, index) => ( 
@@ -245,21 +248,22 @@ export default function IndexPageTimeline() {
         
             <TimelineContent sx = {{ py : '12px', px : 2 }}>
                 
-                <Grid container alignItems = "center" flexDirection = 
+                <Grid container alignItems = "baseline" flexDirection = 
                 {
                     index % 2 === 0 ? "row" : "row-reverse"
                 }
                 spacing = {2}
                 padding = {2}
+               
                 >
                 <Paper className = {classes.card}>
                     <Grid container spacing = {2}
-                    padding = {2}
+                    padding = {3.5}
                     flexDirection = 
                     {
                         index % 2 === 0 ? "row" : "row-reverse"
                     }>
-                         <Grid item>
+                         <Grid item >
                                 <Avatar 
                                     src={ picture } 
                                     sx = {{ 
@@ -267,12 +271,12 @@ export default function IndexPageTimeline() {
                                     }} />
                             </Grid>
                             <Grid item>
-                                    <Typography variant = 'h5'>{ name }</Typography>
+                                    <Typography variant = 'h5'>{ t(name) }</Typography>
                             </Grid>   
     
                             <Grid item>
-                                <Typography variant = 'subtitle1' color = 'textSecondary'>{ year }</Typography>
-                                <Typography variant = 'subtitle1' color = 'textSecondary'>{ position }</Typography>
+                                <Typography align = 'left' variant = 'subtitle1' color = 'textSecondary'>{ t(year) }</Typography>
+                                <Typography align = 'left' variant = 'subtitle1' color = 'textSecondary'>{ t(position) }</Typography>
                                 
                             </Grid>
                         
