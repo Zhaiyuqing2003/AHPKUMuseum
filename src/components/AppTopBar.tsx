@@ -57,11 +57,11 @@ const useAppBarStyle = makeStyles((theme) => ({
         userSelect : "none",
     },
     titleEn : {
-        fontFamily : FontType.Benne,
+        fontFamily : FontType.Acme,
         letterSpacing : theme.spacing(0.12),
         wordSpacing : theme.spacing(0.16),
         fontSize : theme.spacing(3),
-        marginTop : theme.spacing(0.8),
+        marginTop : theme.spacing(0.22),
         fontWeight : 700,
     },
     titleZh : {

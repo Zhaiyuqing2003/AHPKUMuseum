@@ -4,6 +4,9 @@ enum FontType{
     Benne = "Benne",
     MaShanZheng = "Ma Shan Zheng",
     LongCang = "Long Cang",
+    Acme = "Acme",
+    PatrickHand = "patrick hand",
+    PermanentMarker = "permanent marker"
 }
 
 export default FontType;

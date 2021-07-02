@@ -152,8 +152,9 @@ export default function(){
     }
 
     const playAudio = () => {
-        currentAudio.play()
+        const promise = currentAudio.play()
         setIsPlaying(true)
+        return promise
     }
 
     const pauseAudio = () => {
@@ -168,8 +169,7 @@ export default function(){
 
     useOnceEffect(() => {
         const changeMusicBarDisplay = () => {
-            console.log(document.documentElement.clientHeight, scrollY)
-            if (window.scrollY >= 10){
+            if (window.scrollY >= 30){
                 setIsDisplaying(true)
             } else {
                 setIsDisplaying(false)
@@ -183,13 +183,9 @@ export default function(){
 
     useOnceEffect(() => {
         setTimeout(() => {
-            try {
-                playAudio()
-            } catch (error){
-                document.addEventListener("click", (event) => {
-                     
-                })
-            }
+            playAudio().catch((reason) => {
+                console.warn(reason)
+            })
         }, 100)
     }, [isDisplaying], ([isDisplaying]: boolean[]) => {
         return isDisplaying
