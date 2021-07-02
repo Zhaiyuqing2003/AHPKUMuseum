@@ -72,7 +72,7 @@ const useIndexPageFrontContentStyle = makeStyles((theme) => ({
     seasonText : {
         userSelect : "none",
         color : "rgba(255, 255, 255, 0.7)",
-        padding : theme.spacing(2)
+        padding : theme.spacing(4)
     }
 }))
 
@@ -163,7 +163,7 @@ export default function(){
             <Toolbar></Toolbar>
             <Grid>
                 <Typography fontFamily = { FontType.MaShanZheng }>
-                    时代的记忆
+                    { t("headline") }
                 </Typography>
             </Grid>
             <Grid flexGrow = { 1 } container alignItems = "flex-end">

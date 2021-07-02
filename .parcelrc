@@ -4,7 +4,8 @@
 		"*.svg": ["@parcel/transformer-raw"],
 		"*.json": ["@parcel/transformer-raw"],
 		"*.jpg": ["@parcel/transformer-raw"],
-		"*.mp3": ["@parcel/transformer-raw"]
+		"*.mp3": ["@parcel/transformer-raw"],
+		"*.m4a": ["@parcel/transformer-raw"]
 	},
 	"reporters": [
 		"..."

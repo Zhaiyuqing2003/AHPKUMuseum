@@ -2,7 +2,7 @@ import * as React from "react"
 import { useState, useRef, useMemo, useEffect } from "react"
 
 import {
-    AppBar, Toolbar, IconButton, Stack, Slider, Box, Typography, useTheme, CircularProgress
+    AppBar, Toolbar, IconButton, Stack, Slider, Box, Typography, useTheme, CircularProgress, Slide
 } from "@material-ui/core"
 import { Theme } from "@material-ui/core/styles";
 
@@ -16,11 +16,15 @@ import mediaTagsQuery from "jsmediatags"
 
 import ModeType from "../utils/ModeType";
 import useUpdateEffect from "../utils/useUpdateEffect"
+import useOnceEffect from "../utils/useOnceEffect";
 
 //@ts-ignore
 import school from "../audios/school.mp3"
 //@ts-ignore
 import country from "../audios/country.mp3"
+//@ts-ignore
+import empty from "../audios/Recording.mp3"
+import { createRef } from "react";
 
 declare module '@material-ui/styles'{
     interface DefaultTheme extends Theme {}
@@ -31,7 +35,7 @@ const useAppMusicBarStyle = makeStyles((theme) => ({
     appBar : {
         WebkitBackdropFilter : "blur(10px)",
         backdropFilter : "blur(10px)",
-        transition : "ease-in-out 0.3s box-shadow,ease-in-out 0.3s background-color"
+        transition : "ease-in-out 0.3s opacity,ease-in-out 0.3s background-color"
     },
     iconButton : {
         padding : theme.spacing(0.75),
@@ -64,8 +68,7 @@ const useMusicSliderStyle = makeStyles((theme) => ({
 }))
 
 const createAudio = function(src: string){
-    const audio = document.createElement("audio")
-    audio.src = src
+    const audio = new Audio(src)
 
     return audio
 }
@@ -100,9 +103,13 @@ const audioList = [
 
 
 export default function(){
+
     const [audioIndex, setAudioIndex] = useState(0)
     const [isPlaying, setIsPlaying] = useState(false)
     const [isLoading, setIsLoading] = useState(false)
+    const [isDisplaying, setIsDisplaying] = useState(false)
+
+    const ref = useRef();
 
     const theme = useTheme()
     const classes = useAppMusicBarStyle()
@@ -159,7 +166,38 @@ export default function(){
         playAudio()
     }, [audioIndex])
 
-    return (<AppBar
+    useOnceEffect(() => {
+        const changeMusicBarDisplay = () => {
+            console.log(document.documentElement.clientHeight, scrollY)
+            if (window.scrollY >= 10){
+                setIsDisplaying(true)
+            } else {
+                setIsDisplaying(false)
+            }
+        }
+        
+        changeMusicBarDisplay()
+        document.addEventListener("scroll", changeMusicBarDisplay);
+    })
+
+
+    useOnceEffect(() => {
+        setTimeout(() => {
+            try {
+                playAudio()
+            } catch (error){
+                document.addEventListener("click", (event) => {
+                     
+                })
+            }
+        }, 100)
+    }, [isDisplaying], ([isDisplaying]: boolean[]) => {
+        return isDisplaying
+    })
+
+
+    return (<Slide direction="up" in={isDisplaying} mountOnEnter unmountOnExit>
+        <AppBar
             position = "fixed"
             className = { classes.appBar }
             sx = {{ top: 'auto', bottom: 0 }}
@@ -174,9 +212,9 @@ export default function(){
                 disabled = { !hasPreviousAudio }>
                 <SkipPreviousIcon />
             </IconButton>
-            <IconButton 
+            <IconButton
                 color = "inherit" 
-                className = { classes.playArrowIconButton } 
+                className = { classes.playArrowIconButton }
                 onClick = { toggleMusicPlayingState }
                 disabled = { isPlaying && isLoading }>{
                 isPlaying
@@ -197,7 +235,7 @@ export default function(){
                 onLoaded = { handleLoaded }
             />
         </Toolbar>
-    </AppBar>)
+    </AppBar></Slide>)
 }
 
 function MusicSlider({ audio, onLoaded } : MusicSliderProps){
