@@ -66,120 +66,174 @@ import headmasterNine from "../images/index/headmasters/headmasterNine.jpg"
 //@ts-ignore
 import headmasterTen from "../images/index/headmasters/headmasterTen.jpg"
 
+// const headmasters: headmasterItem[] = [{
+//     name: "尹企卓",
+//     position : [{
+//         title : ["校长"],
+//         duration : {
+//             start : new Date("1960"),
+//             end : new Date("1966")
+//         }
+//     }],
+//     picture: headmasterOne,
+// }, {
+//     name: "刘美德",
+//     position : [{
+//         title : ["常务副校长"],
+//         duration : {
+//             start : new Date("1960"),
+//             end : new Date("1972")
+//         }
+//     }],
+//     picture: headmasterTwo,
+// }, {
+//     name: "贾世起",
+//     position : [{
+//         title : ["革委会主任"],
+//         duration : {
+//             start : new Date("1968"),
+//             end : new Date("1971")
+//         }
+//     }],
+//     picture: headmasterThree,
+// }, {
+//     name: "孟广平",
+//     position : [{
+//         title : ["校长"],
+//         duration : {
+//             start : new Date("1971"),
+//             end : new Date("1980")
+//         }
+//     }],
+//     picture: headmasterFour,
+// }, {
+//     name: "夏学之",
+//     position : [{
+//         title : ["代校长"],
+//         duration : {
+//             start : new Date("1980.7"),
+//             end : new Date("1984.4")
+//         }
+//     }, {
+//         title : ["校长"],
+//         duration : {
+//             start : new Date("1985"),
+//             end : new Date("1992")
+//         }
+//     }],
+//     picture: headmasterFive,
+// }, {
+//     name: "陈剑刚",
+//     position : [{
+//         title : ["校长"],
+//         duration : {
+//             start : new Date("1984.5"),
+//             end : new Date("1985.1")
+//         }
+//     }],
+//     picture: headmasterSix,
+// }, {
+//     name: "毛美华",
+//     position : [{
+//         title : ["校长"],
+//         duration : {
+//             start : new Date("1992.7"),
+//             end : new Date("1997.7")
+//         }
+//     }],
+//     picture: headmasterSeven,
+// }, {
+//     name: "赵钰琳",
+//     position : [{
+//         title : ["校长"],
+//         duration : {
+//             start : new Date("1997.7"),
+//             end : new Date("2001.10")
+//         }
+//     }],
+//     picture: headmasterEight,
+// }, {
+//     name: "康健",
+//     position : [{
+//         title : ["校长", "党委书记"],
+//         duration : {
+//             start : new Date("2001.11"),
+//             end : new Date("2009")
+//         }
+//     }],
+//     picture: headmasterNine,
+// }, {
+//     name: "王铮",
+//     position : [{
+//         title : ["校长"],
+//         duration : {
+//             start : new Date("2009"),
+//             end : new Date()
+//         }
+//     }],
+//     picture: headmasterTen,
+// }]
+
+
 const headmasters: headmasterItem[] = [{
     name: "尹企卓",
-    position : [{
-        title : ["校长"],
-        duration : {
-            start : new Date("1960"),
-            end : new Date("1966")
-        }
-    }],
+    position : '校长',
+    year : '1960-1966',
     picture: headmasterOne,
-}, {
+}, 
+{
     name: "刘美德",
-    position : [{
-        title : ["常务副校长"],
-        duration : {
-            start : new Date("1960"),
-            end : new Date("1972")
-        }
-    }],
+    position : '常务副校长',
+    year : '1960-1972',
     picture: headmasterTwo,
 }, {
     name: "贾世起",
-    position : [{
-        title : ["革委会主任"],
-        duration : {
-            start : new Date("1968"),
-            end : new Date("1971")
-        }
-    }],
+    position : '革委会主任',
+    year: '1968-1971',
     picture: headmasterThree,
 }, {
     name: "孟广平",
-    position : [{
-        title : ["校长"],
-        duration : {
-            start : new Date("1971"),
-            end : new Date("1980")
-        }
-    }],
+    position : "校长",
+    year :"1971-1980",
     picture: headmasterFour,
 }, {
     name: "夏学之",
-    position : [{
-        title : ["代校长"],
-        duration : {
-            start : new Date("1980.7"),
-            end : new Date("1984.4")
-        }
-    }, {
-        title : ["校长"],
-        duration : {
-            start : new Date("1985"),
-            end : new Date("1992")
-        }
-    }],
+    position : "代校长 校长",
+    year : "1980.7-1984.4 1985-1992",
     picture: headmasterFive,
 }, {
     name: "陈剑刚",
-    position : [{
-        title : ["校长"],
-        duration : {
-            start : new Date("1984.5"),
-            end : new Date("1985.1")
-        }
-    }],
+    position : "校长",
+    year : "1984.5-1985.1",
     picture: headmasterSix,
 }, {
     name: "毛美华",
-    position : [{
-        title : ["校长"],
-        duration : {
-            start : new Date("1992.7"),
-            end : new Date("1997.7")
-        }
-    }],
+    position : "校长",
+    year : "1992.7-1997.7",
     picture: headmasterSeven,
 }, {
     name: "赵钰琳",
-    position : [{
-        title : ["校长"],
-        duration : {
-            start : new Date("1997.7"),
-            end : new Date("2001.10")
-        }
-    }],
+    position : "校长",
+    year : "1997.7-2001.10",
     picture: headmasterEight,
 }, {
     name: "康健",
-    position : [{
-        title : ["校长", "党委书记"],
-        duration : {
-            start : new Date("2001.11"),
-            end : new Date("2009")
-        }
-    }],
+    position : "校长 党委书记",
+    year : "2001.11-2009",
     picture: headmasterNine,
 }, {
     name: "王铮",
-    position : [{
-        title : ["校长"],
-        duration : {
-            start : new Date("2009"),
-            end : new Date()
-        }
-    }],
+    position : "校长",
+    year : '2009-',
     picture: headmasterTen,
 }]
-
 
 export default function IndexPageTimeline() {
     const theme = useTheme()
     const classes = useStyles()
     return (<Timeline position="alternate">{
-        headmasters.map(({ name, position, picture }, index) => ( 
+        // headmasters.map(({ name, position, picture }, index) => ( 
+            headmasters.map(({ name, year, position, picture }, index) => ( 
         <>
         <TimelineItem key = { index }>
            
@@ -212,21 +266,26 @@ export default function IndexPageTimeline() {
                                         height : theme.spacing(7), width : theme.spacing(7)
                                     }} />
                             </Grid>
-                        <Grid item>
-                                <Typography>{ name }</Typography>
-                        </Grid>   
-                        <Grid item>
-                                <Typography>{ name + '1' }</Typography>
-                        </Grid>   
+                            <Grid item>
+                                    <Typography variant = 'h5'>{ name }</Typography>
+                            </Grid>   
+    
+                            <Grid item>
+                                <Typography variant = 'subtitle1' color = 'textSecondary'>{ year }</Typography>
+                                <Typography variant = 'subtitle1' color = 'textSecondary'>{ position }</Typography>
+                                
+                            </Grid>
+                        
+                
                     </Grid>
-                    
+         
                 </Paper>
                 <Grid container></Grid>
                 <Grid container></Grid>
                 </Grid>   
 
             </TimelineContent>
-       
+  
         </TimelineItem>
         <TimelineItem>
                 <TimelineSeparator>
@@ -245,15 +304,20 @@ export default function IndexPageTimeline() {
 ))
     }</Timeline>)
 }
-
 type headmasterItem = {
     name: string,
-    position : {
-        title : string[]
-        duration : {
-            start : Date,
-            end : Date
-        }
-    }[],
+    position : string,
+    year: string,
     picture: string
 }
+// type headmasterItem = {
+//     name: string,
+//     position : {
+//         title : string[]
+//         duration : {
+//             start : Date,
+//             end : Date
+//         }
+//     }[],
+//     picture: string
+// }
