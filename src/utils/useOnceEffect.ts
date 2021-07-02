@@ -9,7 +9,7 @@ export default function useOnceEffect<T>(effect, dependencies: T[] = [], onceFun
     const isInitialMount = useRef(true);
 
     useEffect(() => {
-        if (onceFunction(dependencies) && isInitialMount) {
+        if (onceFunction(dependencies) && isInitialMount.current) {
             isInitialMount.current = false;
             return effect(isInitialMount);
         }
