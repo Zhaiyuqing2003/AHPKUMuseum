@@ -162,13 +162,13 @@ function DesktopTimeline() {
                
                 >
                 <Paper className = {classes.card}>
-                    <Grid container spacing = {1.5}
+                    <Grid container spacing = {0}
                     padding = {3.5}
                     flexDirection = 
                     {
                         index % 2 === 0 ? "row" : "row-reverse"
                     }>
-                         <Grid item >
+                         <Grid item padding = {1}>
                                 <Avatar 
                                     src={ picture } 
                                     sx = {{ 
@@ -176,10 +176,7 @@ function DesktopTimeline() {
                                     }} />
                             </Grid>
                             <Grid item >
-                                    <Typography variant = 'h4'>{ t(name) }</Typography>
-                            </Grid>   
-    
-                            <Grid item >
+                                    <Typography variant = 'h5'>{ t(name) }</Typography>
                                 <Typography align = {index % 2 === 0 ? "left" : "right"} variant = 'subtitle1' color = 'textSecondary'>{ t(year) }</Typography>
                                 <Typography align = {index % 2 === 0 ? "left" : "right"} variant = 'subtitle1' color = 'textSecondary'>{ t(position) }</Typography>
                                 <Typography align = {index % 2 === 0 ? "left" : "right"} variant = 'subtitle1' color = 'textSecondary'>{ t(yeartwo) }</Typography>
