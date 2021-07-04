@@ -175,7 +175,7 @@ function DesktopTimeline() {
                                         height : theme.spacing(7), width : theme.spacing(7)
                                     }} />
                             </Grid>
-                            <Grid item >
+                            <Grid item padding = {1}>
                                     <Typography variant = 'h5'>{ t(name) }</Typography>
                                 <Typography align = {index % 2 === 0 ? "left" : "right"} variant = 'subtitle1' color = 'textSecondary'>{ t(year) }</Typography>
                                 <Typography align = {index % 2 === 0 ? "left" : "right"} variant = 'subtitle1' color = 'textSecondary'>{ t(position) }</Typography>
@@ -183,16 +183,10 @@ function DesktopTimeline() {
                                 <Typography align = {index % 2 === 0 ? "left" : "right"} variant = 'subtitle1' color = 'textSecondary'>{ t(positiontwo) }</Typography>
                                 
                             </Grid>
-                        
-                
                     </Grid>
-         
                 </Paper>
-
                 </Grid>   
-
             </TimelineContent>
-  
         </TimelineItem>
         <TimelineItem>
                 <TimelineSeparator>
@@ -223,55 +217,50 @@ function Mobiletimeline(){
     <TimelineItem key = { index }>
        
         <TimelineSeparator>
-            <TimelineConnector sx = {{ height : 20 }}/>
+            <TimelineConnector sx = {{ height : 0 }}/>
             <Avatar 
                                 src={ picture } 
                                 sx = {{ 
                                     height : theme.spacing(7), width : theme.spacing(7)
                                 }} />
-            <TimelineConnector sx = {{ height : 20 }}/>
+            <TimelineConnector sx = {{ height : 0 }}/>
         </TimelineSeparator>
     
         <TimelineContent sx = {{ py : '12px', px : 2 }}>
             
-            <Grid container alignItems = "baseline" flexDirection = 
-            {
-                index % 2 === 0 ? "row" : "row-reverse"
-            }
-
-           
-            >
-
-                <Grid container spacing = {2}
-                padding = {1}
-                flexDirection = 
-                {
-                    index % 2 === 0 ? "row" : "row-reverse"
-                }>
-                     <Grid item ></Grid>
-
-                        <Grid item container direction="column" justify="center" alignItems="center">
-                        <Grid item></Grid>
-                            <Typography variant = 'subtitle1'>{ t(name) }</Typography>
-                            <Typography align = 'center' variant = 'subtitle2' color = 'textSecondary'>{ t(year) }</Typography>
-                            <Typography align = 'center' variant = 'subtitle1' color = 'textSecondary'>{ t(position) }</Typography>
-                            <Typography align = 'center' variant = 'subtitle2' color = 'textSecondary'>{ t(yeartwo) }</Typography>
-                            <Typography align = 'center' variant = 'subtitle1' color = 'textSecondary'>{ t(positiontwo) }</Typography>
-                        </Grid>
-                    
-            
-                </Grid>
-     
-        
-            <Grid container></Grid>
-            <Grid container></Grid>
-            </Grid>   
+        <Grid container spacing = {0}
+                 
+                    flexDirection = 
+                    {
+                        index % 2 === 0 ? "row" : "row-reverse"
+                    }>
+                        
+                            <Grid item >
+                                    <Typography variant = 'h5'>{ t(name) }</Typography>
+                                <Typography align = {index % 2 === 0 ? "left" : "right"} variant = 'subtitle1' color = 'textSecondary'>{ t(year) }</Typography>
+                                <Typography align = {index % 2 === 0 ? "left" : "right"} variant = 'subtitle1' color = 'textSecondary'>{ t(position) }</Typography>
+                                <Typography align = {index % 2 === 0 ? "left" : "right"} variant = 'subtitle1' color = 'textSecondary'>{ t(yeartwo) }</Typography>
+                                <Typography align = {index % 2 === 0 ? "left" : "right"} variant = 'subtitle1' color = 'textSecondary'>{ t(positiontwo) }</Typography>
+                                
+                            </Grid>
+                    </Grid>
 
         </TimelineContent>
 
     </TimelineItem>
 
-  
+    <TimelineItem>
+        <TimelineSeparator>
+            <TimelineConnector sx = {{ height : 4 }} />
+        </TimelineSeparator>
+        <TimelineContent />
+    </TimelineItem>
+        <TimelineItem>
+            <TimelineSeparator>
+                <TimelineConnector sx = {{ height : 4 }}/>
+            </TimelineSeparator>
+            <TimelineContent />
+    </TimelineItem>   
     </>
 ))
 }</Timeline>)
