@@ -1,8 +1,11 @@
 {
     "XiaoZhang" : "Headmaster",
     "ChangWuFuXiaoZhang" : "Vice Headmaster",
+    "DaiXiaoZhang" : "Acting Headmaster",
+    "DangWeiShuJi" : "Secretary of the Party Committee",
     "GeWeiHuiZhuRen" : "Head of the Revolutionary Committee",
     "DaiXiaoZhang XiaoZhang" : "Acting Headmaster, HeadMaster",
+    "GeWeiHuiZhuRen XiaoZhang" : "Head of the Revolutionary Committee & Headmaster",
     "XiaoZhang DangWeiShuJi" : "Headmaster, Secretary of the Party Committee",
     "YinQiZhuo" : "Yin Qizhuo",
     "LiuMeiDe" : "Liu Meide",
