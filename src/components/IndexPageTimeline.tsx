@@ -13,6 +13,7 @@ import { Box, Paper, CardHeader, Card } from "@material-ui/core";
 import { makeStyles, useTheme } from "@material-ui/styles"
 import ButtonBase from '@material-ui/core/ButtonBase';
 import { Theme } from "@material-ui/core/styles"
+import useMediaQuery from '@material-ui/core/useMediaQuery'
 
 declare module '@material-ui/styles'{
     interface DefaultTheme extends Theme{}
@@ -66,151 +67,53 @@ import headmasterNine from "../images/index/headmasters/headmasterNine.jpg"
 //@ts-ignore
 import headmasterTen from "../images/index/headmasters/headmasterTen.jpg"
 
-import { useTranslation } from "react-i18next"
 
-// const headmasters: headmasterItem[] = [{
-//     name: "尹企卓",
-//     position : [{
-//         title : ["校长"],
-//         duration : {
-//             start : new Date("1960"),
-//             end : new Date("1966")
-//         }
-//     }],
-//     picture: headmasterOne,
-// }, {
-//     name: "刘美德",
-//     position : [{
-//         title : ["常务副校长"],
-//         duration : {
-//             start : new Date("1960"),
-//             end : new Date("1972")
-//         }
-//     }],
-//     picture: headmasterTwo,
-// }, {
-//     name: "贾世起",
-//     position : [{
-//         title : ["革委会主任"],
-//         duration : {
-//             start : new Date("1968"),
-//             end : new Date("1971")
-//         }
-//     }],
-//     picture: headmasterThree,
-// }, {
-//     name: "孟广平",
-//     position : [{
-//         title : ["校长"],
-//         duration : {
-//             start : new Date("1971"),
-//             end : new Date("1980")
-//         }
-//     }],
-//     picture: headmasterFour,
-// }, {
-//     name: "夏学之",
-//     position : [{
-//         title : ["代校长"],
-//         duration : {
-//             start : new Date("1980.7"),
-//             end : new Date("1984.4")
-//         }
-//     }, {
-//         title : ["校长"],
-//         duration : {
-//             start : new Date("1985"),
-//             end : new Date("1992")
-//         }
-//     }],
-//     picture: headmasterFive,
-// }, {
-//     name: "陈剑刚",
-//     position : [{
-//         title : ["校长"],
-//         duration : {
-//             start : new Date("1984.5"),
-//             end : new Date("1985.1")
-//         }
-//     }],
-//     picture: headmasterSix,
-// }, {
-//     name: "毛美华",
-//     position : [{
-//         title : ["校长"],
-//         duration : {
-//             start : new Date("1992.7"),
-//             end : new Date("1997.7")
-//         }
-//     }],
-//     picture: headmasterSeven,
-// }, {
-//     name: "赵钰琳",
-//     position : [{
-//         title : ["校长"],
-//         duration : {
-//             start : new Date("1997.7"),
-//             end : new Date("2001.10")
-//         }
-//     }],
-//     picture: headmasterEight,
-// }, {
-//     name: "康健",
-//     position : [{
-//         title : ["校长", "党委书记"],
-//         duration : {
-//             start : new Date("2001.11"),
-//             end : new Date("2009")
-//         }
-//     }],
-//     picture: headmasterNine,
-// }, {
-//     name: "王铮",
-//     position : [{
-//         title : ["校长"],
-//         duration : {
-//             start : new Date("2009"),
-//             end : new Date()
-//         }
-//     }],
-//     picture: headmasterTen,
-// }]
+
+import { useTranslation } from "react-i18next"
 
 
 const headmasters: headmasterItem[] = [{
     name: 'YinQiZhuo',
     position : 'XiaoZhang',
+    positiontwo : '',
     year : '1960-1966',
     picture: headmasterOne,
 }, 
 {
     name: "LiuMeiDe",
     position : 'ChangWuFuXiaoZhang',
+    positiontwo : '',
     year : '1960-1972',
     picture: headmasterTwo,
 }, {
     name: "JiaShiQi",
     position : 'GeWeiHuiZhuRen',
+    positiontwo : '',
     year: '1968-1971',
     picture: headmasterThree,
 }, {
     name: "MengGuangPing",
-    position : "XiaoZhang",
+    position : "GeWeiHuiZhuRen",
+    positiontwo : "XiaoZhang",
     year :"1971-1980",
     picture: headmasterFour,
 }, {
     name: "XiaXueZhi",
-    position : "DaiXiaoZhang XiaoZhang",
-    year : "1980.7-1984.4 1985-1992",
+    position : "DaiXiaoZhang",
+    positiontwo : 'XiaoZhang',
+    year : "1980.7-1984.4",
+    yeartwo: '1985-1992',
     picture: headmasterFive,
 }, {
     name: "ChenJianGang",
     position : "XiaoZhang",
+    positiontwo : '',
     year : "1984.5-1985.1",
     picture: headmasterSix,
 }, {
     name: "MaoMeiHua",
     position : "XiaoZhang",
+    positiontwo : '',
     year : "1992.7-1997.7",
     picture: headmasterSeven,
 }, {
@@ -221,22 +124,24 @@ const headmasters: headmasterItem[] = [{
 }, {
     name: "KangJian",
     position : "XiaoZhang",
+    positiontwo : '',
     year : "2001.11-2009",
     picture: headmasterNine,
 }, {
     name: "WangZheng",
     position : "XiaoZhang",
+    positiontwo : '',
     year : '2009-',
     picture: headmasterTen,
 }]
 
-export default function IndexPageTimeline() {
+function DesktopTimeline() {
     const theme = useTheme()
     const classes = useStyles()
     const { t } = useTranslation("indexPageTimeline");
     return (<Timeline position="alternate">{
-        // headmasters.map(({ name, position, picture }, index) => ( 
-            headmasters.map(({ name, year, position, picture }, index) => ( 
+
+            headmasters.map(({ name, year,yeartwo, position, positiontwo, picture }, index) => ( 
         <>
         <TimelineItem key = { index }>
            
@@ -248,7 +153,7 @@ export default function IndexPageTimeline() {
         
             <TimelineContent sx = {{ py : '12px', px : 2 }}>
                 
-                <Grid container alignItems = "baseline" flexDirection = 
+                <Grid container alignItems = "center" flexDirection = 
                 {
                     index % 2 === 0 ? "row" : "row-reverse"
                 }
@@ -257,7 +162,7 @@ export default function IndexPageTimeline() {
                
                 >
                 <Paper className = {classes.card}>
-                    <Grid container spacing = {2}
+                    <Grid container spacing = {1.5}
                     padding = {3.5}
                     flexDirection = 
                     {
@@ -270,13 +175,15 @@ export default function IndexPageTimeline() {
                                         height : theme.spacing(7), width : theme.spacing(7)
                                     }} />
                             </Grid>
-                            <Grid item>
-                                    <Typography variant = 'h5'>{ t(name) }</Typography>
+                            <Grid item >
+                                    <Typography variant = 'h4'>{ t(name) }</Typography>
                             </Grid>   
     
-                            <Grid item>
-                                <Typography align = 'left' variant = 'subtitle1' color = 'textSecondary'>{ t(year) }</Typography>
-                                <Typography align = 'left' variant = 'subtitle1' color = 'textSecondary'>{ t(position) }</Typography>
+                            <Grid item >
+                                <Typography align = {index % 2 === 0 ? "left" : "right"} variant = 'subtitle1' color = 'textSecondary'>{ t(year) }</Typography>
+                                <Typography align = {index % 2 === 0 ? "left" : "right"} variant = 'subtitle1' color = 'textSecondary'>{ t(position) }</Typography>
+                                <Typography align = {index % 2 === 0 ? "left" : "right"} variant = 'subtitle1' color = 'textSecondary'>{ t(yeartwo) }</Typography>
+                                <Typography align = {index % 2 === 0 ? "left" : "right"} variant = 'subtitle1' color = 'textSecondary'>{ t(positiontwo) }</Typography>
                                 
                             </Grid>
                         
@@ -284,8 +191,7 @@ export default function IndexPageTimeline() {
                     </Grid>
          
                 </Paper>
-                <Grid container></Grid>
-                <Grid container></Grid>
+
                 </Grid>   
 
             </TimelineContent>
@@ -308,20 +214,90 @@ export default function IndexPageTimeline() {
 ))
     }</Timeline>)
 }
-type headmasterItem = {
-    name: string,
-    position : string,
-    year: string,
-    picture: string
+
+function Mobiletimeline(){
+    const theme = useTheme()
+    const classes = useStyles()
+    const { t } = useTranslation("indexPageTimeline");
+    return (<Timeline position="alternate">{
+
+        headmasters.map(({ name, year, yeartwo, position, positiontwo, picture }, index) => ( 
+    <>
+    <TimelineItem key = { index }>
+       
+        <TimelineSeparator>
+            <TimelineConnector sx = {{ height : 20 }}/>
+            <Avatar 
+                                src={ picture } 
+                                sx = {{ 
+                                    height : theme.spacing(7), width : theme.spacing(7)
+                                }} />
+            <TimelineConnector sx = {{ height : 20 }}/>
+        </TimelineSeparator>
+    
+        <TimelineContent sx = {{ py : '12px', px : 2 }}>
+            
+            <Grid container alignItems = "baseline" flexDirection = 
+            {
+                index % 2 === 0 ? "row" : "row-reverse"
+            }
+
+           
+            >
+
+                <Grid container spacing = {2}
+                padding = {1}
+                flexDirection = 
+                {
+                    index % 2 === 0 ? "row" : "row-reverse"
+                }>
+                     <Grid item ></Grid>
+
+                        <Grid item container direction="column" justify="center" alignItems="center">
+                        <Grid item></Grid>
+                            <Typography variant = 'subtitle1'>{ t(name) }</Typography>
+                            <Typography align = 'center' variant = 'subtitle2' color = 'textSecondary'>{ t(year) }</Typography>
+                            <Typography align = 'center' variant = 'subtitle1' color = 'textSecondary'>{ t(position) }</Typography>
+                            <Typography align = 'center' variant = 'subtitle2' color = 'textSecondary'>{ t(yeartwo) }</Typography>
+                            <Typography align = 'center' variant = 'subtitle1' color = 'textSecondary'>{ t(positiontwo) }</Typography>
+                        </Grid>
+                    
+            
+                </Grid>
+     
+        
+            <Grid container></Grid>
+            <Grid container></Grid>
+            </Grid>   
+
+        </TimelineContent>
+
+    </TimelineItem>
+
+  
+    </>
+))
+}</Timeline>)
 }
-// type headmasterItem = {
-//     name: string,
-//     position : {
-//         title : string[]
-//         duration : {
-//             start : Date,
-//             end : Date
-//         }
-//     }[],
-//     picture: string
-// }
+
+export default function UseIndexPageTimeline(){
+    let TimelineDesktop = DesktopTimeline()
+    let TimelineMobile = Mobiletimeline()
+    let theme = useTheme();
+    let { between, down, up, values } = theme.breakpoints;
+    let { desktop, laptop } = values;
+  
+    let isLargerThanDesktop = useMediaQuery(up(desktop));
+    let isLaptop = useMediaQuery(between(laptop, desktop));
+    let isSmallerThanLaptop = useMediaQuery(down(laptop));
+    if (isLargerThanDesktop){
+        return TimelineDesktop;
+    } else if (isLaptop){
+        return TimelineDesktop;
+    } else if (isSmallerThanLaptop){
+        return TimelineMobile;
+    } else {
+        return TimelineMobile;
+    }
+
+}

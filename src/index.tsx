@@ -32,7 +32,7 @@ import AppTopBar from "./components/AppTopBar"
 import IndexPageFrontContent from "./components/IndexPageFrontContent"
 import AppContainer from "./components/AppContainer"
 
-import IndexPageTimeline from './components/IndexPageTimeline'
+import UseIndexPageTimeline from './components/IndexPageTimeline'
 import AppMusicBar from "./components/AppMusicBar"
 
 const useAppStyle = makeStyles((theme) => ({
@@ -92,7 +92,7 @@ function App(){
             />
             <AppContainer>
                 <IndexPageFrontContent />
-                <IndexPageTimeline />
+                <UseIndexPageTimeline />
             </AppContainer>
             <AppMusicBar/>
         </ThemeProvider>

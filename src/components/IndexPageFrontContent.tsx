@@ -93,7 +93,7 @@ function useImageDir(deviceMediaQuery : CustomBreakPointsType, seasonQuery: Seas
                 case SeasonType.Spring:
                     return springMobile
                 case SeasonType.Summer:
-                    return summerMobile
+                    return summerMobile                 
                 case SeasonType.Autumn:
                     return autumnMobile
                 case SeasonType.Winter:
