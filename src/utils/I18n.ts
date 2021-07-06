@@ -24,7 +24,7 @@ i18next
                 loadPath : '/locales/{{lng}}/{{ns}}.json'
             }]
         },
-        debug : true,
+        debug : false,
         interpolation : {
             escapeValue : false
         },

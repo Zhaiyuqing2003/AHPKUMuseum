@@ -13,7 +13,7 @@ import {
 } from "@material-ui/core"
 
 import { makeStyles } from "@material-ui/styles"
-import { ThemeProvider } from "@material-ui/core/styles"
+import { ThemeProvider, Theme } from "@material-ui/core/styles"
 
 import StyledEngineProvider from "@material-ui/core/StyledEngineProvider"
  
@@ -34,6 +34,10 @@ import AppContainer from "./components/AppContainer"
 import IndexPageCulture from './components/IndexPageSchoolCulture'
 import IndexPageTimeline from './components/IndexPageTimeline'
 import AppMusicBar from "./components/AppMusicBar"
+
+declare module '@material-ui/styles'{
+    interface DefaultTheme extends Theme {}
+}
 
 const useAppStyle = makeStyles((theme) => ({
 

@@ -15,18 +15,14 @@ import { makeStyles } from "@material-ui/styles";
 import mediaTagsQuery from "jsmediatags"
 
 import ModeType from "../utils/ModeType";
-import useUpdateEffect from "../utils/useUpdateEffect"
-import useOnceEffect from "../utils/useOnceEffect";
+import useOnMountSetupEffect from "../utils/useOnMountSetupEffect";
+import useFewEffect from "../utils/useFewEffect";
 
 //@ts-ignore
 import school from "../audios/school.mp3"
 //@ts-ignore
 import country from "../audios/country.mp3"
-//@ts-ignore
-import empty from "../audios/Recording.mp3"
-import { createRef } from "react";
-import useOnMountSetupEffect from "../utils/useOnMountSetupEffect";
-import useOnWillUnmountCleanupEffect from "../utils/useOnWillUnmountCleanupEffect";
+
 
 declare module '@material-ui/styles'{
     interface DefaultTheme extends Theme {}
@@ -132,7 +128,6 @@ export default function(){
     }
 
     const toPreviousAudio = () => {
-        console.warn("change audio")
 
         pauseAndResetAudio()
         setIsLoading(true)
@@ -140,15 +135,12 @@ export default function(){
     }
 
     const toNextAudio = () => {
-        console.warn("change audio")
-
         pauseAndResetAudio()
         setIsLoading(true)
         setAudioIndex(audioIndex + 1)
     }
 
     const handleLoaded = () => {
-        console.warn("loaded")
         setIsLoading(false)
     }
 
@@ -171,24 +163,22 @@ export default function(){
         }
     }
 
-    useUpdateEffect(() => {
-        console.warn("update effect")
-        playAudio()
-    }, [audioIndex])
-
     useOnMountSetupEffect(() => {
         changeMusicBarDisplay()
         document.addEventListener("scroll", changeMusicBarDisplay);
     })
 
-    useOnceEffect(() => {
+    useFewEffect(() => {
         playAudio().catch((reason) => {
-            console.warn(reason)
+            console.log(reason)
         })
-    }, [isDisplaying], ([isDisplaying]: boolean[]) => {
+    }, [isDisplaying], () => {
         return isDisplaying
-    })
+    }, 1)
 
+    useFewEffect(() => {
+        playAudio()
+    }, [audioIndex])
 
     return (<Slide direction="up" in={isDisplaying} mountOnEnter unmountOnExit>
         <AppBar
@@ -243,18 +233,28 @@ function MusicSlider({ audio, onLoaded } : MusicSliderProps){
     const formattedDuration = useMemo(() => formatTime(duration), [duration])
     const formattedCurrentTime = useMemo(() => formatTime(currentTime), [currentTime])
 
-
-    useOnMountSetupEffect(() => {
+    const registerAudioUpdateFunction = () => {
         audio.ontimeupdate = () => {
             if (canAutoUpdate.current){
                 setCurrentTime(audio.currentTime)
             }
         }
+    }
+
+    const removeAudioUpdateFunction = () => {
+        audio.ontimeupdate = null        
+    }
+
+    useOnMountSetupEffect(() => {
+        registerAudioUpdateFunction()
     })
 
-    useOnWillUnmountCleanupEffect(() => {
-        audio.ontimeupdate = null
-    })
+    useEffect(() => {
+        registerAudioUpdateFunction()
+        return removeAudioUpdateFunction
+    }, [audio])
+
+    //useOnWillUnmountCleanupEffect(removeAudioUpdateFunction)
 
     useEffect(() => {
         if (audio.readyState > 0){
