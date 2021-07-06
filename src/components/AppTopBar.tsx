@@ -339,8 +339,7 @@ export default function ({
             languageMenuAnchorElement = { languageMenuAnchorElement }
             open = { Boolean(languageMenuAnchorElement) }
             onClose = { closeChangeLanguageMenu } />
-        <ChangeColorMenu 
-            colorMenuAnchorElement = {} />
+
     </AppTopBarContainer>)
 }
 

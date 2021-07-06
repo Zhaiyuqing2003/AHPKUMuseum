@@ -31,7 +31,7 @@ import "./utils/FontDependencies";
 import AppTopBar from "./components/AppTopBar"
 import IndexPageFrontContent from "./components/IndexPageFrontContent"
 import AppContainer from "./components/AppContainer"
-
+import IndexPageCulture from './components/IndexPageSchoolCulture'
 import IndexPageTimeline from './components/IndexPageTimeline'
 import AppMusicBar from "./components/AppMusicBar"
 
@@ -93,6 +93,7 @@ function App(){
             <AppContainer>
                 <IndexPageFrontContent />
                 <IndexPageTimeline />
+                <IndexPageCulture />
             </AppContainer>
             <AppMusicBar/>
         </ThemeProvider>
