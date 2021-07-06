@@ -25,11 +25,12 @@ import country from "../audios/country.mp3"
 //@ts-ignore
 import empty from "../audios/Recording.mp3"
 import { createRef } from "react";
+import useOnMountSetupEffect from "../utils/useOnMountSetupEffect";
+import useOnWillUnmountCleanupEffect from "../utils/useOnWillUnmountCleanupEffect";
 
 declare module '@material-ui/styles'{
     interface DefaultTheme extends Theme {}
 }
-
 
 const useAppMusicBarStyle = makeStyles((theme) => ({
     appBar : {
@@ -162,31 +163,28 @@ export default function(){
         setIsPlaying(false)
     }
 
+    const changeMusicBarDisplay = () => {
+        if (window.scrollY >= 30){
+            setIsDisplaying(true)
+        } else {
+            setIsDisplaying(false)
+        }
+    }
+
     useUpdateEffect(() => {
         console.warn("update effect")
         playAudio()
     }, [audioIndex])
 
-    useOnceEffect(() => {
-        const changeMusicBarDisplay = () => {
-            if (window.scrollY >= 30){
-                setIsDisplaying(true)
-            } else {
-                setIsDisplaying(false)
-            }
-        }
-        
+    useOnMountSetupEffect(() => {
         changeMusicBarDisplay()
         document.addEventListener("scroll", changeMusicBarDisplay);
     })
 
-
     useOnceEffect(() => {
-        setTimeout(() => {
-            playAudio().catch((reason) => {
-                console.warn(reason)
-            })
-        }, 100)
+        playAudio().catch((reason) => {
+            console.warn(reason)
+        })
     }, [isDisplaying], ([isDisplaying]: boolean[]) => {
         return isDisplaying
     })
@@ -246,11 +244,17 @@ function MusicSlider({ audio, onLoaded } : MusicSliderProps){
     const formattedCurrentTime = useMemo(() => formatTime(currentTime), [currentTime])
 
 
-    audio.ontimeupdate = () => {
-        if (canAutoUpdate.current){
-            setCurrentTime(audio.currentTime)
+    useOnMountSetupEffect(() => {
+        audio.ontimeupdate = () => {
+            if (canAutoUpdate.current){
+                setCurrentTime(audio.currentTime)
+            }
         }
-    }
+    })
+
+    useOnWillUnmountCleanupEffect(() => {
+        audio.ontimeupdate = null
+    })
 
     useEffect(() => {
         if (audio.readyState > 0){
@@ -309,7 +313,7 @@ function MusicSlider({ audio, onLoaded } : MusicSliderProps){
 }
 
 type MusicSliderProps = {
-    audio : HTMLAudioElement,
+    audio : HTMLAudioElement, 
     onLoaded : () => void 
 }
 

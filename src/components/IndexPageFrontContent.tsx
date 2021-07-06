@@ -16,6 +16,8 @@ import {
     Divider
 } from "@material-ui/core"
 
+import { Theme } from "@material-ui/core"
+
 import {
     makeStyles
 } from "@material-ui/styles"
@@ -25,7 +27,7 @@ import useDeviceWidthQuery from "../utils/useDeviceWidthQuery"
 import SeasonType from "../utils/SeasonType"
 import useSeason from "../utils/useSeason"
 
-import { useTranslation } from "react-i18next"
+import { TFunction, useTranslation } from "react-i18next"
 
 import FontType from "../utils/FontType"
 import LanguageType from "../utils/LanguageType";
@@ -58,6 +60,10 @@ import winterLaptop from "../images/index/seasons/WinterLaptop.jpg"
 //@ts-ignore
 import winterMobile from "../images/index/seasons/WinterMobile.jpg"
 
+declare module '@material-ui/styles'{
+    interface DefaultTheme extends Theme {}
+}
+
 const useIndexPageFrontContentStyle = makeStyles((theme) => ({
     cardMedia : {
         height : "100vh"
@@ -74,15 +80,8 @@ const useIndexPageFrontContentStyle = makeStyles((theme) => ({
         padding : "0px !important",
         display : "flex",
         flexDirection : "column",
-    },
-    seasonText : {
-        userSelect : "none",
-        color : theme.palette.common.white,
-        padding : theme.spacing(3, 4.25),
-        opacity : 0.7
     }
 }))
-
 
 function useImageDir(deviceMediaQuery : CustomBreakPointsType, seasonQuery: SeasonType){
     switch (deviceMediaQuery){
@@ -143,8 +142,8 @@ function useImageSubscriptFlexDirection(seasonQuery: SeasonType){
     switch (seasonQuery){
         case SeasonType.Spring:
         case SeasonType.Winter:
-            return "row-reverse"
         case SeasonType.Summer:
+            return "row-reverse"
         case SeasonType.Autumn:
         default:
             return "row"
@@ -163,42 +162,203 @@ const useSubScriptFontFamily = (languageType: LanguageType) => {
     }
 }
 
-const useTextConnectorAndLaterPadding = (languageType: LanguageType) => {
+const useSubscriptMainAndSubTextConnector = (languageType: LanguageType) => {
     switch (languageType){
         case LanguageType.en:
         case LanguageType.en_US:
-            return [" |", 0.5]
+            return " |"
         case LanguageType.zh:
         case LanguageType.zh_CN:
         default:
-            return ["·", 0]
+            return "·"
     }
 }
+
+const useSubscriptSubTextPaddingLeftWidth = (languageType: LanguageType) => {
+    switch (languageType){
+        case LanguageType.en:
+        case LanguageType.en_US:
+            return 0.5
+        case LanguageType.zh:
+        case LanguageType.zh_CN:
+        default:    
+            return 0
+    }
+}
+
+const useFrontContentFontFamily = (languageType: LanguageType) => {
+    switch (languageType){
+        case LanguageType.en:
+        case LanguageType.en_US:
+            return FontType.Acme
+        case LanguageType.zh:
+        case LanguageType.zh_CN:
+        default:    
+            return FontType.MaShanZheng
+    }
+}
+
+const useFrontContentFontSize = (languageType: LanguageType) => {
+    switch (languageType){
+        case LanguageType.en:
+        case LanguageType.en_US:
+            return [5, 4.5, 2.8]
+        case LanguageType.zh:
+        case LanguageType.zh_CN:
+        default:    
+            return [6, 5, 3]
+    }
+}
+
+const useFrontContentMainSubTextMarginTop = (languageType: LanguageType) => {
+    switch (languageType){
+        case LanguageType.en:
+        case LanguageType.en_US:
+            return -2
+        case LanguageType.zh:
+        case LanguageType.zh_CN:
+        default:    
+            return -1.7
+    }
+}
+
+const useFrontContentDividerMarginTop = (languageType: LanguageType) => {
+    switch (languageType){
+        case LanguageType.en:
+        case LanguageType.en_US:
+            return 0
+        case LanguageType.zh:
+        case LanguageType.zh_CN:
+        default:    
+            return -0.2
+    }
+}
+
+const ImageSubscript = ({ languageType, seasonType, t } : ImageSubscriptProps) => {
+    const theme = useTheme();
+    const seasonText = useSeasonText(seasonType);
+    const imageSubscriptFlexDirection = useImageSubscriptFlexDirection(seasonType);
+    const [subscriptMainTextFontFamily, subscriptSubTextFontFamily] = useSubScriptFontFamily(languageType)
+    const connectorDot = useSubscriptMainAndSubTextConnector(languageType);
+    const paddingWidth = useSubscriptSubTextPaddingLeftWidth(languageType)
+
+    return (<Grid 
+        flexGrow = { 1 } 
+        container 
+        alignItems = "flex-end"
+        flexDirection = { imageSubscriptFlexDirection }
+        >
+        <Box>
+            <Grid container 
+                sx = {{ userSelect : "none", opacity : 0.5 }}
+                color = { theme.palette.common.white }
+                padding = { theme.spacing (3, 4.25) }>
+                <Typography 
+                    fontFamily = { subscriptMainTextFontFamily } 
+                    fontSize = { theme.spacing(3) }
+                    lineHeight = { 1.67 }>
+                    { t("AHPKU") }{ connectorDot }
+                </Typography>
+                <Typography 
+                    fontFamily = { subscriptSubTextFontFamily } 
+                    fontWeight = "bold"
+                    fontSize = { theme.spacing(3) }
+                    padding = {
+                        theme.spacing(0, paddingWidth)
+                    }>
+                    { t(seasonText) }
+                </Typography>
+            </Grid>
+        </Box>
+    </Grid>)
+}
+
+const IndexPageFrontContentHeadline = ({ languageType, t } : IndexPageFrontContentHeadlineProps) => {
+    const theme = useTheme()
+    const frontContentFontFamily = useFrontContentFontFamily(languageType)
+    const [
+        frontContentMainTextFontSize,
+        frontContentMainSubTextFontSize,
+        frontContentSubTextFontSize
+    ] = useFrontContentFontSize(languageType)
+    const frontContentMainSubTextMarginTop = useFrontContentMainSubTextMarginTop(languageType)
+    const frontContentDividerMarginTop = useFrontContentDividerMarginTop(languageType)
+
+    return (<Grid 
+        container 
+        paddingLeft = { 6 } 
+        paddingTop = { 8 }
+        flexDirection = "column"
+        width = "fit-content"
+        sx = {{ userSelect : "none" }}
+        color = { theme.palette.common.white }>
+        <Typography 
+            fontSize = { theme.spacing(frontContentMainTextFontSize) }
+            fontFamily = { frontContentFontFamily }>
+            { t("headlineMainText") }
+        </Typography>
+        <Typography 
+            fontSize = { theme.spacing(frontContentMainSubTextFontSize) }
+            marginTop = { theme.spacing(frontContentMainSubTextMarginTop) }
+            fontFamily = { frontContentFontFamily }>
+            { t("headlineMainSubText") }
+            <Typography 
+                marginLeft = { theme.spacing(0.6) }
+                fontSize = { theme.spacing(5) }
+                component = "span">
+                { "..." } 
+            </Typography>
+        </Typography>
+        <Divider 
+            sx = {{ 
+                marginRight : theme.spacing(-3), 
+                marginTop : theme.spacing(frontContentDividerMarginTop),
+                borderColor : theme.palette.common.white,
+                opacity : 0.7
+            }} />
+        <Typography 
+            fontSize = { theme.spacing(frontContentSubTextFontSize) }
+            marginLeft = { theme.spacing(0.4) }
+            marginTop = { theme.spacing(0.2) }
+            fontFamily = { frontContentFontFamily }
+            sx = {{ opacity : 0.8  }}>
+            { t("headlineSubText") }
+        </Typography>
+        <Button
+            color = "primary" 
+            variant = "contained"
+            disableElevation 
+            size = "large"
+            sx = {{ 
+                alignSelf : "flex-start",
+                marginLeft : theme.spacing(0.8),
+                marginTop : theme.spacing(2)
+            }}>
+            <Typography 
+                fontFamily = { FontType.MaShanZheng }
+                fontSize = { theme.spacing(2.6) }>
+                开始历史的回溯
+            </Typography>
+        </Button>
+    </Grid>)
+}
+
+
 
 export default function(){
     const theme = useTheme()
     const classes = useIndexPageFrontContentStyle()
     const { t } = useTranslation("indexPageFrontContent")
 
-
     const { appOptions : { languageType }} = theme
-    const [season, setSeason] = useState(SeasonType.Summer)
-
+    const [seasonType, setSeasonType] = useState(SeasonType.Summer)
 
     const deviceWidthQuery = useDeviceWidthQuery(theme)
-    //const season = useSeason();
-
-    const imageDir = useImageDir(deviceWidthQuery, season)
-    const seasonText = useSeasonText(season)
-    const imageSubscriptFlexDirection = useImageSubscriptFlexDirection(season)
-
-    const [subscriptMainTextFontFamily, subscriptSubTextFontFamily] = useSubScriptFontFamily(languageType)
-    const [connectorDot, paddingWidth] = useTextConnectorAndLaterPadding(languageType)
+    const imageDir = useImageDir(deviceWidthQuery, seasonType)
 
     const changeSeason = (season: SeasonType) => {
-        setSeason(season)
+        setSeasonType(season)
     }
-
     // @ts-ignore
     window.changeSeason = changeSeason
 
@@ -209,73 +369,24 @@ export default function(){
         </CardMedia>
         <CardContent className = { classes.cardContent }>
             <Toolbar></Toolbar>
-            <Grid 
-                container 
-                paddingLeft = { 6 } 
-                paddingTop = { 6 }
-                flexDirection = "column"
-                width = "fit-content"
-                sx = {{ userSelect : "none" }}
-                color = { theme.palette.common.white }>
-                <Typography 
-                    fontSize = { theme.spacing(6) }
-                    fontFamily = { FontType.MaShanZheng }>
-                    { t("headline") }
-                </Typography>
-                <Typography 
-                    fontSize = { theme.spacing(5) }
-                    marginTop = { theme.spacing(-1.7) }
-                    fontFamily = { FontType.MaShanZheng }>
-                    { "铭刻在此" }
-                    <Typography 
-                        paddingLeft = { theme.spacing(0.6) }
-                        fontSize = { theme.spacing(5) }
-                        component = "span">
-                        { "..." } 
-                    </Typography>
-                </Typography>
-                <Divider 
-                    sx = {{ 
-                        marginRight : theme.spacing(-3), 
-                        borderColor : theme.palette.common.white,
-                        paddingTop : theme.spacing(0.2),
-                        opacity : 0.7
-                    }} />
-                <Typography 
-                    fontSize = { theme.spacing(3) }
-                    paddingLeft = { theme.spacing(0.4) }
-                    paddingTop = { theme.spacing(0.2) }
-                    fontFamily = { FontType.MaShanZheng }
-                    sx = {{ opacity : 0.8  }}>
-                    { "校园文化，历史，校友，风景" }
-                </Typography>
-            </Grid>
-            <Grid 
-                flexGrow = { 1 } 
-                container 
-                alignItems = "flex-end"
-                flexDirection = { imageSubscriptFlexDirection }
-                >
-                <Box>
-                    <Grid container className = { classes.seasonText }>
-                        <Typography 
-                            fontFamily = { subscriptMainTextFontFamily } 
-                            fontSize = { theme.spacing(3) }
-                            lineHeight = { 1.67 }>
-                            { t("AHPKU") }{ connectorDot }
-                        </Typography>
-                        <Typography 
-                            fontFamily = { subscriptSubTextFontFamily } 
-                            fontWeight = "bold"
-                            fontSize = { theme.spacing(3) }
-                            padding = {
-                                theme.spacing(0, paddingWidth)
-                            }>
-                            { t(seasonText) }
-                        </Typography>
-                    </Grid>
-                </Box>
-            </Grid>
+            <IndexPageFrontContentHeadline
+                languageType = { languageType }
+                t = { t }/>
+            <ImageSubscript 
+                languageType = { languageType }
+                seasonType = { seasonType }
+                t = { t } />
         </CardContent>
     </Card>)
+}
+
+type ImageSubscriptProps = {
+    languageType : LanguageType,
+    seasonType : SeasonType,
+    t : TFunction<string>
+}
+
+type IndexPageFrontContentHeadlineProps = {
+    languageType : LanguageType
+    t : TFunction<string>
 }

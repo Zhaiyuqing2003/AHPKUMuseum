@@ -4,5 +4,7 @@
     "summer" : "Summer",
     "autumn" : "Autumn",
     "winter" : "Winter",
-    "headline" : "The memory of the time..."
+    "headlineMainText" : "The memory of the time",
+    "headlineMainSubText" : "engraved here",
+    "headlineSubText" : "School culture, history, alumni, scenery"
 }

@@ -1,6 +1,6 @@
 import * as React from "react";
 
-function SvgIndexLight(props) {
+function MuseumIconLight(props) {
   return (
     <svg
       width="1em"
@@ -18,4 +18,4 @@ function SvgIndexLight(props) {
   );
 }
 
-export default SvgIndexLight;
+export default MuseumIconLight;
