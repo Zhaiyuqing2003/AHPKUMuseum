@@ -4,12 +4,12 @@ import { makeStyles } from "@material-ui/styles"
 
 const useAppContainerStyle = makeStyles({
     container : {
-        position : "absolute"
+        position : "absolute",
+        overflow : "hidden"
     }
 })
 
 export default function(props){
-    const { children } = props;
     const classes = useAppContainerStyle();
 
     return (<Container

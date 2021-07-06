@@ -16,6 +16,7 @@ import IconButton from "@material-ui/core/IconButton";
 import Button from "@material-ui/core/Button";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
+import * as Color from "@material-ui/core/colors"
 
 
 import MuseumIcon from "./MuseumIcon";
@@ -23,6 +24,7 @@ import Brightness4Icon from "@material-ui/icons/Brightness4";
 import MenuIcon from "@material-ui/icons/Menu"
 import TranslateIcon from "@material-ui/icons/Translate";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore"
+import InvertColorsIcon from "@material-ui/icons/InvertColors";
 
 import LanguageType from "../utils/LanguageType"
 import LanguageList from "../utils/LanguageList"
@@ -32,25 +34,15 @@ import ModeType from "../utils/ModeType"
 import createAppTheme from "../utils/AppTheme"
 import useOnceEffect from "../utils/useOnceEffect";
 import useDeviceWidthQuery from "../utils/useDeviceWidthQuery";
+import useOnMountSetupEffect from "../utils/useOnMountSetupEffect";
+import useOnWillUnmountCleanupEffect from "../utils/useOnWillUnmountCleanupEffect";
 
 import { useTranslation } from "react-i18next"
 import BreakPointsType from "../utils/BreakPointsType";
 
 const useAppBarStyle = makeStyles((theme) => ({
-    museumIcon : {
-        height : "2.7rem",
-        width : "2.7rem",
-        [theme.breakpoints.up("sm")] : {
-            marginRight : theme.spacing(2)
-        },
-        [theme.breakpoints.down("sm")] : {
-            marginRight : theme.spacing(1.5),
-            marginLeft : theme.spacing(-0.5)
-        }
-    },
     iconButton : {
-        margin : theme.spacing(0, 0),
-        padding : theme.spacing()
+        margin : theme.spacing(0, 0)
     },
     title : {
         flexGrow : 1,
@@ -107,21 +99,6 @@ function useWebsiteTitleFontFamilyClassName(classes, languageType : LanguageType
                 : classes.titleEn
 }
 
-function useAppTopBarColor(theme : Theme , modeType: ModeType, isScrollToTop: boolean){
-    if (modeType === ModeType.LIGHT){
-        if (isScrollToTop){
-            return theme.palette.primary.dark.replace(")", ",0.45)")
-        } else {
-            return theme.palette.primary.dark
-        }
-    } else {
-        if (isScrollToTop){
-            return theme.palette.background.paper + "77"
-        } else {
-            return theme.palette.background.paper
-        }
-    }
-}
 
 function useIsChangeLanguageButtonHidden(deviceWidthQuery: CustomBreakPointsType){
     console.log(BreakPointsType[deviceWidthQuery])
@@ -178,15 +155,15 @@ function useTitleTypeString(deviceWidthQuery: CustomBreakPointsType, languageTyp
 }
 
 
-function ChangeLanguageMenu({ anchorEl, open, onClose } : ChangeLanguageMenuPropsType){
-    function handleClose(event){
+const ChangeLanguageMenu = ({ languageMenuAnchorElement, open, onClose } : ChangeLanguageMenuPropsType) => {
+    const handleClose = (event) => {
         onClose(event.currentTarget.dataset.value)
     }
 
     const { t } = useTranslation("appTopBar");
 
     return (<Menu
-        anchorEl = { anchorEl }
+        anchorEl = { languageMenuAnchorElement }
         open = { open }
         onClose = { handleClose }
       >{
@@ -200,40 +177,118 @@ function ChangeLanguageMenu({ anchorEl, open, onClose } : ChangeLanguageMenuProp
     </Menu>)
 }
 
-export default function({
-        onChangeLanguageType : triggerChangeLanguageTypeEvent,
-        onChangeModeType : triggerChangeModeTypeEvent
-    } : AppTopBarPropsType){
+const ChangeColorMenu = ({ colorMenuAnchorElement, open, onClose }: ChangeColorMenuPropsType) => {
+    const handleClose = () => {
+        onClose(123)
+    }
+
+
+    return (<Menu
+        anchorEl = { colorMenuAnchorElement }
+        open = { open }
+        onClose = { handleClose }
+    ></Menu>)
+}
+
+const AppIcon = () => {
+    const theme = useTheme()
+    return (<SvgIcon 
+        size = "large" 
+        component = { MuseumIcon }
+        sx = {{ 
+            height : theme.spacing(5.4),
+            width : theme.spacing(5.4),
+            marginRight : theme.spacing(2),
+            marginLeft : theme.spacing(1)
+    }}/>)
+}
+
+
+const useAppBarContainerBackGroundColor = (theme: Theme, modeType: ModeType, isScrollToTop: boolean) => {
+    switch (modeType){
+        case ModeType.DARK:
+            return theme.palette.background.paper + (isScrollToTop ? "77" : "")
+        case ModeType.LIGHT:
+        default: 
+            return isScrollToTop ? theme.palette.primary.dark.replace(")", ",0.45)") : theme.palette.primary.dark
+    }
+}
+
+const AppTopBarContainer = ({ children, modeType, languageType }: AppTopBarContainerPropsType) => {
+    const theme = useTheme()
+
+    const [isScrollToTop, setIsScrollToTop] = useState(true);
+
+    const containerBackgroundColor = useAppBarContainerBackGroundColor(theme, modeType, isScrollToTop)
+
+    const changeIsScrollToTop = () => {
+        setIsScrollToTop(isScrollToTop ? window.scrollY <= 30 : window.screenY <= 1)
+    }
+
+    useOnMountSetupEffect(() => {
+        changeIsScrollToTop()
+        document.addEventListener("scroll", changeIsScrollToTop);
+    })
+
+    useOnWillUnmountCleanupEffect(() => {
+        document.removeEventListener("scroll", changeIsScrollToTop)
+    })
+
+    return (<AppBar
+        sx = {{
+            backgroundColor : containerBackgroundColor,
+            backdropFilter : "blur(10px)",
+            WebkitBackdropFilter : "blur(10px)",
+            boxShadow : isScrollToTop ? theme.shadows[0] : theme.shadows[4],
+            transition : "ease-in-out 0.3s box-shadow,ease-in-out 0.3s background-color,ease-in-out 0.3s opacity"
+        }}>
+        <Toolbar sx = {{ 
+            [theme.breakpoints.up("sm")] : {
+                paddingX : theme.spacing(1.5)
+            },
+            [theme.breakpoints.down("sm")] : {
+                paddingX : theme.spacing(1)
+            }
+        }}>
+            { children }
+        </Toolbar>
+    </AppBar>)
+}
+
+
+export default function ({
+    onChangeLanguageType: triggerChangeLanguageTypeEvent,
+    onChangeModeType: triggerChangeModeTypeEvent
+}: AppTopBarPropsType) {
 
 
     const theme = useTheme();
     const classes = useAppBarStyle()
 
-    const { appOptions : { modeType, languageType }} = theme
+    const { appOptions: { modeType, languageType } } = theme
 
     const { t } = useTranslation("appTopBar")
-
-    const [isScrollToTop, setIsScrollToTop] = useState(false);
-    const [anchorEl, setAnchorEl] = useState(null)
-
-    const websiteTitleFontFamilyClassName = useWebsiteTitleFontFamilyClassName(classes, languageType)
-    const appTopBarColor = useAppTopBarColor(theme, modeType, isScrollToTop);
     const deviceWidthQuery = useDeviceWidthQuery(theme)
 
+    const [languageMenuAnchorElement, setLanguageMenuAnchorElement] = useState(null)
+
+    const websiteTitleFontFamilyClassName = useWebsiteTitleFontFamilyClassName(classes, languageType)
     const isChangeLanguageButtonHidden = useIsChangeLanguageButtonHidden(deviceWidthQuery)
     const titleTypeString = useTitleTypeString(deviceWidthQuery, languageType)
-    
-    function openChangeLanguageMenu(event){
-        setAnchorEl(event.currentTarget)
+
+
+    const openChangeLanguageMenu = (event) => {
+        setLanguageMenuAnchorElement(event.currentTarget)
     }
-    function closeChangeLanguageMenu(languageType: LanguageType){
-        if (languageType !== undefined){
+    const closeChangeLanguageMenu = (languageType: LanguageType) => {
+        if (languageType !== undefined) {
             triggerChangeLanguageTypeEvent(languageType)
         }
-
-        setAnchorEl(null)
+        setLanguageMenuAnchorElement(null)
     }
-    function toggleModeType(){
+
+
+    const toggleModeType = () => {
         const toggledModeType =
             (modeType === ModeType.LIGHT)
                 ? ModeType.DARK
@@ -242,64 +297,57 @@ export default function({
         triggerChangeModeTypeEvent(toggledModeType)
     }
 
-    useOnceEffect(() => {
-        const changeAppBarTransparency = () => {
-            if (window.pageYOffset <= 30){
-                setIsScrollToTop(true);
-            } else {
-                setIsScrollToTop(false);
-            }
-        }
-        changeAppBarTransparency()
-        document.addEventListener("scroll", changeAppBarTransparency);
-    })
 
 
-    return (<AppBar
-        style = {{
-            backgroundColor : appTopBarColor,
-            boxShadow : isScrollToTop ? theme.shadows[0] : theme.shadows[4],
-        }}
-        className = { classes.appBar }>
-        <Toolbar className = { classes.toolBar }>
-            <SvgIcon size = "large" className = { classes.museumIcon } component = { MuseumIcon } />
-            <Typography
-                component = "div"
-                variant = "h5"
-                className = { `${classes.title} ${ websiteTitleFontFamilyClassName }` }>{ 
-                    t(titleTypeString)
+
+    return (<AppTopBarContainer modeType = { modeType } languageType = { languageType }>
+        <AppIcon />
+        <Typography
+            component = "div"
+            variant = "h5"
+            className = { `${classes.title} ${websiteTitleFontFamilyClassName}` }>{
+                t(titleTypeString)
             }</Typography>
-            <Button
-                color = "inherit"
-                variant = "text"
-                size = "medium"
-                startIcon = { <TranslateIcon className = { classes.translateButton } /> }
-                endIcon = { <ExpandMoreIcon className = { classes.expandMoreButton }/> }
-                onClick = { openChangeLanguageMenu }
-                className = { classes.languageMenuButton } >{
-                isChangeLanguageButtonHidden ? "" : t(languageType) 
+        <Button
+            color = "inherit"
+            variant = "text"
+            size = "medium"
+            startIcon = { <TranslateIcon className = { classes.translateButton } /> }
+            endIcon = { <ExpandMoreIcon className = { classes.expandMoreButton } /> }
+            onClick = {openChangeLanguageMenu}
+            className = {classes.languageMenuButton} >{
+                isChangeLanguageButtonHidden ? "" : t(languageType)
             }
-            </Button>
-            <IconButton
-                size = "large"
-                color = "inherit"
-                onClick = { toggleModeType }>
-                <Brightness4Icon/>
-            </IconButton>
-            {/* <IconButton color = "inherit" className = { classes.iconButton }>
-                <InvertColorsIcon />
-            </IconButton> */}
-            <IconButton 
-                size = "large"
-                color = "inherit">
-                <MenuIcon />
-            </IconButton>
-            <ChangeLanguageMenu
-                anchorEl = { anchorEl }
-                open = { Boolean(anchorEl) }
-                onClose = { closeChangeLanguageMenu }/>
-        </Toolbar>
-    </AppBar>)
+        </Button>
+        <IconButton
+            size = "large"
+            color = "inherit"
+            onClick = {toggleModeType}>
+            <Brightness4Icon />
+        </IconButton>
+        <IconButton
+            size = "large"
+            color = "inherit">
+            <InvertColorsIcon />
+        </IconButton>
+        <IconButton
+            size = "large"
+            color = "inherit">
+            <MenuIcon />
+        </IconButton>
+        <ChangeLanguageMenu
+            languageMenuAnchorElement = { languageMenuAnchorElement }
+            open = { Boolean(languageMenuAnchorElement) }
+            onClose = { closeChangeLanguageMenu } />
+        <ChangeColorMenu 
+            colorMenuAnchorElement = {} />
+    </AppTopBarContainer>)
+}
+
+type AppTopBarContainerPropsType = {
+    children : React.ReactNode,
+    modeType : ModeType,
+    languageType : LanguageType
 }
 
 type AppTopBarPropsType = {
@@ -308,7 +356,13 @@ type AppTopBarPropsType = {
 }
 
 type ChangeLanguageMenuPropsType = {
-    anchorEl : HTMLElement,
+    languageMenuAnchorElement : HTMLElement,
     onClose : (languageType: LanguageType) => void,
+    open : boolean,
+}
+
+type ChangeColorMenuPropsType = {
+    colorMenuAnchorElement : HTMLElement,
+    onClose : (dog: any) => void,
     open : boolean,
 }
