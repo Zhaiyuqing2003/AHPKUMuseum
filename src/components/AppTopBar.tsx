@@ -32,7 +32,7 @@ import LanguageList from "../utils/LanguageList"
 import FontType from "../utils/FontType"
 import ModeType from "../utils/ModeType"
 import createAppTheme from "../utils/AppTheme"
-import useOnceEffect from "../utils/useOnceEffect";
+
 import useDeviceWidthQuery from "../utils/useDeviceWidthQuery";
 import useOnMountSetupEffect from "../utils/useOnMountSetupEffect";
 import useOnWillUnmountCleanupEffect from "../utils/useOnWillUnmountCleanupEffect";
@@ -154,6 +154,15 @@ function useTitleTypeString(deviceWidthQuery: CustomBreakPointsType, languageTyp
     }
 }
 
+const useAppBarContainerBackGroundColor = (theme: Theme, modeType: ModeType, isScrollToTop: boolean) => {
+    switch (modeType){
+        case ModeType.DARK:
+            return theme.palette.background.paper + (isScrollToTop ? "77" : "")
+        case ModeType.LIGHT:
+        default: 
+            return isScrollToTop ? theme.palette.primary.dark.replace(")", ",0.45)") : theme.palette.primary.dark
+    }
+}
 
 const ChangeLanguageMenu = ({ languageMenuAnchorElement, open, onClose } : ChangeLanguageMenuPropsType) => {
     const handleClose = (event) => {
@@ -186,8 +195,9 @@ const ChangeColorMenu = ({ colorMenuAnchorElement, open, onClose }: ChangeColorM
     return (<Menu
         anchorEl = { colorMenuAnchorElement }
         open = { open }
-        onClose = { handleClose }
-    ></Menu>)
+        onClose = { handleClose }>
+            123
+    </Menu>)
 }
 
 const AppIcon = () => {
@@ -201,17 +211,6 @@ const AppIcon = () => {
             marginRight : theme.spacing(2),
             marginLeft : theme.spacing(1)
     }}/>)
-}
-
-
-const useAppBarContainerBackGroundColor = (theme: Theme, modeType: ModeType, isScrollToTop: boolean) => {
-    switch (modeType){
-        case ModeType.DARK:
-            return theme.palette.background.paper + (isScrollToTop ? "77" : "")
-        case ModeType.LIGHT:
-        default: 
-            return isScrollToTop ? theme.palette.primary.dark.replace(")", ",0.45)") : theme.palette.primary.dark
-    }
 }
 
 const AppTopBarContainer = ({ children, modeType, languageType }: AppTopBarContainerPropsType) => {
@@ -271,15 +270,16 @@ export default function ({
     const deviceWidthQuery = useDeviceWidthQuery(theme)
 
     const [languageMenuAnchorElement, setLanguageMenuAnchorElement] = useState(null)
+    const [colorMenuAnchorElement, setColorMenuAnchorElement] = useState(null)
 
     const websiteTitleFontFamilyClassName = useWebsiteTitleFontFamilyClassName(classes, languageType)
     const isChangeLanguageButtonHidden = useIsChangeLanguageButtonHidden(deviceWidthQuery)
     const titleTypeString = useTitleTypeString(deviceWidthQuery, languageType)
 
-
     const openChangeLanguageMenu = (event) => {
         setLanguageMenuAnchorElement(event.currentTarget)
     }
+
     const closeChangeLanguageMenu = (languageType: LanguageType) => {
         if (languageType !== undefined) {
             triggerChangeLanguageTypeEvent(languageType)
@@ -287,6 +287,14 @@ export default function ({
         setLanguageMenuAnchorElement(null)
     }
 
+    const openChangeColorMenu = (event) => {
+        setColorMenuAnchorElement(event.currentTarget)
+    }
+
+    const closeChangeColorMenu = () => {
+        console.warn("GOOD DOG SUCK DICK")
+        setColorMenuAnchorElement(null)
+    }
 
     const toggleModeType = () => {
         const toggledModeType =
@@ -296,8 +304,6 @@ export default function ({
 
         triggerChangeModeTypeEvent(toggledModeType)
     }
-
-
 
 
     return (<AppTopBarContainer modeType = { modeType } languageType = { languageType }>
@@ -314,7 +320,7 @@ export default function ({
             size = "medium"
             startIcon = { <TranslateIcon className = { classes.translateButton } /> }
             endIcon = { <ExpandMoreIcon className = { classes.expandMoreButton } /> }
-            onClick = {openChangeLanguageMenu}
+            onClick = { openChangeLanguageMenu }
             className = {classes.languageMenuButton} >{
                 isChangeLanguageButtonHidden ? "" : t(languageType)
             }
@@ -322,12 +328,13 @@ export default function ({
         <IconButton
             size = "large"
             color = "inherit"
-            onClick = {toggleModeType}>
+            onClick = { toggleModeType }>
             <Brightness4Icon />
         </IconButton>
         <IconButton
             size = "large"
-            color = "inherit">
+            color = "inherit"
+            onClick = { openChangeColorMenu }>
             <InvertColorsIcon />
         </IconButton>
         <IconButton
@@ -340,7 +347,9 @@ export default function ({
             open = { Boolean(languageMenuAnchorElement) }
             onClose = { closeChangeLanguageMenu } />
         <ChangeColorMenu 
-            colorMenuAnchorElement = {} />
+            colorMenuAnchorElement = { colorMenuAnchorElement }
+            open = { Boolean(colorMenuAnchorElement) }
+            onClose = { closeChangeColorMenu }/>
     </AppTopBarContainer>)
 }
 

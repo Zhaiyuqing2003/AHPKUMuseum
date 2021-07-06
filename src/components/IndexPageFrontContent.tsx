@@ -60,10 +60,6 @@ import winterLaptop from "../images/index/seasons/WinterLaptop.jpg"
 //@ts-ignore
 import winterMobile from "../images/index/seasons/WinterMobile.jpg"
 
-declare module '@material-ui/styles'{
-    interface DefaultTheme extends Theme {}
-}
-
 const useIndexPageFrontContentStyle = makeStyles((theme) => ({
     cardMedia : {
         height : "100vh"
