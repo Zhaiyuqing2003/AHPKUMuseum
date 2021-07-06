@@ -9,11 +9,15 @@ import TimelineDot from '@material-ui/lab/TimelineDot';
 import Typography from '@material-ui/core/Typography';
 import Avatar from "@material-ui/core/Avatar";
 import Grid from "@material-ui/core/Grid";
-import { Box, Paper, CardHeader, Card } from "@material-ui/core";
+import { Box, Paper, CardHeader, Card, CardMedia, CardContent } from "@material-ui/core";
 import { makeStyles, useTheme } from "@material-ui/styles"
-import ButtonBase from '@material-ui/core/ButtonBase';
 import { Theme } from "@material-ui/core/styles"
 import useMediaQuery from '@material-ui/core/useMediaQuery'
+import { useLayoutEffect, useRef, useState } from "react";
+import Switch from '@material-ui/core/Switch';
+import Grow from '@material-ui/core/Grow';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+
 
 declare module '@material-ui/styles'{
     interface DefaultTheme extends Theme{}
@@ -67,11 +71,14 @@ import headmasterNine from "../images/index/headmasters/headmasterNine.jpg"
 //@ts-ignore
 import headmasterTen from "../images/index/headmasters/headmasterTen.jpg"
 
+//@ts-ignore
+import greatwall from "../images/index/backgrounds/GreatWall.jpg"
+
 
 
 import { useTranslation } from "react-i18next"
 
-
+//@ts-ignore
 const headmasters: headmasterItem[] = [{
     name: 'YinQiZhuo',
     position : 'XiaoZhang',
@@ -135,11 +142,20 @@ const headmasters: headmasterItem[] = [{
     picture: headmasterTen,
 }]
 
+
+
 function DesktopTimeline() {
     const theme = useTheme()
     const classes = useStyles()
     const { t } = useTranslation("indexPageTimeline");
-    return (<Timeline position="alternate">{
+
+    const [checked, setChecked] = React.useState(false);
+    const handleChange = () => {
+    setChecked((prev) => !prev);
+  };
+    return (
+
+        <Timeline position="alternate">{
 
             headmasters.map(({ name, year,yeartwo, position, positiontwo, picture }, index) => ( 
         <>
@@ -157,11 +173,10 @@ function DesktopTimeline() {
                 {
                     index % 2 === 0 ? "row" : "row-reverse"
                 }
-                spacing = {2}
-                padding = {2}
-               
+                spacing = {0}
+                padding = {3}
                 >
-                <Paper className = {classes.card}>
+                <Paper className = {classes.card} >
                     <Grid container spacing = {0}
                     padding = {3.5}
                     flexDirection = 
@@ -203,7 +218,9 @@ function DesktopTimeline() {
       
         </>
 ))
-    }</Timeline>)
+    }</Timeline>
+    // </CardContent></Card>
+    )
 }
 
 function Mobiletimeline(){
