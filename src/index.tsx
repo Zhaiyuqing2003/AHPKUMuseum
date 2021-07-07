@@ -96,8 +96,8 @@ function App(){
             />
             <AppContainer>
                 <IndexPageFrontContent />
-                <IndexPageTimeline />
                 <IndexPageCulture />
+                <IndexPageTimeline />
             </AppContainer>
             <AppMusicBar/>
         </ThemeProvider>
