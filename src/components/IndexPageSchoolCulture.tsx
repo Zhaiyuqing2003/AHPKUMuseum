@@ -56,14 +56,14 @@ function IndexPageCultureBasketBall(){
     const theme = useTheme();
     const classes = ContentStyle()
     return (    
-    <Card  sx={{ maxWidth: 700, display: 'flex', height:345, borderRadius : 14 }}>
+    <Card  sx={{ maxWidth: 500, display: 'flex', height:255, borderRadius : 14 }}>
             
         <CardMedia
-            sx={{ height: 345,width: 700 }}
+            sx={{ height: 285,width: 600}}
             image={bascketballoneblur} >
         
             
-            <Card sx={{ maxWidth: 700, height: 345, borderRadius : 14}} className = {classes.floatcard} >
+            <Card sx={{ maxWidth: 500, height: 255, borderRadius : 14}} className = {classes.floatcard} >
 
                 <Grid
                
@@ -71,16 +71,16 @@ function IndexPageCultureBasketBall(){
                     direction="row"
                     alignItems="center">
                     <CardMedia 
-                        sx={{ height: 345, width : 445 }}
+                        sx={{ height: 255, width : 300 }}
                         image={bascketballone}
                         title= '图片来自Verge杂志'>
                          <CardContent sx={{ flex: '1 0 auto' }}>
                             <Grid container direction = 'column' alignItems="center" spacing = {2} justifyContent="flex-end">
-                            <Card sx={{ height:265}} className = {classes.floatcard} />
+                            <Card sx={{ height:200}} className = {classes.floatcard} />
                                     <Grid item>
-                                        <Card className = {classes.card} sx = {{height: 45,width:300, borderRadius: 14, boxShadow:10}}>
+                                        <Card className = {classes.card} sx = {{height: 32,width:200, borderRadius: 14, boxShadow:10}}>
                                             <Grid item alignItems="center">
-                                                <Typography component="div" variant="h4" color="white" align = 'center' display = 'block'>
+                                                <Typography component="div" variant="h5" color="white" align = 'center' display = 'block'>
                                                     篮球杯
                                                 </Typography>  
                                             </Grid>
@@ -91,7 +91,7 @@ function IndexPageCultureBasketBall(){
                     </CardMedia>        
 
                    <Grid item padding = {1} alignItems="center" >
-                        <Card className = {classes.card} sx={{ maxWidth: 230, height: 200, borderRadius : 5, boxShadow: 0, padding: 0.5}}>
+                        <Card className = {classes.card} sx={{ maxWidth: 180, height: 150, borderRadius : 5, boxShadow: 0, padding: 0.5}}>
                     
                                 <CardContent >
     
@@ -118,14 +118,14 @@ function IndexPageCultureBasketBall(){
     const theme = useTheme();
     const classes = ContentStyle()
     return (    
-    <Card  sx={{ maxWidth: 700, display: 'flex', height:345, borderRadius : 14 }}>
+    <Card  sx={{ maxWidth: 500, display: 'flex', height:255, borderRadius : 14 }}>
             
         <CardMedia
-            sx={{ height: 345,width: 700 }}
+            sx={{ height: 285,width: 600 }}
             image={danceoneblur} >
         
             
-            <Card sx={{ maxWidth: 700, height: 345, borderRadius : 14}} className = {classes.floatcard} >
+            <Card sx={{ maxWidth: 500, height: 255, borderRadius : 14}} className = {classes.floatcard} >
 
                 <Grid
                
@@ -133,16 +133,16 @@ function IndexPageCultureBasketBall(){
                     direction="row"
                     alignItems="center">
                     <CardMedia 
-                        sx={{ height: 345, width : 445 }}
+                        sx={{ height: 255, width : 300 }}
                         image={danceone}
                         title= '图片来自Verge杂志'>
                          <CardContent sx={{ flex: '1 0 auto' }}>
                             <Grid container direction = 'column' alignItems="center" spacing = {2} justifyContent="flex-end">
-                            <Card sx={{ height:265}} className = {classes.floatcard} />
+                            <Card sx={{ height:200}} className = {classes.floatcard} />
                                     <Grid item>
-                                        <Card className = {classes.card} sx = {{height: 45,width:300, borderRadius: 14, boxShadow:10}}>
+                                        <Card className = {classes.card} sx = {{height: 32,width:200, borderRadius: 14, boxShadow:10}}>
                                             <Grid item alignItems="center">
-                                                <Typography component="div" variant="h4" color="white" align = 'center' display = 'block'>
+                                                <Typography component="div" variant="h5" color="white" align = 'center' display = 'block'>
                                                     舞蹈节
                                                 </Typography>  
                                             </Grid>
@@ -153,7 +153,7 @@ function IndexPageCultureBasketBall(){
                     </CardMedia>        
 
                    <Grid item padding = {1} alignItems="center" >
-                        <Card className = {classes.card} sx={{ maxWidth: 230, height: 200, borderRadius : 5, boxShadow: 0, padding: 0.5}}>
+                        <Card className = {classes.card} sx={{ maxWidth: 180, height: 150, borderRadius : 5, boxShadow: 0, padding: 0.5}}>
                     
                                 <CardContent >
     
@@ -182,14 +182,14 @@ function IndexPageCultureBasketBall(){
     const theme = useTheme();
     const classes = ContentStyle()
     return (    
-    <Card  sx={{ maxWidth: 700, display: 'flex', height:345, borderRadius : 14 }}>
+    <Card  sx={{ maxWidth: 500, display: 'flex', height:255, borderRadius : 14 }}>
             
         <CardMedia
-            sx={{ height: 345,width: 700 }}
+            sx={{ height: 285,width: 600 }}
             image={footballoneblur} >
         
             
-            <Card sx={{ maxWidth: 700, height: 345, borderRadius : 14}} className = {classes.floatcard} >
+            <Card sx={{ maxWidth: 500, height: 255, borderRadius : 14}} className = {classes.floatcard} >
 
                 <Grid
                
@@ -197,16 +197,16 @@ function IndexPageCultureBasketBall(){
                     direction="row"
                     alignItems="center">
                     <CardMedia 
-                        sx={{ height: 345, width : 445 }}
+                        sx={{ height: 255, width : 300 }}
                         image={footballone}
                         title= '图片来自Verge杂志'>
                          <CardContent sx={{ flex: '1 0 auto' }}>
                             <Grid container direction = 'column' alignItems="center" spacing = {2} justifyContent="flex-end">
-                            <Card sx={{ height:265}} className = {classes.floatcard} />
+                            <Card sx={{ height:200}} className = {classes.floatcard} />
                                     <Grid item>
-                                        <Card className = {classes.card} sx = {{height: 45,width:300, borderRadius: 14, boxShadow:10}}>
+                                        <Card className = {classes.card} sx = {{height: 32,width:200, borderRadius: 14, boxShadow:10}}>
                                             <Grid item alignItems="center">
-                                                <Typography component="div" variant="h4" color="white" align = 'center' display = 'block' >
+                                                <Typography component="div" variant="h5" color="white" align = 'center' display = 'block' >
                                                     足球杯
                                                 </Typography>  
                                             </Grid>
@@ -217,7 +217,7 @@ function IndexPageCultureBasketBall(){
                     </CardMedia>        
 
                    <Grid item padding = {1} alignItems="center" >
-                        <Card className = {classes.card} sx={{ maxWidth: 230, height: 200, borderRadius : 5, boxShadow: 0, padding: 0.5}}>
+                        <Card className = {classes.card} sx={{ maxWidth: 180, height: 150, borderRadius : 5, boxShadow: 0, padding: 0.5}}>
                     
                                 <CardContent >
     
@@ -246,14 +246,14 @@ function IndexPageCulturetheatre(){
     const theme = useTheme();
     const classes = ContentStyle()
     return (    
-    <Card  sx={{ maxWidth: 700, display: 'flex', height:345, borderRadius : 14 }}>
+    <Card  sx={{ maxWidth: 500, display: 'flex', height:255, borderRadius : 14 }}>
             
         <CardMedia
-            sx={{ height: 345,width: 700 }}
+            sx={{ height: 285,width: 600 }}
             image={theatreoneblur} >
         
             
-            <Card sx={{ maxWidth: 700, height: 345, borderRadius : 14}} className = {classes.floatcard} >
+            <Card sx={{ maxWidth: 500, height: 255, borderRadius : 14}} className = {classes.floatcard} >
 
                 <Grid
                
@@ -261,16 +261,16 @@ function IndexPageCulturetheatre(){
                     direction="row"
                     alignItems="center">
                     <CardMedia 
-                        sx={{ height: 345, width : 445 }}
+                        sx={{ height: 255, width : 300 }}
                         image={theatreone}
                         title= '图片来自Verge杂志'>
                          <CardContent sx={{ flex: '1 0 auto' }}>
                             <Grid container direction = 'column' alignItems="center" spacing = {2} justifyContent="flex-end">
-                            <Card sx={{ height:265}} className = {classes.floatcard} />
+                            <Card sx={{ height:200}} className = {classes.floatcard} />
                                     <Grid item>
-                                        <Card className = {classes.card} sx = {{height: 45,width:300, borderRadius: 14, boxShadow:10}}>
+                                        <Card className = {classes.card} sx = {{height: 32,width:200, borderRadius: 14, boxShadow:10}}>
                                             <Grid item alignItems="center">
-                                                <Typography component="div" variant="h4" color="white" align = 'center' display = 'block' >
+                                                <Typography component="div" variant="h5" color="white" align = 'center' display = 'block' >
                                                     戏剧节
                                                 </Typography>  
                                             </Grid>
@@ -281,7 +281,7 @@ function IndexPageCulturetheatre(){
                     </CardMedia>        
 
                    <Grid item padding = {1} alignItems="center" >
-                        <Card className = {classes.card} sx={{ maxWidth: 230, height: 200, borderRadius : 5, boxShadow: 0, padding: 0.5}}>
+                        <Card className = {classes.card} sx={{ maxWidth: 180, height: 150, borderRadius : 5, boxShadow: 0, padding: 0.5}}>
                     
                                 <CardContent >
     
@@ -312,7 +312,7 @@ export default function Allfour(){
     let theatre = IndexPageCulturetheatre()
     let football = IndexPageCulturefootball()
     return (
-        basketball
+        theatre
     )
     
 }

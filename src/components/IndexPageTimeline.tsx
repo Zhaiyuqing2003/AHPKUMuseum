@@ -150,25 +150,13 @@ function DesktopTimeline() {
     const classes = useStyles()
     const { t } = useTranslation("indexPageTimeline");
 
-    const [checked, setChecked] = React.useState(false);
-    const handleChange = () => {
-    setChecked((prev) => !prev);
-  };
+    // const [checked, setChecked] = React.useState(false);
+    // const handleChange = () =>  {setChecked((prev) => !prev);};
  
-    // const ourRef = useRef(null)
-    // useLayoutEffect(() => {
-    // const topPos = element => element.getBoundingClientRect().top;
-    // const div1Pos = topPos(ourRef.current)
-    // const onScroll = () => {
-    //     const scrollPos = window.scrollY + window.innerHeight;
-    //     if (div1Pos < scrollPos) {
-    //         setChecked((prev) => !prev)}}
-    //         window.addEventListener("scroll", onScroll);
-    // return () => window.removeEventListener("scroll", onScroll);
-    //       }, [])
+
     return (
         <>
-        <FormControlLabel control={<Switch checked={checked} onChange={handleChange} />}label="Show"/>
+        {/* <FormControlLabel control={<Switch checked={checked} onChange={handleChange} />}label="Show"/> */}
         <Timeline position="alternate" >
             {headmasters.map(({ name, year,yeartwo, position, positiontwo, picture }, index) => ( 
         <>
@@ -189,7 +177,7 @@ function DesktopTimeline() {
                 spacing = {0}
                 padding = {3}
                 >
-                <Grow in={checked}>
+                {/* <Grow in={checked}> */}
                 <Paper className = {classes.card}
                 //  ref = {ourRef}
                  >
@@ -215,11 +203,12 @@ function DesktopTimeline() {
                                 
                             </Grid>
                     </Grid>
-                </Paper></Grow>
+                </Paper>
+                {/* </Grow> */}
                 </Grid>   
             </TimelineContent>
         </TimelineItem>
-        <TimelineItem>
+        {/* <TimelineItem>
                 <TimelineSeparator>
                     <TimelineConnector />
                 </TimelineSeparator>
@@ -230,7 +219,7 @@ function DesktopTimeline() {
                     <TimelineConnector />
                 </TimelineSeparator>
                 <TimelineContent />
-          </TimelineItem>          
+          </TimelineItem>           */}
       
         </>
 ))
