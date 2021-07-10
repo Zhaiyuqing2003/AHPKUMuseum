@@ -194,7 +194,7 @@ function DesktopTimeline() {
                                         height : theme.spacing(7), width : theme.spacing(7)
                                     }} />
                             </Grid>
-                            <Grid item padding = {1} sx = {{width:160}}>
+                            <Grid item padding = {1} sx = {{width:140}}>
                                     <Typography variant = 'h5'>{ t(name) }</Typography>
                                 <Typography align = {index % 2 === 0 ? "left" : "right"} variant = 'subtitle1' color = 'textSecondary'>{ t(year) }</Typography>
                                 <Typography align = {index % 2 === 0 ? "left" : "right"} variant = 'subtitle1' color = 'textSecondary'>{ t(position) }</Typography>

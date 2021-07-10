@@ -9,6 +9,8 @@ import Box from '@material-ui/core/Box';
 import IndexPageCulture from './IndexPageSchoolCultureInt'
 import ArrowBackIosRoundedIcon from '@material-ui/icons/ArrowBackIosRounded';
 import ArrowForwardIosRoundedIcon from '@material-ui/icons/ArrowForwardIosRounded';
+import IconButton from '@material-ui/core/IconButton';
+import Grid from '@material-ui/core/Grid';
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -53,6 +55,7 @@ export default function FullWidthTabs() {
   const cardtwo = IndexPageCulture(1)
   const cardthree = IndexPageCulture(2)
   const cardfour = IndexPageCulture(3)
+
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
@@ -62,40 +65,56 @@ export default function FullWidthTabs() {
   };
 
   return (
-    <Box sx={{ bgcolor: 'background.paper', width: 500 }}>
-      <AppBar position="static">
-        <Tabs
-          value={value}
-          onChange={handleChange}
-          indicatorColor="secondary"
-          textColor="inherit"
-          variant="fullWidth"
-          aria-label="full width tabs example"
-        >
-          <Tab label="Item One" {...a11yProps(0)} />
-          <Tab label="Item Two" {...a11yProps(1)} />
-          <Tab label="Item Three" {...a11yProps(2)} />
-          <Tab label="Item Four" {...a11yProps(3)} />
-        </Tabs>
-      </AppBar>
-      <SwipeableViews
-        axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
-        index={value}
-        onChangeIndex={handleChangeIndex}
-      >
-        <TabPanel value={value} index={0} dir={theme.direction}>
-          {cardone}
-        </TabPanel>
-        <TabPanel value={value} index={1} dir={theme.direction}>
-          {cardtwo}
-        </TabPanel>
-        <TabPanel value={value} index={2} dir={theme.direction}>
-          {cardthree}
-        </TabPanel>
-        <TabPanel value={value} index={3} dir={theme.direction}>
-          {cardfour}
-        </TabPanel>
-      </SwipeableViews>
-    </Box>
+    <Grid
+    container
+    direction="row"
+    justifyContent="center"
+    alignItems="center" 
+    spacing = {5}
+    >
+      <Grid item>
+        <IconButton aria-label="Flip left"  ><ArrowBackIosRoundedIcon fontSize = 'large'/></IconButton>
+      </Grid>
+      <Grid item>
+          <Box sx={{ bgcolor: 'background.paper', width: 500 }}>
+            <AppBar position="static">
+              <Tabs
+                value={value}
+                onChange={handleChange}
+                indicatorColor="secondary"
+                textColor="inherit"
+                variant="fullWidth"
+                aria-label="full width tabs example"
+              >
+                <Tab label="Item One" {...a11yProps(0)} />
+                <Tab label="Item Two" {...a11yProps(1)} />
+                <Tab label="Item Three" {...a11yProps(2)} />
+                <Tab label="Item Four" {...a11yProps(3)} />
+              </Tabs>
+            </AppBar>
+          <SwipeableViews
+            axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+            index={value}
+            onChangeIndex={handleChangeIndex}
+          >
+            <TabPanel value={value} index={0} dir={theme.direction}>
+              {cardone}
+            </TabPanel>
+            <TabPanel value={value} index={1} dir={theme.direction}>
+              {cardtwo}
+            </TabPanel>
+            <TabPanel value={value} index={2} dir={theme.direction}>
+              {cardthree}
+            </TabPanel>
+            <TabPanel value={value} index={3} dir={theme.direction}>
+              {cardfour}
+            </TabPanel>
+          </SwipeableViews>
+        </Box>
+      </Grid>
+      <Grid item>
+      <IconButton aria-label="Flip left"><ArrowForwardIosRoundedIcon fontSize = 'large'/></IconButton>
+      </Grid>
+    </Grid>
   );
 }
