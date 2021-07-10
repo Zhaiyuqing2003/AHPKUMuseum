@@ -86,21 +86,52 @@ const ContentStyle = makeStyles((theme) => ({
     }
 }))
 
-export default function IndexPageCultureBasketBall(){
+let one = cultures[0]
+let listone: number[] = [one];
+let two = cultures[1]
+let listtwo: number[] = [two];
+let three = cultures[2]
+let listthree: number[] = [three]
+let four = cultures[3]
+let listfour: number[] = [four];
+
+function fuck(){
+console.log(listthree)
+// console.log()
+}
+function FuckIWantWhatEverIWant(input){
+    if(input ===0 ){
+        return listone
+    }
+    if(input ===1 ){
+        return listtwo
+    }
+    if(input ===2 ){
+        return listthree
+    }
+    if(input ===3 ){
+        return listfour
+    }
+}
+
+ export default function IndexPageCultureInt(input){
     const theme = useTheme()
     const classes = ContentStyle()
     const { t } = useTranslation("IndexPageSchoolCultureInt");
-    return (    
-    <Grid container spacing= {2}>
-    {cultures.map(({ title, picture, pictureblur, headings, content }, index) => (
-    <Grid item>
-        <Card  sx={{ maxWidth: 500, display: 'flex', height:255, borderRadius : 14 }}>
-        
+    const Daddy = FuckIWantWhatEverIWant(input)
+    // const component = FuckIWantWhatEverIWant(input)
 
+    return (    
+    // <Grid container spacing= {2}>
+    //@ts-ignore\
+    <Card  sx={{ maxWidth: 455, display: 'flex', height:255, borderRadius : 14 }}> {(Daddy).map(({ title, picture, pictureblur, headings, content }, index) => (
+    // <Grid item  key = {  index }>
+        
+        
             <CardMedia
                 sx={{ height: 285,width: 455}}
                 image={pictureblur} >
-        
+    
                 
                 <Card sx={{ maxWidth: 500, height: 255, borderRadius : 14}} className = {classes.floatcard} >
 
@@ -111,7 +142,7 @@ export default function IndexPageCultureBasketBall(){
                         <CardMedia 
                             sx={{ height: 255, width : 300 }}
                             image={picture}
-                            title={title}>
+                            title={t('Verge')}>
                             <CardContent sx={{ flex: '1 0 auto' }}>
                                 <Grid container direction = 'column' alignItems="center" spacing = {2} justifyContent="flex-end">
                                 <Card sx={{ height:200}} className = {classes.floatcard} />
@@ -129,7 +160,7 @@ export default function IndexPageCultureBasketBall(){
                         </CardMedia>        
 
                     <Grid item padding = {1} alignItems="center" >
-                            <Card className = {classes.card} sx={{ width: 137, height: 150, borderRadius : 10, boxShadow: 0, padding: 0.5}}>   
+                            <Card className = {classes.card} sx={{ width: 135, height: 150, borderRadius : 10, boxShadow: 0, padding: 0.5}}>   
                                     <CardContent >
                                                 <Typography component="div" variant="h6" color="white">
                                                     {t(headings)}
@@ -145,8 +176,9 @@ export default function IndexPageCultureBasketBall(){
                     </Grid>
                 </Card>
             </CardMedia>
-        </Card>
-    </Grid>))}
-    </Grid>
+        
+    // </Grid>
+    ))}</Card>
+    // </Grid>
 
   )};

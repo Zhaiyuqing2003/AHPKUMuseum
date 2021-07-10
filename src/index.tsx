@@ -31,10 +31,10 @@ import "./utils/FontDependencies";
 import AppTopBar from "./components/AppTopBar"
 import IndexPageFrontContent from "./components/IndexPageFrontContent"
 import AppContainer from "./components/AppContainer"
+import IndexPageFlipCards from './components/IndexFlipCard'
 import IndexPageCulture from './components/IndexPageSchoolCultureInt'
 import IndexPageTimeline from './components/IndexPageTimeline'
 import AppMusicBar from "./components/AppMusicBar"
-
 
 declare module '@material-ui/styles'{
     interface DefaultTheme extends Theme {}
@@ -97,7 +97,8 @@ function App(){
             />
             <AppContainer>
                 <IndexPageFrontContent />
-                <IndexPageCulture />
+                {/* <IndexPageCulture /> */}
+                <IndexPageFlipCards></IndexPageFlipCards>
                 <IndexPageTimeline />
             </AppContainer>
             <AppMusicBar/>
