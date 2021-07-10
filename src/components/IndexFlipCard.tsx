@@ -18,7 +18,9 @@ interface TabPanelProps {
   index: number;
   value: number;
 }
-
+function testIfItWorks(){
+  console.log('FUCK ME BABE it works')
+}
 function TabPanel(props: TabPanelProps) {
   const { children, value, index, ...other } = props;
 
@@ -26,7 +28,7 @@ function TabPanel(props: TabPanelProps) {
   return (
     <div
       role="tabpanel"
-      hidden={value !== index}
+      hidden={value !== index || value == -1}
       id={`full-width-tabpanel-${index}`}
       aria-labelledby={`full-width-tab-${index}`}
       {...other}
@@ -46,10 +48,31 @@ function a11yProps(index: number) {
     'aria-controls': `full-width-tabpanel-${index}`,
   };
 }
+function numberJudge(index : number){
+  const randomnumber = Math.floor(Math.random() * 100)
+
+  if (index  + 1 === 6){
+    if (randomnumber === 1){
+      console.log('哈哈')
+      return 5
+    }
+    else {
+      console.log('现在随机数是'+randomnumber+'(数字为1时骂人)')
+      return 1
+    }
+      
+  }
+  else if (index - 1 === -1){
+    return 4
+  }
+  else{
+    return index
+  }
+}
 
 export default function FullWidthTabs() {
   const theme = useTheme();
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = React.useState(3);
 
   const cardone = IndexPageCulture(0)
   const cardtwo = IndexPageCulture(1)
@@ -57,13 +80,18 @@ export default function FullWidthTabs() {
   const cardfour = IndexPageCulture(3)
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
-    setValue(newValue);
+    setValue( newValue );
   };
 
   const handleChangeIndex = (index: number) => {
     setValue(index);
   };
-
+  const handleSwitch = (index: number) => {
+    setValue(numberJudge(index));
+  };
+  const rightHandle = (index: number)=>{
+    setValue(3)
+  }
   return (
     <Grid
     container
@@ -73,41 +101,34 @@ export default function FullWidthTabs() {
     spacing = {5}
     >
       <Grid item>
-        <IconButton aria-label="Flip left"  ><ArrowBackIosRoundedIcon fontSize = 'large'/></IconButton>
+        <IconButton aria-label="Flip left" ><ArrowBackIosRoundedIcon fontSize = 'large' /></IconButton>
       </Grid>
       <Grid item>
           <Box sx={{ bgcolor: 'background.paper', width: 500 }}>
-            <AppBar position="static">
-              <Tabs
-                value={value}
-                onChange={handleChange}
-                indicatorColor="secondary"
-                textColor="inherit"
-                variant="fullWidth"
-                aria-label="full width tabs example"
-              >
-                <Tab label="Item One" {...a11yProps(0)} />
-                <Tab label="Item Two" {...a11yProps(1)} />
-                <Tab label="Item Three" {...a11yProps(2)} />
-                <Tab label="Item Four" {...a11yProps(3)} />
-              </Tabs>
-            </AppBar>
+ 
           <SwipeableViews
             axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
             index={value}
-            onChangeIndex={handleChangeIndex}
+            onChangeIndex={handleSwitch}
           >
+
             <TabPanel value={value} index={0} dir={theme.direction}>
-              {cardone}
+            <h1>王峥是狗</h1>
             </TabPanel>
             <TabPanel value={value} index={1} dir={theme.direction}>
-              {cardtwo}
+              {cardone}
             </TabPanel>
             <TabPanel value={value} index={2} dir={theme.direction}>
-              {cardthree}
+              {cardtwo}
             </TabPanel>
             <TabPanel value={value} index={3} dir={theme.direction}>
+              {cardthree}
+            </TabPanel>           
+            <TabPanel value={value} index={4} dir={theme.direction}>
               {cardfour}
+            </TabPanel>
+            <TabPanel value={value} index={5} dir={theme.direction}>
+              <h1>王峥是狗</h1>
             </TabPanel>
           </SwipeableViews>
         </Box>
