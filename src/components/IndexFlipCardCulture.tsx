@@ -50,12 +50,12 @@ function a11yProps(index: number) {
   };
 }
 function numberJudge(index : number){
-  const randomnumber = Math.floor(Math.random() * 100)
+  const randomnumber = Math.floor(Math.random() * 10)
 
-  if (index  + 1 === 6){
+  if (index  + 1 === 10){
     if (randomnumber === 1){
       console.log('哈哈')
-      return 5
+      return 10
     }
     else {
       console.log('现在随机数是'+randomnumber+'(数字为1时骂人)')
@@ -114,7 +114,7 @@ function FullWidthTabs() {
             sx = {{ borderRadius : 14}}
           >
 
-            <TabPanel value={value} index={0} dir={theme.direction}>
+<TabPanel value={value} index={0} dir={theme.direction}>
             <h1>王峥是狗</h1>
             </TabPanel>
             <TabPanel value={value} index={1} dir={theme.direction}>
@@ -130,6 +130,21 @@ function FullWidthTabs() {
               {cardfour}
             </TabPanel>
             <TabPanel value={value} index={5} dir={theme.direction}>
+              {cardone}
+            </TabPanel>
+            <TabPanel value={value} index={6} dir={theme.direction}>
+              {cardtwo}
+            </TabPanel>
+            <TabPanel value={value} index={7} dir={theme.direction}>
+              {cardthree}
+            </TabPanel>           
+            <TabPanel value={value} index={8} dir={theme.direction}>
+              {cardfour}
+            </TabPanel>
+            <TabPanel value={value} index={9} dir={theme.direction}>
+              <h1>这是彩蛋呱呱呱</h1>
+            </TabPanel>
+            <TabPanel value={value} index={10} dir={theme.direction}>
               <h1>这是彩蛋呱呱呱</h1>
             </TabPanel>
           </SwipeableViews>
@@ -144,7 +159,7 @@ function FullWidthTabs() {
 
 function MobileTabs() {
   const theme = useTheme();
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = React.useState(3);
 
   const cardone = IndexPageCultureMobile(0)
   const cardtwo = IndexPageCultureMobile(1)
@@ -180,25 +195,43 @@ function MobileTabs() {
           <SwipeableViews
             axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
             index={value}
-            onChangeIndex={handleChangeIndex}
+            onChangeIndex={handleSwitch}
             // sx = {{ borderRadius : 14}}
           >
-
- 
             <TabPanel value={value} index={0} dir={theme.direction}>
-              {cardone}
+            <h1>王峥是狗</h1>
             </TabPanel>
             <TabPanel value={value} index={1} dir={theme.direction}>
-              {cardtwo}
+              {cardone}
             </TabPanel>
             <TabPanel value={value} index={2} dir={theme.direction}>
+              {cardtwo}
+            </TabPanel>
+            <TabPanel value={value} index={3} dir={theme.direction}>
               {cardthree}
             </TabPanel>           
-            <TabPanel value={value} index={3} dir={theme.direction}>
+            <TabPanel value={value} index={4} dir={theme.direction}>
               {cardfour}
-            
             </TabPanel>
-
+            <TabPanel value={value} index={5} dir={theme.direction}>
+              {cardone}
+            </TabPanel>
+            <TabPanel value={value} index={6} dir={theme.direction}>
+              {cardtwo}
+            </TabPanel>
+            <TabPanel value={value} index={7} dir={theme.direction}>
+              {cardthree}
+            </TabPanel>           
+            <TabPanel value={value} index={8} dir={theme.direction}>
+              {cardfour}
+            </TabPanel>
+            <TabPanel value={value} index={9} dir={theme.direction}>
+              <h1>这是彩蛋呱呱呱</h1>
+            </TabPanel>
+            <TabPanel value={value} index={10} dir={theme.direction}>
+              <h1>这是彩蛋呱呱呱</h1>
+            </TabPanel>
+          
           </SwipeableViews>
     
         </Grid>
