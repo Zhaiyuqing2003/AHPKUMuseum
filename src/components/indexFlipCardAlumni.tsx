@@ -6,11 +6,12 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import IndexPageCulture from './IndexPageSchoolCultureInt'
+import {IndexPageCultureInt, IndexPageCultureMobile} from './IndexPageSchoolCultureInt'
 import ArrowBackIosRoundedIcon from '@material-ui/icons/ArrowBackIosRounded';
 import ArrowForwardIosRoundedIcon from '@material-ui/icons/ArrowForwardIosRounded';
 import IconButton from '@material-ui/core/IconButton';
 import Grid from '@material-ui/core/Grid';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -70,14 +71,14 @@ function numberJudge(index : number){
   }
 }
 
-export default function FullWidthTabs() {
+function FullWidthTabs() {
   const theme = useTheme();
   const [value, setValue] = React.useState(3);
 
-  const cardone = IndexPageCulture(0)
-  const cardtwo = IndexPageCulture(1)
-  const cardthree = IndexPageCulture(2)
-  const cardfour = IndexPageCulture(3)
+  const cardone = IndexPageCultureInt(0)
+  const cardtwo = IndexPageCultureInt(1)
+  const cardthree = IndexPageCultureInt(2)
+  const cardfour =  IndexPageCultureInt(3)
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue( newValue );
@@ -104,12 +105,13 @@ export default function FullWidthTabs() {
         <IconButton aria-label="Flip left" ><ArrowBackIosRoundedIcon fontSize = 'large' /></IconButton>
       </Grid>
       <Grid item>
-          <Box sx={{ bgcolor: 'background.paper', width: 500 }}>
+        <Box sx={{ bgcolor: 'background.paper'}}>
  
           <SwipeableViews
             axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
             index={value}
             onChangeIndex={handleSwitch}
+            sx = {{ borderRadius : 14}}
           >
 
             <TabPanel value={value} index={0} dir={theme.direction}>
@@ -138,4 +140,100 @@ export default function FullWidthTabs() {
       </Grid>
     </Grid>
   );
+}
+
+function MobileTabs() {
+  const theme = useTheme();
+  const [value, setValue] = React.useState(0);
+
+  const cardone = IndexPageCultureMobile(0)
+  const cardtwo = IndexPageCultureMobile(1)
+  const cardthree =IndexPageCultureMobile(2)
+  const cardfour =  IndexPageCultureMobile(3)
+  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+    setValue( newValue );
+  };
+
+  const handleChangeIndex = (index: number) => {
+    setValue(index);
+  };
+  const handleSwitch = (index: number) => {
+    setValue(numberJudge(index));
+  };
+  const rightHandle = (index: number)=>{
+    setValue(3)
+  }
+  return (
+    <Grid
+    container
+    direction="column"
+    justifyContent="center"
+    alignItems="center" 
+    paddingTop = {2}
+    >
+      <Grid item>
+        <Typography color = 'textSecondary'>请滑动查看 Swip to check</Typography>
+      </Grid>
+      <Grid item>
+      <Grid item>
+
+          <SwipeableViews
+            axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+            index={value}
+            onChangeIndex={handleChangeIndex}
+            // sx = {{ borderRadius : 14}}
+          >
+
+ 
+            <TabPanel value={value} index={0} dir={theme.direction}>
+              {cardone}
+            </TabPanel>
+            <TabPanel value={value} index={1} dir={theme.direction}>
+              {cardtwo}
+            </TabPanel>
+            <TabPanel value={value} index={2} dir={theme.direction}>
+              {cardthree}
+            </TabPanel>           
+            <TabPanel value={value} index={3} dir={theme.direction}>
+              {cardfour}
+            
+            </TabPanel>
+
+          </SwipeableViews>
+    
+        </Grid>
+      </Grid>
+
+    </Grid>
+  );
+}
+
+
+
+
+
+
+export default function UseFlipCard(){
+  let BigTab = FullWidthTabs()
+  let SmallTab = MobileTabs()
+  let theme = useTheme();
+  let { between, down, up, values } = theme.breakpoints;
+//@ts-ignore
+  let { desktop, laptop } = values;
+
+  let isLargerThanDesktop = useMediaQuery(up(desktop));
+  let isLaptop = useMediaQuery(between(laptop, desktop));
+  let isSmallerThanLaptop = useMediaQuery(down(laptop));
+  if (isLargerThanDesktop){
+      return BigTab;
+  } else if (isLaptop){
+      return BigTab;
+  } 
+  
+  else if (isSmallerThanLaptop){
+      return SmallTab;
+  } else {
+      return SmallTab;
+  }
+
 }
