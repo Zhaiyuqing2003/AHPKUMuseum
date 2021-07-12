@@ -19,21 +19,21 @@ import { Theme } from "@material-ui/core/styles";
 
 
 //@ts-ignore
-import bascketballone from "../images/index/culture/Basketball/one.png"
+import bascketballone from "../images/index/culture/Basketball/one.WebP"
 //@ts-ignore\
-import bascketballoneblur from "../images/index/culture/blur/one.jpg"
+import bascketballoneblur from "../images/index/culture/blur/one.WebP"
 //@ts-ignore\
-import danceone from "../images/index/culture/Dance/two.png"
+import danceone from "../images/index/culture/Dance/two.WebP"
 //@ts-ignore\
-import danceoneblur from "../images/index/culture/blur/two.jpg"
+import danceoneblur from "../images/index/culture/blur/two.WebP"
 //@ts-ignore\
-import theatreone from "../images/index/culture/Theatre/three.png"
+import theatreone from "../images/index/culture/Theatre/three.WebP"
 //@ts-ignore\
-import theatreoneblur from "../images/index/culture/blur/three.jpg"
+import theatreoneblur from "../images/index/culture/blur/three.WebP"
 //@ts-ignore\
-import footballone from "../images/index/culture/Football/four.png"
+import footballone from "../images/index/culture/Football/four.WebP"
 //@ts-ignore\
-import footballoneblur from "../images/index/culture/blur/four.jpg"
+import footballoneblur from "../images/index/culture/blur/four.WebP"
 
 declare module '@material-ui/styles'{
     interface DefaultTheme extends Theme{}
@@ -124,15 +124,18 @@ function FuckIWantWhatEverIWant(input){
 
     return (    
     // <Grid container spacing= {2}>
-    //@ts-ignore\
+
+    <>
+ 
+
     <Card  sx={{ maxWidth: 455, display: 'flex', height:255, borderRadius : 14 }}> {(Daddy).map(({ title, picture, pictureblur, headings, content }, index) => (
     // <Grid item  key = {  index }>
-        
-        
+
+            
             <CardMedia
                 sx={{ height: 285,width: 455}}
                 image={pictureblur} >
-    
+                 
                 
                 <Card sx={{ maxWidth: 500, height: 255, borderRadius : 14}} className = {classes.floatcard} >
 
@@ -179,7 +182,7 @@ function FuckIWantWhatEverIWant(input){
             </CardMedia>
         
     // </Grid>
-    ))}</Card>
+    ))}</Card></>
     // </Grid>
 
   )};
@@ -193,8 +196,10 @@ function FuckIWantWhatEverIWant(input){
 
     return (
     // <Grid container spacing= {2}>
-    //@ts-ignore\
-    <Card  sx={{ maxWidth: 300, display: 'flex', height:335, borderRadius : 14 }}> {(Daddy).map(({ title, picture, pictureblur, headings, content }, index) => (
+
+    <>
+
+        <Card  sx={{ maxWidth: 300, display: 'flex', height:335, borderRadius : 14 }}> {(Daddy).map(({ title, picture, pictureblur, headings, content }, index) => (
         // <Grid item  key = {  index }>
             
             
@@ -250,4 +255,6 @@ function FuckIWantWhatEverIWant(input){
             
         // </Grid>
         ))}</Card>
+    </>
+
   )};

@@ -6,7 +6,8 @@
 		"*.jpg": ["@parcel/transformer-raw"],
 		"*.png": ["@parcel/transformer-raw"],
 		"*.mp3": ["@parcel/transformer-raw"],
-		"*.m4a": ["@parcel/transformer-raw"]
+		"*.m4a": ["@parcel/transformer-raw"],
+		"*.WebP": ["@parcel/transformer-raw"]
 	},
 	"reporters": [
 		"..."

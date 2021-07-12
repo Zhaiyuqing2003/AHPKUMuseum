@@ -12,6 +12,7 @@ import ArrowForwardIosRoundedIcon from '@material-ui/icons/ArrowForwardIosRounde
 import IconButton from '@material-ui/core/IconButton';
 import Grid from '@material-ui/core/Grid';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
+import { useTranslation } from "react-i18next";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -75,6 +76,8 @@ function FullWidthTabs() {
   const theme = useTheme();
   const [value, setValue] = React.useState(3);
 
+  const { t } = useTranslation("IndexPageSchoolCultureInt");
+
   const cardone = IndexPageCultureInt(0)
   const cardtwo = IndexPageCultureInt(1)
   const cardthree = IndexPageCultureInt(2)
@@ -94,7 +97,9 @@ function FullWidthTabs() {
     setValue(3)
   }
   return (
-    <Grid
+    <>
+       <Typography variant = 'h4' textAlign = 'center' paddingTop = '15px'>{t('SiDaSaiShi')}</Typography>
+       <Grid
     container
     direction="row"
     justifyContent="center"
@@ -114,7 +119,7 @@ function FullWidthTabs() {
             sx = {{ borderRadius : 14}}
           >
 
-<TabPanel value={value} index={0} dir={theme.direction}>
+          <TabPanel value={value} index={0} dir={theme.direction}>
             <h1>王峥是狗</h1>
             </TabPanel>
             <TabPanel value={value} index={1} dir={theme.direction}>
@@ -153,13 +158,17 @@ function FullWidthTabs() {
       <Grid item>
       <IconButton aria-label="Flip left"><ArrowForwardIosRoundedIcon fontSize = 'large'/></IconButton>
       </Grid>
-    </Grid>
+    </Grid></>
   );
+    
+    
 }
 
 function MobileTabs() {
   const theme = useTheme();
   const [value, setValue] = React.useState(3);
+
+  const { t } = useTranslation("IndexPageSchoolCultureInt");
 
   const cardone = IndexPageCultureMobile(0)
   const cardtwo = IndexPageCultureMobile(1)
@@ -184,14 +193,13 @@ function MobileTabs() {
     direction="column"
     justifyContent="center"
     alignItems="center" 
-    paddingTop = {2}
+    paddingTop = {3}
     >
-      <Grid item>
-        <Typography color = 'textSecondary'>请滑动查看 Swip to check</Typography>
-      </Grid>
-      <Grid item>
-      <Grid item>
 
+      <Grid item>
+      <Grid item>
+        <Typography variant = 'h4' textAlign = 'center' paddingBottom = '5px'>{t('SiDaSaiShi')}</Typography>
+        <Typography  variant = 'subtitle1' color = 'textSecondary'paddingBottom = '5px' textAlign = 'center' >{t('HuaDong')}</Typography>
           <SwipeableViews
             axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
             index={value}
