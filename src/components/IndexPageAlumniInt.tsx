@@ -19,33 +19,33 @@ import { Theme } from "@material-ui/core/styles";
 
 
 //@ts-ignore
-import ChenXiaoNan from "../images/index/alumni/CXN.WebP"
+import ChenXiaoNan from "../images/index/alumni/CXN.webP"
 //@ts-ignore
-import MaoXinYu from "../images/index/alumni/MXY.WebP"
+import MaoXinYu from "../images/index/alumni/MXY.webP"
 //@ts-ignore\        
-import NiuHongGuang from "../images/index/alumni/NHG.WebP"
+import NiuHongGuang from "../images/index/alumni/NHG.webP"
 //@ts-ignore\
-import WangYan from "../images/index/alumni/WY.WebP"
+import WangYan from "../images/index/alumni/WY.webP"
 //@ts-ignore\
-import WangZheng from "../images/index/alumni/WZ.WebP"
+import WangZheng from "../images/index/alumni/WZ.webP"
 //@ts-ignore\
-import XuBing from "../images/index/alumni/XB.WebP"
+import XuBing from "../images/index/alumni/XB.webP"
 //@ts-ignore\
-import ZhangXinLing from "../images/index/alumni/ZXL.WebP"
+import ZhangXinLing from "../images/index/alumni/ZXL.webP"
 //@ts-ignore\
-import ChenXiaoNanBlur from "../images/index/alumni/blur/CXN.WebP"
+import ChenXiaoNanBlur from "../images/index/alumni/blur/CXN.webP"
 //@ts-ignore\
-import MaoXinYuBlur from "../images/index/alumni/blur/MXY.WebP"
+import MaoXinYuBlur from "../images/index/alumni/blur/MXY.webP"
 //@ts-ignore\
-import NiuHongGuangBlur from "../images/index/alumni/blur/NHG.WebP"
+import NiuHongGuangBlur from "../images/index/alumni/blur/NHG.webP"
 //@ts-ignore\
-import WangYanBlur from "../images/index/alumni/blur/WY.WebP"
+import WangYanBlur from "../images/index/alumni/blur/WY.webP"
 //@ts-ignore\
-import WangZhengBlur from "../images/index/alumni/blur/WZ.WebP"
+import WangZhengBlur from "../images/index/alumni/blur/WZ.webP"
 //@ts-ignore\
-import XuBingBlur from "../images/index/alumni/blur/XB.WebP"
+import XuBingBlur from "../images/index/alumni/blur/XB.webP"
 //@ts-ignore\
-import ZhangXinLingBlur from "../images/index/alumni/blur/ZXL.WebP"
+import ZhangXinLingBlur from "../images/index/alumni/blur/ZXL.webP"
 import { SixtyFpsTwoTone } from '@material-ui/icons';
 
 
