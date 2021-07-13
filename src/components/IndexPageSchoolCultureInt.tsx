@@ -18,21 +18,21 @@ import { useTranslation } from "react-i18next";
 import { Theme } from "@material-ui/core/styles";
 
 //@ts-ignore
-import bascketballone from "../images/index/culture/Basketball/one.webP"
+import bascketballone from "../images/index/culture/Basketball/one.webp"
 //@ts-ignore\
-import bascketballoneblur from "../images/index/culture/blur/one.webP"
+import bascketballoneblur from "../images/index/culture/blur/one.webp"
 //@ts-ignore\
-import danceone from "../images/index/culture/Dance/two.webP"
+import danceone from "../images/index/culture/Dance/two.webp"
 //@ts-ignore\
-import danceoneblur from "../images/index/culture/blur/two.webP"
+import danceoneblur from "../images/index/culture/blur/two.webp"
 //@ts-ignore\
-import theatreone from "../images/index/culture/Theatre/three.webP"
+import theatreone from "../images/index/culture/Theatre/three.webp"
 //@ts-ignore\
-import theatreoneblur from "../images/index/culture/blur/three.webP"
+import theatreoneblur from "../images/index/culture/blur/three.webp"
 //@ts-ignore\
-import footballone from "../images/index/culture/Football/four.webP"
+import footballone from "../images/index/culture/Football/four.webp"
 //@ts-ignore\
-import footballoneblur from "../images/index/culture/blur/four.webP"
+import footballoneblur from "../images/index/culture/blur/four.webp"
 
 declare module '@material-ui/styles'{
     interface DefaultTheme extends Theme{}
