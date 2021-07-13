@@ -31,7 +31,8 @@ import "./utils/FontDependencies";
 import AppTopBar from "./components/AppTopBar"
 import IndexPageFrontContent from "./components/IndexPageFrontContent"
 import AppContainer from "./components/AppContainer"
-import IndexPageFlipCards from './components/IndexFlipCardCulture'
+import IndexPageFlipCardsAlumni from './components/IndexFlipCardAlumni'
+import IndexPageFlipCardsCulture from './components/IndexFlipCardCulture'
 // import IndexPageCulture from './components/IndexPageSchoolCultureInt'
 import IndexPageTimeline from './components/IndexPageTimeline'
 import AppMusicBar from "./components/AppMusicBar"
@@ -98,7 +99,8 @@ function App(){
             <AppContainer>
                 <IndexPageFrontContent />
                 {/* <IndexPageCulture /> */}
-                <IndexPageFlipCards></IndexPageFlipCards>
+                <IndexPageFlipCardsCulture></IndexPageFlipCardsCulture>
+                <IndexPageFlipCardsAlumni></IndexPageFlipCardsAlumni>
                 <IndexPageTimeline />
             </AppContainer>
             <AppMusicBar/>

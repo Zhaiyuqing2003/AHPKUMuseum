@@ -156,6 +156,7 @@ function DesktopTimeline() {
 
     return (
         <>
+        <Typography variant = 'h4' textAlign = 'center' paddingTop = '30px'>{'历代校长时间线'}</Typography>
         {/* <FormControlLabel control={<Switch checked={checked} onChange={handleChange} />}label="Show"/> */}
         <Timeline position="alternate" >
             {headmasters.map(({ name, year,yeartwo, position, positiontwo, picture }, index) => ( 
@@ -233,7 +234,10 @@ function Mobiletimeline(){
     const theme = useTheme()
     const classes = useStyles()
     const { t } = useTranslation("indexPageTimeline");
-    return (<Timeline position="alternate">{
+    return (
+    <>
+    <Typography variant = 'h4' textAlign = 'center' paddingTop = '30px'>{'历代校长时间线'}</Typography>
+    <Timeline position="alternate">{
 
         headmasters.map(({ name, year, yeartwo, position, positiontwo, picture }, index) => ( 
     <>
@@ -286,7 +290,7 @@ function Mobiletimeline(){
     </TimelineItem>   
     </>
 ))
-}</Timeline>)
+}</Timeline></>)
 }
 
 export default function UseIndexPageTimeline(){

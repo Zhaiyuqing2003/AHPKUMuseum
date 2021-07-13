@@ -19,52 +19,84 @@ import { Theme } from "@material-ui/core/styles";
 
 
 //@ts-ignore
-import bascketballone from "../images/index/culture/Basketball/one.png"
+import ChenXiaoNan from "../images/index/alumni/CXN.WebP"
+//@ts-ignore
+import MaoXinYu from "../images/index/alumni/MXY.WebP"
+//@ts-ignore\        
+import NiuHongGuang from "../images/index/alumni/NHG.WebP"
 //@ts-ignore\
-import bascketballoneblur from "../images/index/culture/blur/one.jpg"
+import WangYan from "../images/index/alumni/WY.WebP"
 //@ts-ignore\
-import danceone from "../images/index/culture/Dance/two.png"
+import WangZheng from "../images/index/alumni/WZ.WebP"
 //@ts-ignore\
-import danceoneblur from "../images/index/culture/blur/two.jpg"
+import XuBing from "../images/index/alumni/XB.WebP"
 //@ts-ignore\
-import theatreone from "../images/index/culture/Theatre/three.png"
+import ZhangXinLing from "../images/index/alumni/ZXL.WebP"
 //@ts-ignore\
-import theatreoneblur from "../images/index/culture/blur/three.jpg"
+import ChenXiaoNanBlur from "../images/index/alumni/blur/CXN.WebP"
 //@ts-ignore\
-import footballone from "../images/index/culture/Football/four.png"
+import MaoXinYuBlur from "../images/index/alumni/blur/MXY.WebP"
 //@ts-ignore\
-import footballoneblur from "../images/index/culture/blur/four.jpg"
+import NiuHongGuangBlur from "../images/index/alumni/blur/NHG.WebP"
+//@ts-ignore\
+import WangYanBlur from "../images/index/alumni/blur/WY.WebP"
+//@ts-ignore\
+import WangZhengBlur from "../images/index/alumni/blur/WZ.WebP"
+//@ts-ignore\
+import XuBingBlur from "../images/index/alumni/blur/XB.WebP"
+//@ts-ignore\
+import ZhangXinLingBlur from "../images/index/alumni/blur/ZXL.WebP"
+import { SixtyFpsTwoTone } from '@material-ui/icons';
+
 
 declare module '@material-ui/styles'{
     interface DefaultTheme extends Theme{}
 }
 
 //@ts-ignore
-const cultures: cultureItem[] = [{
-    title: 'LanQiuBei',
-    picture : bascketballone,
-    pictureblur : bascketballoneblur,
+const Alumni: Alumni[] = [{
+    title: 'ChenXiaoNan',
+    picture :  ChenXiaoNan,
+    pictureblur : ChenXiaoNanBlur,
     headings : 'BiaoTi',
-    content: 'WenAn',
+    content: 'WenAnChenXiaoNan',
 }, 
 {
-    title: 'ZuQiuBei',
-    picture : footballone,
-    pictureblur : footballoneblur,
+    title: 'MaoXinYu',
+    picture : MaoXinYu,
+    pictureblur : MaoXinYuBlur,
     headings : 'BiaoTi',
-    content: 'WenAn',
+    content: 'WenAnMaoXinYu',
 },{
-    title: 'XiJuJie',
-    picture : theatreone,
-    pictureblur : theatreoneblur,
+    title: 'NiuHongGuang',
+    picture : NiuHongGuang,
+    pictureblur : NiuHongGuangBlur,
     headings : 'BiaoTi',
-    content: 'WenAn',
+    content: 'WenAnNiuHongGuang',
 },{
-    title: 'WuDaoJie',
-    picture : danceone,
-    pictureblur : danceoneblur,
+    title: 'WangYan',
+    picture : WangYan,
+    pictureblur : WangYanBlur,
     headings : 'BiaoTi',
-    content: 'WenAn',
+    content: 'WenAnWangYan',
+},{
+    title: 'WangZheng',
+    picture : WangZheng,
+    pictureblur : WangZhengBlur,
+    headings : 'BiaoTi',
+    content: 'WenAnWangZheng',
+},{
+    title: 'XuBing',
+    picture : XuBing,
+    pictureblur :XuBingBlur,
+    headings : 'BiaoTi',
+    content: 'WenAnXuBing',
+},{
+    title: 'ZhangXinLing',
+    picture : ZhangXinLing,
+    pictureblur : ZhangXinLingBlur,
+    headings : 'BiaoTi',
+    content: 'WenAnZhangXinLing',
 } ]
 
 const ContentStyle = makeStyles((theme) => ({
@@ -87,14 +119,25 @@ const ContentStyle = makeStyles((theme) => ({
     }
 }))
 
-let one = cultures[0]
+let one = Alumni[0]
 let listone: number[] = [one];
-let two = cultures[1]
+let two = Alumni[1]
 let listtwo: number[] = [two];
-let three = cultures[2]
+let three = Alumni[2]
 let listthree: number[] = [three]
-let four = cultures[3]
+let four = Alumni[3]
 let listfour: number[] = [four];
+let five = Alumni[4]
+let listfive: number[] = [five];
+let six = Alumni[5]
+let listsix: number[] = [six];
+let seven = Alumni[6]
+let listseven: number[] = [seven];
+
+
+
+
+
 
 function fuck(){
 console.log(listthree)
@@ -113,12 +156,21 @@ function FuckIWantWhatEverIWant(input){
     if(input ===3 ){
         return listfour
     }
+    if(input ===4 ){
+        return listfive
+    }
+    if(input ===5 ){
+        return listsix
+    }
+    if(input ===6 ){
+        return listseven
+    }
 }
 
- export  function IndexPageCultureInt(input){
+ export  function IndexPageAlumniInt(input){
     const theme = useTheme()
     const classes = ContentStyle()
-    const { t } = useTranslation("IndexPageSchoolCultureInt");
+    const { t } = useTranslation("indexPageAlumni");
     const Daddy = FuckIWantWhatEverIWant(input)
     // const component = FuckIWantWhatEverIWant(input)
 
@@ -142,8 +194,7 @@ function FuckIWantWhatEverIWant(input){
                         alignItems="center">
                         <CardMedia 
                             sx={{ height: 255, width : 300 }}
-                            image={picture}
-                            title={t('Verge')}>
+                            image={picture}>
                             <CardContent sx={{ flex: '1 0 auto' }}>
                                 <Grid container direction = 'column' alignItems="center" spacing = {2} justifyContent="flex-end">
                                 <Card sx={{ height:200}} className = {classes.floatcard} />
@@ -161,7 +212,7 @@ function FuckIWantWhatEverIWant(input){
                         </CardMedia>        
 
                         <Grid item padding = {1} alignItems="center" >
-                                <Card className = {classes.card} sx={{ width: 135, height: 150, borderRadius : 10, boxShadow: 0, padding: 0.5}}>   
+                                <Card className = {classes.card} sx={{ width: 135, height: 240, borderRadius : 12, boxShadow: 0, padding: 0.5}}>   
                                         <CardContent >
                                                     <Typography component="div" variant="h6" color="white">
                                                         {t(headings)}
@@ -184,70 +235,75 @@ function FuckIWantWhatEverIWant(input){
 
   )};
 
-  export  function IndexPageCultureMobile(input){
+  export  function  IndexPageAlumniMobile(input){
     const theme = useTheme()
     const classes = ContentStyle()
-    const { t } = useTranslation("IndexPageSchoolCultureInt");
+    const { t } = useTranslation("indexPageAlumni");
     const Daddy = FuckIWantWhatEverIWant(input)
     // const component = FuckIWantWhatEverIWant(input)
 
     return (
-    // <Grid container spacing= {2}>
-    //@ts-ignore\
-    <Card  sx={{ maxWidth: 300, display: 'flex', height:335, borderRadius : 14 }}> {(Daddy).map(({ title, picture, pictureblur, headings, content }, index) => (
-        // <Grid item  key = {  index }>
+        // <Grid container spacing= {2}>
+    
+        <>
+    
+            <Card  sx={{ maxWidth: 300, display: 'flex', height:370, borderRadius : 14 }}> {(Daddy).map(({ title, picture, pictureblur, headings, content }, index) => (
+            // <Grid item  key = {  index }>
+                
+                
+                    <CardMedia
+                        sx={{ height: 400,width: 300}}
+                        image={pictureblur} >
             
-            
-                <CardMedia
-                    sx={{ height: 335,width: 300}}
-                    image={pictureblur} >
+                        
+                        <Card sx={{ maxWidth: 500, height: 250, boxShadow:10,borderRadius : 0 }} className = {classes.floatcard} >
         
-                    
-                    <Card sx={{ maxWidth: 500, height: 235, boxShadow:10 }} className = {classes.floatcard} >
-    
-                        <Grid
-                            container
-                            direction="row" 
-                            alignItems="center">
-                            <CardMedia 
-                                sx={{ height: 235, width : 300}}
-                                image={picture}
-                                title={t('Verge')}>
-                                <CardContent sx={{ flex: '1 0 auto' }}>
-                                    <Grid container direction = 'column' alignItems="center" spacing = {2} justifyContent="flex-end">
-                                    <Card sx={{ height:180}} className = {classes.floatcard} />
-                                            <Grid item>
-                                                <Card className = {classes.card} sx = {{height: 32,width:200, borderRadius: 14, boxShadow:10}}>
-                                                    <Grid item alignItems="center">
-                                                        <Typography component="div" variant="h5" color="white" align = 'center' display = 'block'>
-                                                            {t(title)}
-                                                        </Typography>  
-                                                    </Grid>
-                                                </Card>
-                                            </Grid>
-                                    </Grid>
-                                </CardContent>
-                            </CardMedia>        
-    
-                            <Grid item padding = {1} alignItems="center" >
-                  
+                            <Grid
+                                container
+                                direction="row" 
+                                alignItems="center">
+                                <CardMedia 
+                                    sx={{ height: 250, width : 300}}
+                                    image={picture}
+                                   >
+                                    <CardContent sx={{ flex: '1 0 auto' }}>
+                                        <Grid container direction = 'column' alignItems="center" spacing = {2} justifyContent="flex-end">
+                                        <Card sx={{ height:180}} className = {classes.floatcard} />
+                                                <Grid item>
+                                                    <Card className = {classes.card} sx = {{height: 32,width:200, borderRadius: 14, boxShadow:10}}>
+                                                        <Grid item alignItems="center">
+                                                            <Typography component="div" variant="h5" color="white" align = 'center' display = 'block'>
+                                                                {t(title)}
+                                                            </Typography>  
+                                                        </Grid>
+                                                    </Card>
+                                                </Grid>
+                                        </Grid>
+                                    </CardContent>
+                                </CardMedia>        
+        
+                                <Grid item padding = {1} alignItems="center" >
+                      
+                                </Grid>
+        
                             </Grid>
+                        </Card>                                    
+                                         <Card className = {classes.card} sx={{ width: 300, height: 250, boxShadow: 0, borderRadius : 0} }>   
+                                                <CardContent >
+                                                            <Typography component="div" variant="h6" color="white" paddingLeft = {3}>
+                                                                {t(headings)}
+                                                            </Typography>
+                                            
+                                                            <Typography variant="subtitle2" color="white" paddingLeft = {3}>
+                                                                {t(content)}
+                                                            </Typography>
+                                                </CardContent>
+                                        </Card>     
+                    </CardMedia>
+                
+            // </Grid>
+            ))}</Card>
+        </>
     
-                        </Grid>
-                    </Card>                                    
-                                     <Card className = {classes.floatcard} sx={{ width: 300, height: 150, boxShadow: 0,}}>   
-                                            <CardContent >
-                                                        <Typography component="div" variant="h6" color="white" paddingLeft = {3}>
-                                                            {t(headings)}
-                                                        </Typography>
-                                        
-                                                        <Typography variant="subtitle2" color="white" paddingLeft = {3}>
-                                                            {t(content)}
-                                                        </Typography>
-                                            </CardContent>
-                                    </Card>     
-                </CardMedia>
-            
-        // </Grid>
-        ))}</Card>
-  )};
+      )};
+    

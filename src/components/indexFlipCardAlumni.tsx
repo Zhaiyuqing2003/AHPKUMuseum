@@ -6,12 +6,13 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import {IndexPageCultureInt, IndexPageCultureMobile} from './IndexPageSchoolCultureInt'
+import { IndexPageAlumniInt, IndexPageAlumniMobile} from './IndexPageAlumniInt'
 import ArrowBackIosRoundedIcon from '@material-ui/icons/ArrowBackIosRounded';
 import ArrowForwardIosRoundedIcon from '@material-ui/icons/ArrowForwardIosRounded';
 import IconButton from '@material-ui/core/IconButton';
 import Grid from '@material-ui/core/Grid';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
+import { useTranslation } from "react-i18next";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -50,21 +51,13 @@ function a11yProps(index: number) {
   };
 }
 function numberJudge(index : number){
-  const randomnumber = Math.floor(Math.random() * 100)
+  
 
-  if (index  + 1 === 6){
-    if (randomnumber === 1){
-      console.log('哈哈')
-      return 5
-    }
-    else {
-      console.log('现在随机数是'+randomnumber+'(数字为1时骂人)')
+  if (index  + 1 === 9){
       return 1
-    }
-      
   }
   else if (index - 1 === -1){
-    return 4
+    return 7
   }
   else{
     return index
@@ -73,13 +66,17 @@ function numberJudge(index : number){
 
 function FullWidthTabs() {
   const theme = useTheme();
-  const [value, setValue] = React.useState(3);
+  const [value, setValue] = React.useState(4);
 
-  const cardone = IndexPageCultureInt(0)
-  const cardtwo = IndexPageCultureInt(1)
-  const cardthree = IndexPageCultureInt(2)
-  const cardfour =  IndexPageCultureInt(3)
+  const { t } = useTranslation("indexPageAlumni");
 
+  const cardone = IndexPageAlumniInt(0)
+  const cardtwo =  IndexPageAlumniInt(1)
+  const cardthree = IndexPageAlumniInt(2)
+  const cardfour =   IndexPageAlumniInt(3)
+  const cardfive =   IndexPageAlumniInt(4)
+  const cardsix =   IndexPageAlumniInt(5)
+  const cardseven =   IndexPageAlumniInt(6)
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue( newValue );
   };
@@ -94,6 +91,8 @@ function FullWidthTabs() {
     setValue(3)
   }
   return (
+    <>
+    <Typography variant = 'h4' textAlign = 'center' paddingTop = '15px'>{t('XiaoYou')}</Typography>
     <Grid
     container
     direction="row"
@@ -130,6 +129,16 @@ function FullWidthTabs() {
               {cardfour}
             </TabPanel>
             <TabPanel value={value} index={5} dir={theme.direction}>
+              {cardfive}
+            </TabPanel>
+            <TabPanel value={value} index={6} dir={theme.direction}>
+              {cardsix}
+            </TabPanel>
+            <TabPanel value={value} index={7} dir={theme.direction}>
+              {cardseven}
+            </TabPanel>
+            
+            <TabPanel value={value} index={8} dir={theme.direction}>
               <h1>王峥是狗</h1>
             </TabPanel>
           </SwipeableViews>
@@ -139,17 +148,22 @@ function FullWidthTabs() {
       <IconButton aria-label="Flip left"><ArrowForwardIosRoundedIcon fontSize = 'large'/></IconButton>
       </Grid>
     </Grid>
-  );
+  </>);
 }
 
 function MobileTabs() {
   const theme = useTheme();
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = React.useState(4);
 
-  const cardone = IndexPageCultureMobile(0)
-  const cardtwo = IndexPageCultureMobile(1)
-  const cardthree =IndexPageCultureMobile(2)
-  const cardfour =  IndexPageCultureMobile(3)
+  const { t } = useTranslation("indexPageAlumni");
+
+  const cardone = IndexPageAlumniMobile(0)
+  const cardtwo =  IndexPageAlumniMobile(1)
+  const cardthree = IndexPageAlumniMobile(2)
+  const cardfour =   IndexPageAlumniMobile(3)
+  const cardfive =   IndexPageAlumniMobile(4)
+  const cardsix =   IndexPageAlumniMobile(5)
+  const cardseven =   IndexPageAlumniMobile(6)
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue( newValue );
   };
@@ -172,7 +186,8 @@ function MobileTabs() {
     paddingTop = {2}
     >
       <Grid item>
-        <Typography color = 'textSecondary'>请滑动查看 Swip to check</Typography>
+      <Typography variant = 'h4' textAlign = 'center' paddingBottom = '5px'>{t('XiaoYou')}</Typography>
+      <Typography  variant = 'subtitle1' color = 'textSecondary'paddingBottom = '5px' textAlign = 'center' >{t('HuaDong')}</Typography>
       </Grid>
       <Grid item>
       <Grid item>
@@ -180,25 +195,39 @@ function MobileTabs() {
           <SwipeableViews
             axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
             index={value}
-            onChangeIndex={handleChangeIndex}
+            onChangeIndex={handleSwitch}
             // sx = {{ borderRadius : 14}}
           >
 
  
-            <TabPanel value={value} index={0} dir={theme.direction}>
-              {cardone}
+<TabPanel value={value} index={0} dir={theme.direction}>
+            <h1>王峥是狗</h1>
             </TabPanel>
             <TabPanel value={value} index={1} dir={theme.direction}>
-              {cardtwo}
+              {cardone}
             </TabPanel>
             <TabPanel value={value} index={2} dir={theme.direction}>
+              {cardtwo}
+            </TabPanel>
+            <TabPanel value={value} index={3} dir={theme.direction}>
               {cardthree}
             </TabPanel>           
-            <TabPanel value={value} index={3} dir={theme.direction}>
+            <TabPanel value={value} index={4} dir={theme.direction}>
               {cardfour}
-            
             </TabPanel>
-
+            <TabPanel value={value} index={5} dir={theme.direction}>
+              {cardfive}
+            </TabPanel>
+            <TabPanel value={value} index={6} dir={theme.direction}>
+              {cardsix}
+            </TabPanel>
+            <TabPanel value={value} index={7} dir={theme.direction}>
+              {cardseven}
+            </TabPanel>
+            
+            <TabPanel value={value} index={8} dir={theme.direction}>
+              <h1>王峥是狗</h1>
+            </TabPanel>
           </SwipeableViews>
     
         </Grid>
