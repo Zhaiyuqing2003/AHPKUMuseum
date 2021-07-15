@@ -9,6 +9,7 @@ import ReactDOM from "react-dom"
 
 import {
     CssBaseline,
+    gridClasses,
     useMediaQuery,
 } from "@material-ui/core"
 
@@ -35,6 +36,7 @@ import IndexPageFlipCardsAlumni from './components/IndexFlipCardAlumni'
 import IndexPageFlipCardsCulture from './components/IndexFlipCardCulture'
 // import IndexPageCulture from './components/IndexPageSchoolCultureInt'
 import IndexPageTimeline from './components/IndexPageTimeline'
+import SchoolView from './components/IndexSchoolView'
 import AppMusicBar from "./components/AppMusicBar"
 
 declare module '@material-ui/styles'{
@@ -98,10 +100,12 @@ function App(){
             />
             <AppContainer>
                 <IndexPageFrontContent />
-                {/* <IndexPageCulture /> */}
+                {/* <IndexPageTimeline /> */}
+    
+                <SchoolView></SchoolView>
                 <IndexPageFlipCardsCulture></IndexPageFlipCardsCulture>
                 <IndexPageFlipCardsAlumni></IndexPageFlipCardsAlumni>
-                <IndexPageTimeline />
+                
             </AppContainer>
             <AppMusicBar/>
         </ThemeProvider>
@@ -112,3 +116,4 @@ function App(){
 
 
 window.onload = main
+
