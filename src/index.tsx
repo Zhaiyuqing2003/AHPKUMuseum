@@ -102,7 +102,7 @@ function App(){
                 <IndexPageFrontContent />
                 <IndexPageTimeline />
     
-                {/* <SchoolView></SchoolView> */}
+                <SchoolView></SchoolView>
                 <IndexPageFlipCardsCulture></IndexPageFlipCardsCulture>
                 <IndexPageFlipCardsAlumni></IndexPageFlipCardsAlumni>
                 
