@@ -100,9 +100,9 @@ function App(){
             />
             <AppContainer>
                 <IndexPageFrontContent />
-                {/* <IndexPageTimeline /> */}
+                <IndexPageTimeline />
     
-                <SchoolView></SchoolView>
+                {/* <SchoolView></SchoolView> */}
                 <IndexPageFlipCardsCulture></IndexPageFlipCardsCulture>
                 <IndexPageFlipCardsAlumni></IndexPageFlipCardsAlumni>
                 
