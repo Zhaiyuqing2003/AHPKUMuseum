@@ -21,24 +21,24 @@ export default function ActionAreaCard() {
     justifyContent="center"
     alignItems="center" 
     spacing = {5}
-    paddingTop = '15px'
+    paddingTop = '55px'
     >
     <Grid item>
-        <Card sx={{ maxWidth: 655,borderRadius: 4}}>
+        <Card sx={{ minWidth : 370, maxWidth: 1100,borderRadius: 4}}>
         {/* <CardActionArea> */}
             <CardMedia
-            sx={{ height: 385}}
+            sx={{ height: 385, maxWidth: 1100}}
             image={ summerDesktop }
             />
             <CardContent>
             {/* <Grid padding = {1}> */}
-            <Typography gutterBottom variant="h3" component="div">
+            <Typography gutterBottom variant="h4" component="div">
                 {t('XiaoYuanJingSe')}
             </Typography>
-            <Typography variant="h4" color="text.secondary" paddingBottom = {1}>
+            <Typography variant="h5" color="text.secondary"  paddingBottom = {2}>
                 {t('Content')}
             </Typography> 
-            <Button  color = "primary" disableElevation variant = "contained" href = {subpage}>{t('DianJiChaKanGengDuo')}</Button>
+            <Button  color = "primary" disableElevation variant = "contained"  href = {subpage}>{t('DianJiChaKanGengDuo')}</Button>
             {/* </Grid> */}
 
             

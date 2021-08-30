@@ -100,11 +100,12 @@ function App(){
             />
             <AppContainer>
                 <IndexPageFrontContent />
-                <IndexPageTimeline />
-    
                 <SchoolView></SchoolView>
                 <IndexPageFlipCardsCulture></IndexPageFlipCardsCulture>
                 <IndexPageFlipCardsAlumni></IndexPageFlipCardsAlumni>
+                <IndexPageTimeline />
+    
+            
                 
             </AppContainer>
             <AppMusicBar/>
