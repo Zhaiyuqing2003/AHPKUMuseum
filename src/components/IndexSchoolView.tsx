@@ -9,6 +9,7 @@ import {Button} from '@material-ui/core'
 import { useTranslation } from "react-i18next";
 //@ts-ignore
 import summerDesktop from "../images/index/schoolview/preview.webp"
+//@ts-ignore
 import house from "../images/index/schoolview/house.webp"
 const subpage = '../Subpages/subPageSchoolView.html'
 const information = "https://mp.weixin.qq.com/s/Y5ncE9VpL56ub29P_82pAQ"
