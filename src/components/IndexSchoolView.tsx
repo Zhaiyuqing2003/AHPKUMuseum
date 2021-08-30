@@ -9,7 +9,7 @@ import {Button} from '@material-ui/core'
 import { useTranslation } from "react-i18next";
 //@ts-ignore
 import summerDesktop from "../images/index/schoolview/preview.webp"
-const subpage = '../subpages/subpageschoolview.html'
+const subpage = '../subpages/subpageSchoolView.html'
 
 export default function ActionAreaCard() {
     // const { t } = useTranslation("operation");
