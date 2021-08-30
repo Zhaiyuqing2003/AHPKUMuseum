@@ -156,7 +156,7 @@ function DesktopTimeline() {
 
     return (
         <>
-        <Typography variant = 'h4' textAlign = 'center' paddingTop = '30px'>{'历代校长时间线'}</Typography>
+        <Typography variant = 'h4' textAlign = 'center' paddingTop = '30px'>{t('XiaoZhangShiJianXian')}</Typography>
         {/* <FormControlLabel control={<Switch checked={checked} onChange={handleChange} />}label="Show"/> */}
         <Timeline position="alternate" >
             {headmasters.map(({ name, year,yeartwo, position, positiontwo, picture }, index) => ( 

@@ -331,12 +331,12 @@ export default function ({
             onClick = { toggleModeType }>
             <Brightness4Icon />
         </IconButton>
-        <IconButton
+        {/* <IconButton
             size = "large"
             color = "inherit"
             onClick = { openChangeColorMenu }>
             <InvertColorsIcon />
-        </IconButton>
+        </IconButton> */}
         <IconButton
             size = "large"
             color = "inherit">
@@ -346,10 +346,10 @@ export default function ({
             languageMenuAnchorElement = { languageMenuAnchorElement }
             open = { Boolean(languageMenuAnchorElement) }
             onClose = { closeChangeLanguageMenu } />
-        <ChangeColorMenu 
+        {/* <ChangeColorMenu 
             colorMenuAnchorElement = { colorMenuAnchorElement }
             open = { Boolean(colorMenuAnchorElement) }
-            onClose = { closeChangeColorMenu }/>
+            onClose = { closeChangeColorMenu }/> */}
     </AppTopBarContainer>)
 }
 

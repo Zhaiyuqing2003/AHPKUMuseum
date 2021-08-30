@@ -28,19 +28,19 @@ Things to-do:
     - [ ] (Optional) i18n Third-Party Translation
 - [ ] Make index page.
   - [ ] TopBar
-    - [ ] Icon
-    - [ ] Name
-    - [ ] Dark/Light Mode Button
-    - [ ] Language Change Button
+    - [x] Icon
+    - [x] Name
+    - [x] Dark/Light Mode Button
+    - [x] Language Change Button
     - [ ] Search
   - [ ] Bottom Bar
   - [ ] Background Image
-  - [ ] Timeline
+  - [x] Timeline
   - [ ] Side Bar
   - [ ] School Song
   - [ ] Content
-    - [ ] School Head
-    - [ ] School Song / Icon / History
-    - [ ] School View
-    - [ ] School Culture --> Houses / Festival
+    - [x] School Head
+    - [x] School Song / Icon / History
+    - [x] School View
+    - [x] School Culture --> Houses / Festival
 - [ ] File System --- A lot
