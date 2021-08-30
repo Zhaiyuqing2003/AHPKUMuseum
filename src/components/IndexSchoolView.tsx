@@ -9,8 +9,10 @@ import {Button} from '@material-ui/core'
 import { useTranslation } from "react-i18next";
 //@ts-ignore
 import summerDesktop from "../images/index/schoolview/preview.webp"
-const subpage = '../Subpages/subPageSchoolView.html'
+import house from "../images/index/schoolview/house.webp"
 
+const subpage = '../Subpages/subPageSchoolView.html'
+const information = "https://mp.weixin.qq.com/s/Y5ncE9VpL56ub29P_82pAQ"
 export default function ActionAreaCard() {
     // const { t } = useTranslation("operation");
     const { t } = useTranslation("indexPageSchoolView");
@@ -19,43 +21,44 @@ export default function ActionAreaCard() {
     container
     direction="row"
     justifyContent="space-evenly"
-    alignItems="center" 
+    alignItems="flex-start"
     spacing = {5}
-    paddingTop = '55px'
+    paddingTop = '25px'
     paddingBottom = '100px'
     >
+
     <Grid item>
-        <Card sx={{ minWidth : 370, maxWidth: 1100,borderRadius: 4}}>
+        <Card sx={{ minWidth : 370, maxWidth: 650,borderRadius: 4}}>
         {/* <CardActionArea> */}
             <CardMedia
-            sx={{ height: 385, maxWidth: 1100}}
-            image={ summerDesktop }
+            sx={{ height: 385, maxWidth: 650}}
+            image={ house }
             />
-            <CardContent>
+            <CardContent sx={{ height: 230, maxWidth: 650}}>
             {/* <Grid padding = {1}> */}
             <Typography gutterBottom variant="h4" component="div">
-                {t('XiaoYuanJingSe')}
+                {t('SiDaShuYuan')}
             </Typography>
             <Typography variant="h5" color="text.secondary"  paddingBottom = {2}>
-                {t('Content')}
+                {t('Contenttwo')}
             </Typography> 
-            <Button  color = "primary" disableElevation variant = "contained"  href = {subpage}>{t('DianJiChaKanGengDuo')}</Button>
-            {/* </Grid> */}
 
-            
+            {/* </Grid> */}
             </CardContent>  
-            
+            <Grid padding = {2}>
+                <Button  color = "primary" disableElevation variant = "contained"  href = {information}>{t('DianJiChaKanGengDuo')}</Button>
+            </Grid>
         {/* </CardActionArea> */}
         </Card> 
     </Grid>
     <Grid item>
-        <Card sx={{ minWidth : 370, maxWidth: 1100,borderRadius: 4}}>
+        <Card sx={{ minWidth : 370, maxWidth: 650,borderRadius: 4}}>
         {/* <CardActionArea> */}
             <CardMedia
-            sx={{ height: 385, maxWidth: 1100}}
+            sx={{ height: 385, maxWidth: 650}}
             image={ summerDesktop }
             />
-            <CardContent>
+            <CardContent   sx={{ height: 230, maxWidth: 650}}>
             {/* <Grid padding = {1}> */}
             <Typography gutterBottom variant="h4" component="div">
                 {t('XiaoYuanJingSe')}
@@ -63,11 +66,14 @@ export default function ActionAreaCard() {
             <Typography variant="h5" color="text.secondary"  paddingBottom = {2}>
                 {t('Content')}
             </Typography> 
-            <Button  color = "primary" disableElevation variant = "contained"  href = {subpage}>{t('DianJiChaKanGengDuo')}</Button>
+            
             {/* </Grid> */}
 
             
-            </CardContent>  
+            </CardContent>
+            <Grid padding = {2}>
+                <Button  color = "primary" disableElevation variant = "contained"  href = {subpage}>{t('DianJiChaKanGengDuo')}</Button>
+            </Grid>
             
         {/* </CardActionArea> */}
         </Card> 
