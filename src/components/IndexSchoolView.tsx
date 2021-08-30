@@ -22,16 +22,16 @@ export default function ActionAreaCard() {
     direction="row"
     justifyContent="space-evenly"
     alignItems="flex-start"
-    spacing = {5}
+    spacing = {2}
     paddingTop = '25px'
     paddingBottom = '100px'
     >
 
     <Grid item>
-        <Card sx={{ minWidth : 370, maxWidth: 650,borderRadius: 4}}>
+        <Card sx={{ minWidth : 305, maxWidth: 650,borderRadius: 4}}>
         {/* <CardActionArea> */}
             <CardMedia
-            sx={{ height: 385, maxWidth: 650}}
+            sx={{ height: 305, maxWidth: 650}}
             image={ house }
             />
             <CardContent sx={{ height: 230, maxWidth: 650}}>
@@ -51,11 +51,11 @@ export default function ActionAreaCard() {
         {/* </CardActionArea> */}
         </Card> 
     </Grid>
-    <Grid item>
-        <Card sx={{ minWidth : 370, maxWidth: 650,borderRadius: 4}}>
+    <Grid item >
+        <Card sx={{ minWidth : 305, maxWidth: 650,borderRadius: 4}}>
         {/* <CardActionArea> */}
             <CardMedia
-            sx={{ height: 385, maxWidth: 650}}
+            sx={{ height: 305, maxWidth: 650}}
             image={ summerDesktop }
             />
             <CardContent   sx={{ height: 230, maxWidth: 650}}>
