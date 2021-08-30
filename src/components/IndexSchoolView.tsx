@@ -18,10 +18,11 @@ export default function ActionAreaCard() {
     <Grid
     container
     direction="row"
-    justifyContent="center"
+    justifyContent="space-evenly"
     alignItems="center" 
     spacing = {5}
     paddingTop = '55px'
+    paddingBottom = '100px'
     >
     <Grid item>
         <Card sx={{ minWidth : 370, maxWidth: 1100,borderRadius: 4}}>
@@ -47,7 +48,30 @@ export default function ActionAreaCard() {
         {/* </CardActionArea> */}
         </Card> 
     </Grid>
+    <Grid item>
+        <Card sx={{ minWidth : 370, maxWidth: 1100,borderRadius: 4}}>
+        {/* <CardActionArea> */}
+            <CardMedia
+            sx={{ height: 385, maxWidth: 1100}}
+            image={ summerDesktop }
+            />
+            <CardContent>
+            {/* <Grid padding = {1}> */}
+            <Typography gutterBottom variant="h4" component="div">
+                {t('XiaoYuanJingSe')}
+            </Typography>
+            <Typography variant="h5" color="text.secondary"  paddingBottom = {2}>
+                {t('Content')}
+            </Typography> 
+            <Button  color = "primary" disableElevation variant = "contained"  href = {subpage}>{t('DianJiChaKanGengDuo')}</Button>
+            {/* </Grid> */}
 
+            
+            </CardContent>  
+            
+        {/* </CardActionArea> */}
+        </Card> 
+    </Grid>
     </Grid>
   );
 }
