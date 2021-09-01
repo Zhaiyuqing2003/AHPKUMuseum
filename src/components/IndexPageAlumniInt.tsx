@@ -177,7 +177,7 @@ function FuckIWantWhatEverIWant(input){
     return (    
     // <Grid container spacing= {2}>
     //@ts-ignore\
-    <Card  sx={{ maxWidth: 455, display: 'flex', height:255, borderRadius : 14 }}> {(Daddy).map(({ title, picture, pictureblur, headings, content }, index) => (
+    <Card  sx={{ maxWidth: 455, display: 'flex', height:255, borderRadius : 6 }}> {(Daddy).map(({ title, picture, pictureblur, headings, content }, index) => (
     // <Grid item  key = {  index }>
         
         
@@ -186,7 +186,7 @@ function FuckIWantWhatEverIWant(input){
                 image={pictureblur} >
     
                 
-                <Card sx={{ maxWidth: 500, height: 255, borderRadius : 14}} className = {classes.floatcard} >
+                <Card sx={{ maxWidth: 500, height: 255, borderRadius : 6}} className = {classes.floatcard} >
 
                     <Grid
                         container
@@ -199,7 +199,7 @@ function FuckIWantWhatEverIWant(input){
                                 <Grid container direction = 'column' alignItems="center" spacing = {2} justifyContent="flex-end">
                                 <Card sx={{ height:200}} className = {classes.floatcard} />
                                         <Grid item>
-                                            <Card className = {classes.card} sx = {{height: 32,width:200, borderRadius: 14, boxShadow:10}}>
+                                            <Card className = {classes.card} sx = {{height: 32,width:200, borderRadius: 6, boxShadow:10}}>
                                                 <Grid item alignItems="center">
                                                     <Typography component="div" variant="h5" color="white" align = 'center' display = 'block'>
                                                         {t(title)}
@@ -212,7 +212,7 @@ function FuckIWantWhatEverIWant(input){
                         </CardMedia>        
 
                         <Grid item padding = {1} alignItems="center" >
-                                <Card className = {classes.card} sx={{ width: 135, height: 240, borderRadius : 12, boxShadow: 0, padding: 0.5}}>   
+                                <Card className = {classes.card} sx={{ width: 135, height: 240, borderRadius : 6, boxShadow: 0, padding: 0.5}}>   
                                         <CardContent >
                                                     <Typography component="div" variant="h6" color="white">
                                                         {t(headings)}

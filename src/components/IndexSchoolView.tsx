@@ -12,7 +12,7 @@ import summerDesktop from "../images/index/schoolview/preview.webp"
 //@ts-ignore
 import house from "../images/index/schoolview/house.webp"
 const subpage = '../Subpages/subPageSchoolView.html'
-const information = "https://mp.weixin.qq.com/s/Y5ncE9VpL56ub29P_82pAQ"
+const information = "https://mp.weixin.qq.com/s/Vxd-xz4RhJtbrSNJPvpmzA"
 
 export default function ActionAreaCard() {
     // const { t } = useTranslation("operation");

@@ -12,7 +12,8 @@ import {
     gridClasses,
     useMediaQuery,
 } from "@material-ui/core"
-
+import Grid from '@material-ui/core/Grid';
+import Divider from '@material-ui/core/Divider';
 import { makeStyles } from "@material-ui/styles"
 import { ThemeProvider, Theme } from "@material-ui/core/styles"
 
@@ -103,11 +104,23 @@ function App(){
             
                 <IndexPageFrontContent />
                 <SchoolView></SchoolView>
-                <IndexPageFlipCardsCulture></IndexPageFlipCardsCulture>
-                <IndexPageFlipCardsAlumni></IndexPageFlipCardsAlumni>
+
+                <Divider></Divider>
+
+                <Grid
+                  paddingTop = '80px'
+                  paddingBottom = '50px'
+                  container
+                  direction="row"
+                  justifyContent="space-evenly"
+                  alignItems="flex-start">
+                    <Grid item><IndexPageFlipCardsCulture></IndexPageFlipCardsCulture></Grid>
+                    <Grid item><IndexPageFlipCardsAlumni></IndexPageFlipCardsAlumni></Grid>
+                </Grid>
+
+                <Divider></Divider>
+
                 <IndexPageTimeline />
-    
-            
                 
             </AppContainer>
             <AppMusicBar/>

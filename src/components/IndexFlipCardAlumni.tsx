@@ -67,7 +67,7 @@ function numberJudge(index : number){
 
 function FullWidthTabs() {
   const theme = useTheme();
-  const [value, setValue] = React.useState(4);
+  const [value, setValue] = React.useState(Math.floor(Math.random() * 8));
 
   const { t } = useTranslation("indexPageAlumni");
 
@@ -96,17 +96,46 @@ function FullWidthTabs() {
     <Typography variant = 'h4' textAlign = 'center' paddingTop = '15px'>{t('XiaoYou')}</Typography>
     <Grid
     container
-    direction="row"
+    direction="column"
     justifyContent="center"
     alignItems="center" 
     spacing = {5}
     >
       <Grid item>
-        <IconButton aria-label="Flip left" ><ArrowBackIosRoundedIcon fontSize = 'large' /></IconButton>
+        {/* <IconButton aria-label="Flip left" ><ArrowBackIosRoundedIcon fontSize = 'large' /></IconButton> */}
       </Grid>
       <Grid item>
+        
+
+      {/* <Box sx={{ maxWidth: 520, padding : 0}}> */}
+          <Tabs
+          
+            sx={{ maxWidth: 600}}
+            value={value}
+            onChange={handleChange}
+            indicatorColor="secondary"
+            textColor="inherit"
+            variant="scrollable"
+            scrollButtons="auto"
+            aria-label="full width tabs example"
+            
+          >
+            <Tab label={t('ZhangXinLing')} {...a11yProps(0)} />
+            <Tab label={t('ChenXiaoNan')} {...a11yProps(1)} />
+            <Tab label={t('MaoXinYu')} {...a11yProps(2)} />
+            <Tab label={t('NiuHongGuang')}{...a11yProps(3)} />
+            <Tab label={t('WangYan')} {...a11yProps(4)} />
+            <Tab label={t('WangZheng')} {...a11yProps(5)} />
+            <Tab label={t('XuBing')} {...a11yProps(6)} />
+
+          </Tabs>
+      {/* </Box> */}
+
+        {/* </AppBar> */}
+        </Grid>
+      {/* <Grid item> */}
         <Box sx={{ bgcolor: 'background.paper'}}>
- 
+
           <SwipeableViews
             axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
             index={value}
@@ -115,7 +144,7 @@ function FullWidthTabs() {
           >
 
             <TabPanel value={value} index={0} dir={theme.direction}>
-            <h1>王峥是狗</h1>
+            {cardseven}
             </TabPanel>
             <TabPanel value={value} index={1} dir={theme.direction}>
               {cardone}
@@ -144,9 +173,9 @@ function FullWidthTabs() {
             </TabPanel>
           </SwipeableViews>
         </Box>
-      </Grid>
+      {/* </Grid> */}
       <Grid item>
-      <IconButton aria-label="Flip left"><ArrowForwardIosRoundedIcon fontSize = 'large'/></IconButton>
+      {/* <IconButton aria-label="Flip left"><ArrowForwardIosRoundedIcon fontSize = 'large'/></IconButton> */}
       </Grid>
     </Grid>
   </>);

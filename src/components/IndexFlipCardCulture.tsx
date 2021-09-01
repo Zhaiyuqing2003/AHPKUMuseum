@@ -101,15 +101,42 @@ function FullWidthTabs() {
        <Typography variant = 'h4' textAlign = 'center' paddingTop = '15px'>{t('SiDaSaiShi')}</Typography>
        <Grid
     container
-    direction="row"
+    direction="column"
     justifyContent="center"
     alignItems="center" 
     spacing = {5}
     >
       <Grid item>
-        <IconButton aria-label="Flip left" ><ArrowBackIosRoundedIcon fontSize = 'large' /></IconButton>
+        {/* <IconButton aria-label="Flip left" ><ArrowBackIosRoundedIcon fontSize = 'large' /></IconButton> */}
       </Grid>
       <Grid item>
+        
+
+        {/* <Box sx={{ maxWidth: 520, padding : 0}}> */}
+            <Tabs
+            
+              sx={{ maxWidth: 600}}
+              value={value}
+              onChange={handleChange}
+              indicatorColor="secondary"
+              textColor="inherit"
+              variant="scrollable"
+              scrollButtons="auto"
+              aria-label="full width tabs example"
+              
+            >
+              <Tab label={t('WuDaoJie')} {...a11yProps(0)} />
+              <Tab label={t('LanQiuBei')} {...a11yProps(1)} />
+              <Tab label={t('ZuQiuBei')} {...a11yProps(2)} />
+              <Tab label={t('XiJuJie')}{...a11yProps(3)} />
+
+  
+            </Tabs>
+        {/* </Box> */}
+  
+          {/* </AppBar> */}
+          </Grid>
+  
         <Box sx={{ bgcolor: 'background.paper'}}>
  
           <SwipeableViews
@@ -120,7 +147,7 @@ function FullWidthTabs() {
           >
 
           <TabPanel value={value} index={0} dir={theme.direction}>
-            <h1>王峥是狗</h1>
+              {cardfour}
             </TabPanel>
             <TabPanel value={value} index={1} dir={theme.direction}>
               {cardone}
@@ -154,10 +181,10 @@ function FullWidthTabs() {
             </TabPanel>
           </SwipeableViews>
         </Box>
-      </Grid>
-      <Grid item>
+      
+      {/* <Grid item>
       <IconButton aria-label="Flip left"><ArrowForwardIosRoundedIcon fontSize = 'large'/></IconButton>
-      </Grid>
+      </Grid> */}
     </Grid></>
   );
     
