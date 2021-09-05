@@ -1,17 +1,11 @@
 import * as React from 'react';
-import Paper from '@mui/material/Paper';
-import InputBase from '@mui/material/InputBase';
-import Divider from '@mui/material/Divider';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
-import SearchIcon from '@mui/icons-material/Search';
-import DirectionsIcon from '@mui/icons-material/Directions';
-import {Button, Card, Typography} from '@material-ui/core'
+import Divider from '@material-ui/core/Divider';
+import IconButton from '@material-ui/core/IconButton';
+import SearchIcon from '@material-ui/icons/Search';
+import { Card, Typography} from '@material-ui/core'
 import Grid from '@material-ui/core/Grid';
-import { borderRadius } from '@mui/system';
-import CardContent from '@material-ui/core/CardContent';
-import { Box } from '@mui/system';
-import TextField from '@mui/material/TextField';
+import Box from '@material-ui/core/Box';
+import TextField from '@material-ui/core/TextField';
 import { useTheme } from '@material-ui/core/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTranslation } from "react-i18next";
