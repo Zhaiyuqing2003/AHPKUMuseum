@@ -104,37 +104,26 @@ function App(){
             
                 <IndexPageFrontContent />
                 <UseSearchBar></UseSearchBar>
-                <Divider></Divider>
-                <UseSearchBar></UseSearchBar>
-                <UseSearchBar></UseSearchBar>
-                <Divider></Divider>
-                <UseSearchBar></UseSearchBar>
+
                 <Divider></Divider>
                 <SchoolView></SchoolView>
 
                 <Divider></Divider>
-
-                <Grid
-                  paddingTop = '80px'
-                  paddingBottom = '50px'
-                  container
-                  direction="row"
-                  justifyContent="space-evenly"
-                  alignItems="flex-start">
-                    <Grid item><IndexPageFlipCardsCulture></IndexPageFlipCardsCulture></Grid>
-                    <Grid item><IndexPageFlipCardsAlumni></IndexPageFlipCardsAlumni></Grid>
-                </Grid>
-                <Grid
-                  paddingTop = '80px'
-                  paddingBottom = '50px'
-                  container
-                  direction="row"
-                  justifyContent="space-evenly"
-                  alignItems="flex-start">
-                    <Grid item><IndexPageFlipCardsCulture></IndexPageFlipCardsCulture></Grid>
-                    <Grid item><IndexPageFlipCardsAlumni></IndexPageFlipCardsAlumni></Grid>
-                </Grid>
                 
+                <SchoolView></SchoolView>
+
+                <Divider></Divider>
+                <Grid
+                  paddingTop = '80px'
+                  paddingBottom = '50px'
+                  container
+                  direction="row"
+                  justifyContent="space-evenly"
+                  alignItems="flex-start">
+                    <Grid item><IndexPageFlipCardsCulture></IndexPageFlipCardsCulture></Grid>
+                    <Grid item><IndexPageFlipCardsAlumni></IndexPageFlipCardsAlumni></Grid>
+                </Grid>
+
                 <Divider></Divider>
 
                 <IndexPageTimeline />
