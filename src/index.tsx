@@ -104,6 +104,7 @@ function App(){
             
                 <IndexPageFrontContent />
                 <UseSearchBar></UseSearchBar>
+                
                 <Divider></Divider>
                 <SchoolView></SchoolView>
 

@@ -32,8 +32,8 @@ function BigSearch() {
     direction="row"
     justifyContent="center"
     alignItems="flex-start"
-    paddingTop = '80px'
-    paddingBottom = '80px'
+    paddingTop = '81px'
+    paddingBottom = '81px'
     
 
   >
@@ -91,7 +91,7 @@ function BigSearch() {
             variant = "contained"
             onClick = {openit}
             
-            // href = {'http://www.pkuschool.edu.cn/jsjg.jsp?wbtreeid=1066&searchScope=0&currentnum=2&newskeycode2='+ Buffer.from(values.amount).toString('base64') + '#'}
+            
             >
             <SearchIcon /><Typography paddingRight = '5px' >{t("SouSuo")}</Typography>
         </IconButton>
@@ -170,7 +170,7 @@ function SmallSearch(){
             variant = "contained"
             onClick = {openit}
             
-            // href = {'http://www.pkuschool.edu.cn/jsjg.jsp?wbtreeid=1066&searchScope=0&currentnum=2&newskeycode2='+ Buffer.from(values.amount).toString('base64') + '#'}
+       
             >
             <SearchIcon /><Typography paddingRight = '5px' >{t("SouSuo")}</Typography>
         </IconButton>
@@ -186,13 +186,11 @@ function SmallSearch(){
 
 
 
-
 export default function UseSearchBar(){
     let BigS = BigSearch()
     let SmallS = SmallSearch()
     let theme = useTheme();
     let { between, down, up, values } = theme.breakpoints;
-  //@ts-ignore
     let { desktop, laptop } = values;
   
     let isLargerThanDesktop = useMediaQuery(up(desktop));

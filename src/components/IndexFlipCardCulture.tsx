@@ -59,7 +59,8 @@ function numberJudge(index : number){
       return 10
     }
     else {
-      console.log('现在随机数是'+randomnumber+'(数字为1时骂人)')
+      console.log('现在随机数是'+randomnumber+'(数字为1时菜单)')
+      console.log("奥特曼 啦啦啦 1234567 谭楚平世界第一")
       return 1
     }
       
