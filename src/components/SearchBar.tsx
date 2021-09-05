@@ -43,7 +43,7 @@ function BigSearch() {
         direction="column"
         justifyContent="center"
         alignItems="center"
-        sx = {{maxWidth : 400, minWidth:300, padding : 1, paddingBottom : 3}}
+        sx = {{maxWidth : 401, minWidth:300, padding : 1, paddingBottom : 3}}
     >
         <Grid item sx =  {{maxWidth : 400, minWidth:300}}>
             <Typography variant = 'h4'>{t('TanXunZuJi')}</Typography>
@@ -124,7 +124,7 @@ function SmallSearch(){
     direction="row"
     justifyContent="center"
     alignItems="flex-start"
-    paddingTop = '25px'
+    paddingTop = '26px'
     paddingBottom = '25px'
     
 

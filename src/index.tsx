@@ -35,7 +35,7 @@ import IndexPageFrontContent from "./components/IndexPageFrontContent"
 import AppContainer from "./components/AppContainer"
 import IndexPageFlipCardsAlumni from './components/IndexFlipCardAlumni'
 import IndexPageFlipCardsCulture from './components/IndexFlipCardCulture'
-import UseSearchBar from './components/SearchBartwo'
+import UseSearchBar from './components/SearchBar'
 // import IndexPageCulture from './components/IndexPageSchoolCultureInt'
 import IndexPageTimeline from './components/IndexPageTimeline'
 import SchoolView from './components/IndexSchoolView'
