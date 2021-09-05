@@ -96,7 +96,10 @@ export default function MemberContent(){
     const { t } = useTranslation("developer");
     return (
     <>
-    <Typography variant = 'h4' textAlign = 'center' paddingTop = '15px'>{t('Team')}</Typography>
+    <Box padding = '20px'>
+      <Typography variant = 'h4' textAlign = 'center' paddingTop = '15px'>{t('Team')}</Typography>  
+    </Box>
+    
     <Box width = { 1 } padding = { theme.spacing(3) }>
         <Grid
             // className = { classes.gridContainer }

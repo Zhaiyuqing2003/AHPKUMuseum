@@ -9,38 +9,30 @@ import ReactDOM from "react-dom"
 
 import {
     CssBaseline,
-    gridClasses,
     useMediaQuery,
 } from "@material-ui/core"
-import Grid from '@material-ui/core/Grid';
-import Divider from '@material-ui/core/Divider';
+
 import { makeStyles } from "@material-ui/styles"
 import { ThemeProvider, Theme } from "@material-ui/core/styles"
 
 import StyledEngineProvider from "@material-ui/core/StyledEngineProvider"
  
-import './utils/I18n'
+import '../utils/I18n'
 import { useTranslation } from "react-i18next"
 
-import ModeType from "./utils/ModeType"
-import LanguageType from "./utils/LanguageType"
+import ModeType from "../utils/ModeType"
+import LanguageType from "../utils/LanguageType"
 
-import createAppTheme from "./utils/AppTheme"
-import changeWebIconTheme from "./utils/WebIconTheme"
+import createAppTheme from "../utils/AppTheme"
+import changeWebIconTheme from "../utils/WebIconTheme"
 //
-import "./utils/FontDependencies";
+import "../utils/FontDependencies";
 
-import AppTopBar from "./components/AppTopBar"
-import IndexPageFrontContent from "./components/IndexPageFrontContent"
-import AppContainer from "./components/AppContainer"
-import IndexPageFlipCardsAlumni from './components/IndexFlipCardAlumni'
-import IndexPageFlipCardsCulture from './components/IndexFlipCardCulture'
-import UseSearchBar from './components/SearchBar'
-// import IndexPageCulture from './components/IndexPageSchoolCultureInt'
-import IndexPageTimeline from './components/IndexPageTimeline'
-import SchoolView from './components/IndexSchoolView'
-import AppMusicBar from "./components/AppMusicBar"
+import AppTopBar from "../components/AppTopBar"
+import IndexPageFrontContent from "../components/IndexPageFrontContent"
+import AppContainer from "../components/AppContainer"
 
+import Developer from "../components/Developer"
 declare module '@material-ui/styles'{
     interface DefaultTheme extends Theme {}
 }
@@ -101,31 +93,10 @@ function App(){
                 onChangeModeType = { changeModeType }
             />
             <AppContainer>
-            
                 <IndexPageFrontContent />
-                <UseSearchBar></UseSearchBar>
-                <Divider></Divider>
-                <SchoolView></SchoolView>
-
-                <Divider></Divider>
-
-                <Grid
-                  paddingTop = '80px'
-                  paddingBottom = '50px'
-                  container
-                  direction="row"
-                  justifyContent="space-evenly"
-                  alignItems="flex-start">
-                    <Grid item><IndexPageFlipCardsCulture></IndexPageFlipCardsCulture></Grid>
-                    <Grid item><IndexPageFlipCardsAlumni></IndexPageFlipCardsAlumni></Grid>
-                </Grid>
-
-                <Divider></Divider>
-
-                <IndexPageTimeline />
-                
+                <Developer></Developer>
             </AppContainer>
-            <AppMusicBar/>
+            {/* <AppMusicBar/> */}
         </ThemeProvider>
     </StyledEngineProvider>)
 }
@@ -134,5 +105,3 @@ function App(){
 
 
 window.onload = main
-
-// ?
