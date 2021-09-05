@@ -19,7 +19,6 @@
     "@material-ui/icons": "^5.0.0-alpha.37",
     "@material-ui/lab": "^5.0.0-alpha.38",
     "@material-ui/styles": "^5.0.0-alpha.36",
-    "@mui/icons-material": "^5.0.0-rc.0",
     "i18next": "^20.3.2",
     "i18next-browser-languagedetector": "^6.1.2",
     "i18next-chained-backend": "^3.0.2",
