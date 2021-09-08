@@ -139,7 +139,7 @@ const headmasters: headmasterItem[] = [{
     name: "WangZheng",
     position : "XiaoZhang",
     positiontwo : '',
-    year : '2009-现今',
+    year : '2009-',
     picture: headmasterTen,
 }]
 

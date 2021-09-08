@@ -262,7 +262,7 @@ const ImageSubscript = ({ languageType, seasonType, t } : ImageSubscriptProps) =
                     padding = {
                         theme.spacing(0, paddingWidth)
                     }>
-                    { t(seasonText) }
+                    { t(seasonText) + ' 1960-'+ (new Date()).getFullYear()}
                 </Typography>
             </Grid>
         </Box>
@@ -347,7 +347,7 @@ export default function(){
     const { t } = useTranslation("indexPageFrontContent")
 
     const { appOptions : { languageType }} = theme
-    const [seasonType, setSeasonType] = useState(SeasonType.Summer)
+    const [seasonType, setSeasonType] = useState(useSeason)
 
     const deviceWidthQuery = useDeviceWidthQuery(theme)
     const imageDir = useImageDir(deviceWidthQuery, seasonType)

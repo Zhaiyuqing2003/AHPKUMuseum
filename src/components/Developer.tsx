@@ -25,7 +25,7 @@ import PictureKevin from "../images/subpage/developer/SuperKevin.webp"
 const Members = [
     {
         name : "TanChuPing",
-        position : ["XiangMuCeHua","XiangMuFuZeRen","QianDuanSheJi", "QianDuanMeiGong", "QianDuanSheJi","ZiLiao"],
+        position : ["XiangMuCeHua","XiangMuFuZeRen","QianDuanSheJi", "QianDuanJiaGou", "ZuJianGongNeng","ZiLiao","HouQiWeiHu"],
         email : "tanchuping@i.pkuschool.edu.cn",
         githubpage : "https://github.com/DaltonWritingCenter"
     },
