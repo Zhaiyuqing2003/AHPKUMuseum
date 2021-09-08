@@ -40,7 +40,7 @@ import UseSearchBar from './components/SearchBar'
 import IndexPageTimeline from './components/IndexPageTimeline'
 import SchoolView from './components/IndexSchoolView'
 import AppMusicBar from "./components/AppMusicBar"
-import {AppBottomBar} from './components/AppBottomBar'
+import AppBottom from './components/AppBottomBar'
 declare module '@material-ui/styles'{
     interface DefaultTheme extends Theme {}
 }
@@ -123,7 +123,7 @@ function App(){
                 <Divider></Divider>
 
                 <IndexPageTimeline />
-                <AppBottomBar></AppBottomBar>
+                <AppBottom></AppBottom>
                 
             </AppContainer>
             

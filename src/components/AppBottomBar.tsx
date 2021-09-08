@@ -31,7 +31,7 @@ function PoweredByGrid(){
     const classes = useAppBottomBarStyle()
     return (<Grid item>
         <Typography variant = "h6">
-            <Box fontWeight = "bold" cotmponent = "span">
+            <Box >
                 {t('Powered By')}
             </Box>
         </Typography>
@@ -162,7 +162,7 @@ function ContactFacultyGrid(){
     </Grid>)
 }
 
-function AppBottomBar(){
+export default function AppBottomBar(){
     const { t } = useTranslation("AppBottomBar");
     const theme = useTheme()
     const classes = useAppBottomBarStyle()
@@ -210,4 +210,3 @@ function AppBottomBar(){
 }
 
 
-export { AppBottomBar };
