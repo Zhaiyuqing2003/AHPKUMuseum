@@ -44,26 +44,26 @@ const cultures: cultureItem[] = [{
     picture : bascketballone,
     pictureblur : bascketballoneblur,
     headings : 'BiaoTi',
-    content: 'WenAn',
+    content: 'WenAnLanQiu',
 }, 
 {
     title: 'ZuQiuBei',
     picture : footballone,
     pictureblur : footballoneblur,
     headings : 'BiaoTi',
-    content: 'WenAn',
+    content: 'WenAnZuQiu',
 },{
     title: 'XiJuJie',
     picture : theatreone,
     pictureblur : theatreoneblur,
     headings : 'BiaoTi',
-    content: 'WenAn',
+    content: 'WenAnXiJu',
 },{
     title: 'WuDaoJie',
     picture : danceone,
     pictureblur : danceoneblur,
     headings : 'BiaoTi',
-    content: 'WenAn',
+    content: 'WenAnWuDao',
 } ]
 
 const ContentStyle = makeStyles((theme) => ({
@@ -163,7 +163,7 @@ function FuckIWantWhatEverIWant(input){
                         </CardMedia>        
 
                         <Grid item padding = {1} alignItems="center" >
-                                <Card className = {classes.card} sx={{ width: 135, height: 150, borderRadius : 8, boxShadow: 0, padding: 0.5}}>   
+                                <Card className = {classes.card} sx={{ width: 135, height: 240, borderRadius : 6, boxShadow: 0, padding: 0}}>   
                                         <CardContent >
                                                     <Typography component="div" variant="h6" color="white">
                                                         {t(headings)}

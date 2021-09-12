@@ -1,11 +1,15 @@
 {
     "LanQiuBei" : "Basketball Cup",
-    "ZuQiuBei" : "Football Cup",
+    "ZuQiuBei" : "Soccer Cup",
     "XiJuJie" : "Drama Festival",
     "WuDaoJie" : "Dance Festival",
-    "BiaoTi" : "Headings",
+    "BiaoTi" : "Introduction",
     "WenAn" : "Text",
     "HuaDong" : "swipe to check",
-    "SiDaSaiShi" : "The Four competitions"
+    "SiDaSaiShi" : "The Four competitions",
+    "WenAnXiJu" : "Holds in the 4th quarter. Students from each house show their self-directed drama on the Black Box",
+    "WenAnLanQiu" : "Holds in the 3rd quarter. Students from each house demonstrate their effort on the basketball gym.",
+    "WenAnWuDao" : "Holds in the 2nd quarter. Students from each house show their self-directed dance on the Black Box",
+    "WenAnZuQiu" : "Holds in the 1st quarter. Students from each house demonstrate their effort on the soccer ground."
 
 }
