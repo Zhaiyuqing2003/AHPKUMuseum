@@ -212,7 +212,7 @@ function FuckIWantWhatEverIWant(input){
                         </CardMedia>        
 
                         <Grid item padding = {1} alignItems="center" >
-                                <Card className = {classes.card} sx={{ width: 135, height: 240, borderRadius : 6, boxShadow: 0, padding: 0.5}}>   
+                                <Card className = {classes.card} sx={{ width: 135, height: 240, borderRadius : 6, boxShadow: 0, padding: 0}}>   
                                         <CardContent >
                                                     <Typography component="div" variant="h6" color="white">
                                                         {t(headings)}
