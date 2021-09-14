@@ -18,6 +18,11 @@
     "XuanChuan" : "Publicity",
     "HouQiWeiHu" : "Late maintenance and upgrade",
     "Team" : "Web programming club of AHPKU",
-    "ZuJianGongNeng" : "Component functionalities"
+    "ZuJianGongNeng" : "Component functionalities",
+
+    "JiChuKuangJia" : "Basic framework",
+    "FanYi" : "Translation",
+    "QianHouDuanJiaoHu" : "Front-Back end interaction"
+
     
 }
