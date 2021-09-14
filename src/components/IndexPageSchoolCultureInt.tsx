@@ -198,23 +198,23 @@ function FuckIWantWhatEverIWant(input){
 
     <>
 
-        <Card  sx={{ maxWidth: 300, display: 'flex', height:335, borderRadius : 14 }}> {(Daddy).map(({ title, picture, pictureblur, headings, content }, index) => (
+        <Card  sx={{ maxWidth: 300, display: 'flex', height:370, borderRadius : 14 }}> {(Daddy).map(({ title, picture, pictureblur, headings, content }, index) => (
         // <Grid item  key = {  index }>
             
             
                 <CardMedia
-                    sx={{ height: 335,width: 300}}
+                    sx={{ height: 400,width: 300}}
                     image={pictureblur} >
         
                     
-                    <Card sx={{ maxWidth: 500, height: 235, boxShadow:10 }} className = {classes.floatcard} >
+                    <Card sx={{ maxWidth: 500, height: 250, boxShadow:10, borderRadius : 0 }} className = {classes.floatcard} >
     
                         <Grid
                             container
                             direction="row" 
                             alignItems="center">
                             <CardMedia 
-                                sx={{ height: 235, width : 300}}
+                                sx={{ height: 250, width : 300}}
                                 image={picture}
                                 title={t('Verge')}>
                                 <CardContent sx={{ flex: '1 0 auto' }}>
@@ -239,7 +239,7 @@ function FuckIWantWhatEverIWant(input){
     
                         </Grid>
                     </Card>                                    
-                                     <Card className = {classes.floatcard} sx={{ width: 300, height: 150, boxShadow: 0,}}>   
+                                     <Card className = {classes.floatcard} sx={{ width: 300, height: 250, boxShadow: 0,}}>   
                                             <CardContent >
                                                         <Typography component="div" variant="h6" color="white" paddingLeft = {3}>
                                                             {t(headings)}

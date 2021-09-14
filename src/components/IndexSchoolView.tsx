@@ -17,6 +17,12 @@ const information = "https://mp.weixin.qq.com/s/Vxd-xz4RhJtbrSNJPvpmzA"
 export default function ActionAreaCard() {
     // const { t } = useTranslation("operation");
     const { t } = useTranslation("indexPageSchoolView");
+    function jumptosubpage(){
+        windowObjectReference = window.open(subpage)
+    }
+    function jumptoinformation(){
+        windowObjectReference = window.open(information)
+    }
   return (
     <Grid
     container
@@ -47,7 +53,15 @@ export default function ActionAreaCard() {
             {/* </Grid> */}
             </CardContent>  
             <Grid padding = {2}>
-                <Button  color = "primary" disableElevation variant = "contained"  href = {information}>{t('DianJiChaKanGengDuo')}</Button>
+                <Button  
+                color = "primary" 
+                disableElevation 
+                variant = "contained"  
+                // href = {information}
+                onClick = {jumptoinformation}
+
+                >
+                    {t('DianJiChaKanGengDuo')}</Button>
             </Grid>
         {/* </CardActionArea> */}
         </Card> 
@@ -73,7 +87,13 @@ export default function ActionAreaCard() {
             
             </CardContent>
             <Grid padding = {2}>
-                <Button  color = "primary" disableElevation variant = "contained"  href = {subpage}>{t('DianJiChaKanGengDuo')}</Button>
+                <Button
+                  color = "primary" 
+                  disableElevation 
+                  variant = "contained"  
+                //   href = {subpage}
+                  onClick = {jumptosubpage}
+                  >{t('DianJiChaKanGengDuo')}</Button>
             </Grid>
             
         {/* </CardActionArea> */}

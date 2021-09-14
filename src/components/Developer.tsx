@@ -25,13 +25,13 @@ import PictureKevin from "../images/subpage/developer/SuperKevin.webp"
 const Members = [
     {
         name : "TanChuPing",
-        position : ["XiangMuCeHua","XiangMuFuZeRen","QianDuanSheJi", "QianDuanJiaGou", "ZuJianGongNeng","ZiLiao","HouQiWeiHu"],
+        position : ["XiangMuCeHua","XiangMuFuZeRen","QianDuanSheJi", "ZuJianGongNeng", "QianHouDuanJiaoHu","ZiLiao","FanYi"],
         email : "tanchuping@i.pkuschool.edu.cn",
         githubpage : "https://github.com/DaltonWritingCenter"
     },
     {
         name : "ZhaiYuQing",
-        position : ["JiShuZongJian","XiangMuFuZeRen","HouDuanYunWei", "QianDuanJiaGou", "QianDuanSheJi","ZiLiao"],
+        position : ["JiShuZongJian","JiChuKuangJia","QianDuanSheJi","HouDuanYunWei", "FanYi", "ZiLiao"],
         email : "zhaiyuqing@i.pkuschool.edu.cn",
         githubpage : "https://github.com/Zhaiyuqing2003"
     },

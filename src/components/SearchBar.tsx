@@ -43,6 +43,7 @@ function BigSearch() {
         direction="column"
         justifyContent="center"
         alignItems="center"
+    
         sx = {{maxWidth : 401, minWidth:300, padding : 1, paddingBottom : 3}}
     >
         <Grid item sx =  {{maxWidth : 400, minWidth:300}}>

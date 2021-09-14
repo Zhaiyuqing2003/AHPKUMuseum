@@ -9,7 +9,7 @@ import useMediaQuery from '@material-ui/core/useMediaQuery'
 import { Theme } from "@material-ui/core/styles"
 import { makeStyles, useTheme } from "@material-ui/styles"
 import { useTranslation } from "react-i18next";
-
+import Typography from '@material-ui/core/Typography';
 //@ts-ignore
 import one from "../images/subpage/schoolview/one.webp"
 //@ts-ignore
@@ -52,13 +52,17 @@ function ImageListBig() {
     <Grid container alignItems = 'center'direction="row" justifyContent="center">
         <Grid item>
           <ImageList
-            sx={{ width: 700, height: 550 }}
+            sx={{ width: 650, height: 620 }}
             variant="quilted"
             cols={6}
             rowHeight={121}
           >
             <ImageListItem key="Subheader" cols={6} rows = {1}>
-            <ListSubheader component="div">{t('XiaoYuanJingSe')}</ListSubheader>
+            <ListSubheader component="div">{
+            <Typography variant = 'h4'>
+            {t('JingXuan')}
+            </Typography>
+            }</ListSubheader>
             </ImageListItem>
             {itemData.map((item) => (
               <ImageListItem key={item.img} cols={item.cols || 1} rows={item.rows || 1}>
@@ -85,14 +89,19 @@ function ImageListMobile() {
     <Grid container alignItems = 'center'direction="row" justifyContent="center">
         <Grid item>
           <ImageList
-            sx={{ width: 335, height: 550 }}
+            sx={{ width: 335, height: 620 }}
             variant="quilted"
             cols={6}
             rowHeight={60}
           >
             <ImageListItem key="Subheader" cols={6} rows = {1}>
-            <ListSubheader component="div">{t('XiaoYuanJingSe')}</ListSubheader>
+            <ListSubheader component="div">{
+            <Typography variant = 'h5'>
+            {t('JingXuan')}
+            </Typography>
+            }</ListSubheader>
             </ImageListItem>
+            
             {itemData.map((item) => (
               <ImageListItem key={item.img} cols={item.cols || 1} rows={item.rows || 1}>
                 <img

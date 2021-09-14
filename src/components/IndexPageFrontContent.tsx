@@ -268,8 +268,15 @@ const ImageSubscript = ({ languageType, seasonType, t } : ImageSubscriptProps) =
         </Box>
     </Grid>)
 }
-
+function letsStart(){
+    window.scrollTo({
+        top: document.body.scrollHeight/8-200,
+        left: 0,
+        behavior: 'smooth'
+      })
+}
 const IndexPageFrontContentHeadline = ({ languageType, t } : IndexPageFrontContentHeadlineProps) => {
+    
     const theme = useTheme()
     const frontContentFontFamily = useFrontContentFontFamily(languageType)
     const [
@@ -325,15 +332,16 @@ const IndexPageFrontContentHeadline = ({ languageType, t } : IndexPageFrontConte
             variant = "contained"
             disableElevation 
             size = "large"
+            onClick = {letsStart}
             sx = {{ 
                 alignSelf : "flex-start",
                 marginLeft : theme.spacing(0.8),
                 marginTop : theme.spacing(2)
             }}>
             <Typography 
-                fontFamily = { FontType.MaShanZheng }
+                fontFamily = { frontContentFontFamily }
                 fontSize = { theme.spacing(2.6) }>
-                开始历史的回溯
+                {t('kaishi')}
             </Typography>
         </Button>
     </Grid>)
