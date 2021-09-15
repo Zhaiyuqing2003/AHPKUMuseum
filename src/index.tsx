@@ -43,7 +43,7 @@ import AppMusicBar from "./components/AppMusicBar"
 import {ControlledAccordions} from "./components/AccordionShadow"
 import AppBottom from './components/AppBottomBar'
 import Developer from "./components/Developer"
-
+import Teachers from "./components/TeachersBlock"
 declare module '@material-ui/styles'{
     interface DefaultTheme extends Theme {}
 }
@@ -134,6 +134,8 @@ function App(){
                     <Grid item><IndexPageFlipCardsAlumni></IndexPageFlipCardsAlumni></Grid>
                 </Grid>
 
+                <Divider></Divider>
+                <Teachers></Teachers>
                 <Divider></Divider>
 
                 <IndexPageTimeline />

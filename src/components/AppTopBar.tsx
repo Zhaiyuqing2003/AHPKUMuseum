@@ -19,7 +19,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
 import * as Color from "@material-ui/core/colors"
 import Drawer from '@material-ui/core/Drawer';
-
+import GTranslateIcon from '@material-ui/icons/GTranslate';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -301,7 +301,7 @@ export default function ({
 
     function jumptoView(){
         window.scrollTo({
-            top: document.body.scrollHeight /3-600,
+            top: document.body.scrollHeight /4-300,
             left: 0,
             behavior: 'smooth'
           })
@@ -424,11 +424,15 @@ export default function ({
             color = "inherit"
             variant = "text"
             size = "medium"
-            startIcon = { <TranslateIcon className = { classes.translateButton } /> }
+            startIcon = { <TranslateIcon  className = { classes.translateButton } /> }
             endIcon = { <ExpandMoreIcon className = { classes.expandMoreButton } /> }
             onClick = { openChangeLanguageMenu }
-            className = {classes.languageMenuButton} >{
+            className = {classes.languageMenuButton} >
+                {/* {
                 isChangeLanguageButtonHidden ? "" : t(languageType)
+            } */}
+                 {
+                isChangeLanguageButtonHidden ? "" : t(' 中文/en')
             }
         </Button>
         <IconButton

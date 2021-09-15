@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import {
     Card,
@@ -33,32 +33,32 @@ import FontType from "../utils/FontType"
 import LanguageType from "../utils/LanguageType";
 
 //@ts-ignore
-import springDesktop from "../images/index/seasons/SpringDesktop.jpg"
+import springDesktop from "../images/index/seasons/SpringDesktop.webp"
 //@ts-ignore
-import springLaptop from "../images/index/seasons/SpringLaptop.jpg"
+import springLaptop from "../images/index/seasons/SpringLaptop.webp"
 //@ts-ignore
-import springMobile from "../images/index/seasons/SpringMobile.jpg"
+import springMobile from "../images/index/seasons/SpringMobile.webp"
   
 //@ts-ignore
-import summerDesktop from "../images/index/seasons/SummerDesktop.jpg"
+import summerDesktop from "../images/index/seasons/SummerDesktop.webp"
 //@ts-ignore
-import summerLaptop from "../images/index/seasons/SummerLaptop.jpg"
+import summerLaptop from "../images/index/seasons/SummerLaptop.webp"
 //@ts-ignore
-import summerMobile from "../images/index/seasons/SummerMobile.jpg"
+import summerMobile from "../images/index/seasons/SummerMobile.webp"
 
 //@ts-ignore
-import autumnDesktop from "../images/index/seasons/AutumnDesktop.jpg"
+import autumnDesktop from "../images/index/seasons/AutumnDesktop.webp"
 //@ts-ignore
-import autumnLaptop from "../images/index/seasons/AutumnLaptop.jpg"
+import autumnLaptop from "../images/index/seasons/AutumnLaptop.webp"
 //@ts-ignore
-import autumnMobile from "../images/index/seasons/AutumnMobile.jpg"
+import autumnMobile from "../images/index/seasons/AutumnMobile.webp"
 
 //@ts-ignore
-import winterDesktop from "../images/index/seasons/WinterDesktop.jpg"
+import winterDesktop from "../images/index/seasons/WinterDesktop.webp"
 //@ts-ignore
-import winterLaptop from "../images/index/seasons/WinterLaptop.jpg"
+import winterLaptop from "../images/index/seasons/WinterLaptop.webp"
 //@ts-ignore
-import winterMobile from "../images/index/seasons/WinterMobile.jpg"
+import winterMobile from "../images/index/seasons/WinterMobile.webp"
 
 const useIndexPageFrontContentStyle = makeStyles((theme) => ({
     cardMedia : {
@@ -270,7 +270,7 @@ const ImageSubscript = ({ languageType, seasonType, t } : ImageSubscriptProps) =
 }
 function letsStart(){
     window.scrollTo({
-        top: document.body.scrollHeight/8-200,
+        top: document.body.scrollHeight/8-450,
         left: 0,
         behavior: 'smooth'
       })

@@ -7,7 +7,7 @@ import ListSubheader from '@material-ui/core/ListSubheader';
 import Grid from "@material-ui/core/Grid";
 import useMediaQuery from '@material-ui/core/useMediaQuery'
 import { Theme } from "@material-ui/core/styles"
-import { makeStyles, useTheme } from "@material-ui/styles"
+import { useTheme } from "@material-ui/styles"
 import { useTranslation } from "react-i18next";
 import Typography from '@material-ui/core/Typography';
 //@ts-ignore

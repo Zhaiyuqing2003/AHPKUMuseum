@@ -37,23 +37,23 @@ const Members = [
     },
 ]
 
-const Submembers = [
-    {
-        name : "JingGe",
-        position : ["XuanChuan","HouQiWeiHu","ZiLiao"],
-        email : "jingge@i.pkuschool.edu.cn",
-    },
-    {
-        name : "HeTianYang",
-        position : ["HouQiWeiHu","XuanChuan","ZiLiao"],
-        email : "hetianyang@i.pkuschool.edu.cn",
-    },
-    {
-        name : "CuiWuWei",
-        position : ["XuanChuan","ZiLiao"],
-        email : "cuiwuwei@i.pkuschool.edu.cn",
-    },
-]
+// const Submembers = [
+//     {
+//         name : "JingGe",
+//         position : ["XuanChuan","HouQiWeiHu","ZiLiao"],
+//         email : "jingge@i.pkuschool.edu.cn",
+//     },
+//     {
+//         name : "HeTianYang",
+//         position : ["HouQiWeiHu","XuanChuan","ZiLiao"],
+//         email : "hetianyang@i.pkuschool.edu.cn",
+//     },
+//     {
+//         name : "CuiWuWei",
+//         position : ["XuanChuan","ZiLiao"],
+//         email : "cuiwuwei@i.pkuschool.edu.cn",
+//     },
+// ]
 
 
 const MemberPicture = {
@@ -198,7 +198,19 @@ export default function MemberContent(){
         }</Grid>
     </Box>
     <Divider variant="middle"></Divider>
-    <Box width = { 1 } padding = { theme.spacing(3) }>
+    <Grid
+    container
+    direction="column"
+    justifyContent="center"
+    alignItems="center"
+    sx = {{padding : 5, paddingBottom : 6}}
+    >
+        <Grid item>
+            <Typography variant = 'subtitle1'>{t('ZhiChi')}</Typography>
+        </Grid>
+    
+    </Grid>
+    {/* <Box width = { 1 } padding = { theme.spacing(3) }>
         <Grid
             // className = { classes.gridContainer }
             container
@@ -284,7 +296,7 @@ export default function MemberContent(){
                 </Grid>)
             })
         }</Grid>
-    </Box>
+    </Box> */}
 
 
 

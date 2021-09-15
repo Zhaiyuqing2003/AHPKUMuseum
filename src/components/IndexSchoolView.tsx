@@ -3,9 +3,10 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
-import { CardActionArea } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
-import {Button} from '@material-ui/core'
+import {Button, useMediaQuery} from '@material-ui/core'
+import { useTheme } from '@material-ui/core/styles';
+
 import { useTranslation } from "react-i18next";
 //@ts-ignore
 import summerDesktop from "../images/index/schoolview/preview.webp"
@@ -17,12 +18,24 @@ const information = "https://mp.weixin.qq.com/s/Vxd-xz4RhJtbrSNJPvpmzA"
 export default function ActionAreaCard() {
     // const { t } = useTranslation("operation");
     const { t } = useTranslation("indexPageSchoolView");
+    let theme = useTheme();
+    let { between, down, up, values } = theme.breakpoints;
+    let { desktop, laptop } = values;
+    let isLargerThanDesktop = useMediaQuery(up(desktop));
+    let isLaptop = useMediaQuery(between(laptop, desktop));
+    let isSmallerThanLaptop = useMediaQuery(down(laptop));
+
     function jumptosubpage(){
-        windowObjectReference = window.open(subpage)
+        window.scrollTo({
+            top: document.body.scrollHeight /3-600,
+            left: 0,
+            behavior: 'smooth'
+          })
     }
     function jumptoinformation(){
         windowObjectReference = window.open(information)
     }
+    
   return (
     <Grid
     container
@@ -35,18 +48,18 @@ export default function ActionAreaCard() {
     >
 
     <Grid item>
-        <Card sx={{ minWidth : 305, maxWidth: 650,borderRadius: 4}}>
+        <Card sx={{ minWidth : 305, maxWidth: isLargerThanDesktop ? 650 : 350,borderRadius: 4}}>
         {/* <CardActionArea> */}
             <CardMedia
-            sx={{ height: 305, maxWidth: 650}}
+            sx={{ height: isLargerThanDesktop ? 305 : 155, maxWidth: isLargerThanDesktop ? 650 : 350}}
             image={ house }
             />
-            <CardContent sx={{ height: 230, maxWidth: 650}}>
+            <CardContent sx={{ height: isLargerThanDesktop ? 230 : 130, maxWidth: isLargerThanDesktop ? 650 : 350}}>
             {/* <Grid padding = {1}> */}
-            <Typography gutterBottom variant="h4" component="div">
+            <Typography gutterBottom variant= {isLargerThanDesktop ? "h4" : "h5"} component="div">
                 {t('SiDaShuYuan')}
             </Typography>
-            <Typography variant="h5" color="text.secondary"  paddingBottom = {2}>
+            <Typography variant={isLargerThanDesktop ? "h5" : "subtitle1"} color="text.secondary"  paddingBottom = {2}>
                 {t('Contenttwo')}
             </Typography> 
 
@@ -67,18 +80,18 @@ export default function ActionAreaCard() {
         </Card> 
     </Grid>
     <Grid item >
-        <Card sx={{ minWidth : 305, maxWidth: 650,borderRadius: 4}}>
+        <Card sx={{ minWidth : 305, maxWidth: isLargerThanDesktop ? 650 : 350,borderRadius: 4}}>
         {/* <CardActionArea> */}
             <CardMedia
-            sx={{ height: 305, maxWidth: 650}}
+            sx={{ height: isLargerThanDesktop ? 305 : 155, maxWidth: isLargerThanDesktop ? 650 : 350}}
             image={ summerDesktop }
             />
-            <CardContent   sx={{ height: 230, maxWidth: 650}}>
+            <CardContent   sx={{ height: isLargerThanDesktop ? 232 : 155, maxWidth: isLargerThanDesktop ? 650 : 350}}>
             {/* <Grid padding = {1}> */}
-            <Typography gutterBottom variant="h4" component="div">
+            <Typography gutterBottom variant={isLargerThanDesktop ? "h4" : "h5"} component="div">
                 {t('XiaoYuanJingSe')}
             </Typography>
-            <Typography variant="h5" color="text.secondary"  paddingBottom = {2}>
+            <Typography variant={isLargerThanDesktop ? "h5" : "subtitle1"} color="text.secondary"  paddingBottom = {2}>
                 {t('Content')}
             </Typography> 
             

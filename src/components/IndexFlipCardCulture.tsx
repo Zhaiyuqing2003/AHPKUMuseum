@@ -1,15 +1,13 @@
 import * as React from 'react';
 import SwipeableViews from 'react-swipeable-views';
 import { useTheme } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
+
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import {IndexPageCultureInt, IndexPageCultureMobile} from './IndexPageSchoolCultureInt'
-import ArrowBackIosRoundedIcon from '@material-ui/icons/ArrowBackIosRounded';
-import ArrowForwardIosRoundedIcon from '@material-ui/icons/ArrowForwardIosRounded';
-import IconButton from '@material-ui/core/IconButton';
+
 import Grid from '@material-ui/core/Grid';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTranslation } from "react-i18next";
