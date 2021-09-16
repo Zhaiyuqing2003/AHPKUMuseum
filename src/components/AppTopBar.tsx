@@ -32,6 +32,7 @@ import InvertColorsIcon from "@material-ui/icons/InvertColors";
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
+
 import FindInPageIcon from '@material-ui/icons/FindInPage';
 
 import LanguageType from "../utils/LanguageType"
@@ -53,6 +54,10 @@ import PolicyIcon from '@material-ui/icons/Policy';
 import PeopleAltIcon from '@material-ui/icons/PeopleAlt';
 import ContactSupportIcon from '@material-ui/icons/ContactSupport';
 import FormatListBulletedIcon from '@material-ui/icons/FormatListBulleted';
+import HistoryRoundedIcon from '@material-ui/icons/HistoryRounded';
+import SupervisedUserCircleIcon from '@material-ui/icons/SupervisedUserCircle';
+import EmojiPeopleRoundedIcon from '@material-ui/icons/EmojiPeopleRounded';
+import GavelIcon from '@material-ui/icons/Gavel';
 
 import { useTranslation } from "react-i18next"
 import BreakPointsType from "../utils/BreakPointsType";
@@ -306,6 +311,41 @@ export default function ({
             behavior: 'smooth'
           })
     }
+    function jumptocomp(){
+        window.scrollTo({
+            top: document.body.scrollHeight /4+350,
+            left: 0,
+            behavior: 'smooth'
+          })
+    }
+    function jumptoteacher(){
+        window.scrollTo({
+            top: document.body.scrollHeight /3+450,
+            left: 0,
+            behavior: 'smooth'
+          })
+    }
+    function jumptostudent(){
+        window.scrollTo({
+            top: 5*document.body.scrollHeight /9-300,
+            left: 0,
+            behavior: 'smooth'
+          })
+    }
+    function jumptoheadmaster(){
+        window.scrollTo({
+            top: 5*document.body.scrollHeight /9 + 200,
+            left: 0,
+            behavior: 'smooth'
+          })
+    }
+    function jumptodeveloper(){
+        window.scrollTo({
+            top: 9*document.body.scrollHeight/10 -360,
+            left: 0,
+            behavior: 'smooth'
+          })
+    }
 
 
     const toggleDrawer =
@@ -331,7 +371,7 @@ export default function ({
       >
         <List>
          
-            <ListItem button onClick = {jumptosearch} key={'Search'}>
+            <ListItem button onClick = {jumptosearch} >
               <ListItemIcon>
                 <FindInPageIcon/>
               </ListItemIcon>
@@ -342,9 +382,9 @@ export default function ({
 
         <List>
          
-         <ListItem button onClick = {jumptoView} key={'Search'}>
+         <ListItem button onClick = {jumptoView} >
            <ListItemIcon>
-             <FindInPageIcon/>
+             <HistoryRoundedIcon/>
            </ListItemIcon>
            <ListItemText primary={t('FuZhongGuangYin')} />
          </ListItem>
@@ -353,26 +393,57 @@ export default function ({
 
      <List>
          
-         <ListItem button onClick = {jumptosearch} key={'Search'}>
+         <ListItem button onClick = {jumptocomp}>
            <ListItemIcon>
-             <FindInPageIcon/>
+             <PeopleAltIcon/>
            </ListItemIcon>
-           <ListItemText primary={t('Search')} />
+           <ListItemText primary={t('SiDaSaiShi/ZhiMingXiaoYou')} />
          </ListItem>
       
      </List>
 
+     <List>
+         
+         <ListItem button onClick = {jumptoteacher}>
+           <ListItemIcon>
+             <SupervisedUserCircleIcon/>
+           </ListItemIcon>
+           <ListItemText primary={t('JiaoShiFengCai')} />
+         </ListItem>
+      
+     </List>
+     <List>
+         
+         <ListItem button onClick = {jumptostudent} >
+           <ListItemIcon>
+             <EmojiPeopleRoundedIcon/>
+           </ListItemIcon>
+           <ListItemText primary={t('XueShengHuoDong')} />
+         </ListItem>
+      
+     </List>
+     <List>
+         
+         <ListItem button onClick = {jumptoheadmaster} >
+           <ListItemIcon>
+             <DateRangeIcon/>
+           </ListItemIcon>
+           <ListItemText primary={t('XiaoZhangShiJianXian')} />
+         </ListItem>
+      
+     </List>
         <Divider />
         <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List>
+         
+         <ListItem button onClick = {jumptodeveloper} >
+           <ListItemIcon>
+             <GavelIcon/>
+           </ListItemIcon>
+           <ListItemText primary={t('KaiFaZhe')} />
+         </ListItem>
+      
+     </List>
+     
       </Box>
       );
     const [languageMenuAnchorElement, setLanguageMenuAnchorElement] = useState(null)

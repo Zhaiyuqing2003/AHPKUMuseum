@@ -146,7 +146,7 @@ function ControlledAccordions() {
             <Grid container alignContent="space-between" alignItems="flex-start" spacing = {2} direction="column">
                
                 <Grid item>
-                    <Typography component = 'h5' >{t('BanGongLou')}</Typography>
+                    <Typography component = 'h5' >{t('MoXing')}</Typography>
                 </Grid>
                 <Grid item>
                     <Link component="button" onClick={() => {
@@ -337,7 +337,7 @@ function ControlledAccordions() {
             aria-controls="panel4bh-content"
             id="panel4bh-header"
           >
-            <Typography sx={{ width: '33%', flexShrink: 0 }}>Personal data</Typography>
+            <Typography sx={{ width: '33%', flexShrink: 0 }}>{t('QiTa')}</Typography>
             <Typography sx={{ color: 'text.secondary' }}>{t('KaiFangRi·PiaoZheng')}</Typography>
           </AccordionSummary>
           <AccordionDetails>

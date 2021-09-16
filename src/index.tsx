@@ -44,6 +44,8 @@ import {ControlledAccordions} from "./components/AccordionShadow"
 import AppBottom from './components/AppBottomBar'
 import Developer from "./components/Developer"
 import Teachers from "./components/TeachersBlock"
+import Imagelisttwo from './components/SchoolViewImageListtwo'
+import {Accordiontwo} from './components/AccordionStudent'
 declare module '@material-ui/styles'{
     interface DefaultTheme extends Theme {}
 }
@@ -136,6 +138,17 @@ function App(){
 
                 <Divider></Divider>
                 <Teachers></Teachers>
+                <Divider></Divider>
+                <Grid
+                  paddingTop = '80px'
+                  paddingBottom = '50px'
+                  container
+                  direction="row"
+                  justifyContent="space-around"
+                  alignItems="flex-start">
+                    <Grid item><Imagelisttwo></Imagelisttwo></Grid>
+                    <Grid item><Accordiontwo></Accordiontwo></Grid>
+                </Grid>
                 <Divider></Divider>
 
                 <IndexPageTimeline />

@@ -77,7 +77,7 @@ function DevelopedByGrid(){
             </Box>
         </Typography>
         <Link
-                href = '../Subpages/subPageDeveloper.html'
+                href = 'https://github.com/DaltonWritingCenter'
                 color = "inherit" underline = "always">
                 <Box fontWeight = "bold" component = "span">
                 {t('TanChuping')}
@@ -85,13 +85,7 @@ function DevelopedByGrid(){
         </Link>
         <Typography>
 
-        <Link
-                href = '../Subpages/subPageDeveloper.html'
-                color = "inherit" underline = "always">
-                <Box fontWeight = "bold" component = "span">
-                {t('ZhaiYuQing')}
-                </Box>
-        </Link>
+
         </Typography>
     </Grid>)
 }

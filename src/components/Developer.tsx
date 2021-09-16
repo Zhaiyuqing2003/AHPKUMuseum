@@ -12,10 +12,23 @@ import {
     Typography,
     useTheme,
     CardActions,
+    useMediaQuery,
+    Paper,
+    fabClasses
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
 import { useTranslation } from "react-i18next";
 import Divider from '@material-ui/core/Divider';
+
+
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import ListItemAvatar from '@material-ui/core/ListItemAvatar'
+
+
+
+
 
 //@ts-ignore
 import PictureTom from "../images/subpage/developer/SuperTom.webp"
@@ -29,31 +42,25 @@ const Members = [
         email : "tanchuping@i.pkuschool.edu.cn",
         githubpage : "https://github.com/DaltonWritingCenter"
     },
-    {
-        name : "ZhaiYuQing",
-        position : ["JiShuZongJian","JiChuKuangJia","QianDuanSheJi","HouDuanYunWei", "FanYi", "ZiLiao"],
-        email : "zhaiyuqing@i.pkuschool.edu.cn",
-        githubpage : "https://github.com/Zhaiyuqing2003"
-    },
-]
 
-// const Submembers = [
-//     {
-//         name : "JingGe",
-//         position : ["XuanChuan","HouQiWeiHu","ZiLiao"],
-//         email : "jingge@i.pkuschool.edu.cn",
-//     },
-//     {
-//         name : "HeTianYang",
-//         position : ["HouQiWeiHu","XuanChuan","ZiLiao"],
-//         email : "hetianyang@i.pkuschool.edu.cn",
-//     },
-//     {
-//         name : "CuiWuWei",
-//         position : ["XuanChuan","ZiLiao"],
-//         email : "cuiwuwei@i.pkuschool.edu.cn",
-//     },
-// ]
+]
+const OtherMembers = [
+    {
+        
+            name : "ZhaiYuQing",
+            position : ["JiChuKuangJia","QianDuanSheJi","HouQiWeiHu", "FanYi", "ZiLiao"],
+            head : PictureKevin
+
+    },    {
+        name : "JingGe",
+        position : ["XuanChuan","ZiLiao"],
+     
+    },    {
+        name : "HeTianYang",
+        position : ["XuanChuan","ZiLiao"],
+     
+    }
+]
 
 
 const MemberPicture = {
@@ -94,6 +101,13 @@ export default function MemberContent(){
     const classes = useMemberContentStyle();
     const theme = useTheme();
     const { t } = useTranslation("developer");
+    let { between, down, up, values } = theme.breakpoints;
+    //@ts-ignore
+    let { desktop, laptop } = values;
+    let isLargerThanDesktop = useMediaQuery(up(desktop));
+    let isLaptop = useMediaQuery(between(laptop, desktop));
+    let isSmallerThanLaptop = useMediaQuery(down(laptop));
+    // maxWidth: isLargerThanDesktop ? 550 : 350
     return (
     <>
     <Box padding = '20px'>
@@ -115,16 +129,20 @@ export default function MemberContent(){
                 
             }) => {
                 return (<Grid
-                        lg = {4}
-                        xl = {4}
-                        md = {6}
-                        sm = {12}
+                        // lg = {4}
+                        // xl = {4}
+                        // md = {6}
+                        // sm = {12}
                         // xs = {18}
+                        direction="row"
+                        justifyContent="space-evenly"
                         item
                         container
                         className = { classes.gridItem }
                         key = { name }>
+                    <Grid item>
                     <Card
+                        sx = {{maxWidth: isLargerThanDesktop ? 580 : 350}}
                         variant = "outlined"
                         className = { classes.card }>
                         <CardHeader
@@ -166,6 +184,7 @@ export default function MemberContent(){
                                     })
                                 }</Grid>
                             }
+
                             titleTypographyProps = {{ variant : "h4" }}
                             />
                         <CardContent>
@@ -193,12 +212,52 @@ export default function MemberContent(){
                             </Grid>
                         </CardActions>
                     </Card>
+                    </Grid>
+
+                    <Grid item>
+                    {OtherMembers.map(({ name,
+                        position, head     
+                    }) => {
+                return (
+                        <Paper variant = "outlined" sx = {{maxWidth: isLargerThanDesktop ? 550 : 350}}>
+                            <List sx={{ width: '100%', maxWidth: isLargerThanDesktop ? 530 : 350, bgcolor: 'background.paper' }}>
+                            <ListItem alignItems="flex-start">
+                                <ListItemAvatar>
+                                <Avatar alt="Remy Sharp" src= {head} />
+                                </ListItemAvatar>
+                                <ListItemText
+                                primary= {t(name)}
+                                secondary={
+                                    <React.Fragment>
+                                    <Grid container spacing = { 0.5 }>{
+                                    position.map((pos, index) => {
+                                        return (<Grid item key = { pos }>
+                                            <Chip label= { t(pos) }
+                                                className = { classes.chip }
+                                                clickable
+                                                size = "small"
+                                                variant = "outlined"
+                                                color = "primary"
+                                            ></Chip>
+                                        </Grid>)
+                                    })
+                                }</Grid>
+                      
+                                    </React.Fragment>
+                                }
+                                />
+                            </ListItem>
+                            {/* <Divider variant="inset" component="li" /> */}
+ 
+                            </List>
+                        </Paper>)})}
+                    </Grid>
                 </Grid>)
             })
         }</Grid>
     </Box>
     <Divider variant="middle"></Divider>
-    <Grid
+    {/* <Grid
     container
     direction="column"
     justifyContent="center"
@@ -209,7 +268,7 @@ export default function MemberContent(){
             <Typography variant = 'subtitle1'>{t('ZhiChi')}</Typography>
         </Grid>
     
-    </Grid>
+    </Grid> */}
     {/* <Box width = { 1 } padding = { theme.spacing(3) }>
         <Grid
             // className = { classes.gridContainer }
