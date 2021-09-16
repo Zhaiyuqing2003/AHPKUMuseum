@@ -22,8 +22,7 @@ export default function ActionAreaCard() {
     let { between, down, up, values } = theme.breakpoints;
     let { desktop, laptop } = values;
     let isLargerThanDesktop = useMediaQuery(up(desktop));
-    let isLaptop = useMediaQuery(between(laptop, desktop));
-    let isSmallerThanLaptop = useMediaQuery(down(laptop));
+
 
     function jumptosubpage(){
         window.scrollTo({
@@ -108,7 +107,7 @@ export default function ActionAreaCard() {
                   onClick = {jumptosubpage}
                   >{t('DianJiChaKanGengDuo')}</Button>
             </Grid>
-            
+         
         {/* </CardActionArea> */}
         </Card> 
     </Grid>
