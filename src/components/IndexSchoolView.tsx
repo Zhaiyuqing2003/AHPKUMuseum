@@ -27,7 +27,7 @@ export default function ActionAreaCard() {
 
     function jumptosubpage(){
         window.scrollTo({
-            top: document.body.scrollHeight /3+450,
+            top: document.body.scrollHeight /4-300,
             left: 0,
             behavior: 'smooth'
           })

@@ -57,7 +57,7 @@ export default function ActionAreaCard() {
     const { t } = useTranslation("Teachers");
     function jumptosubpage(){
         window.scrollTo({
-            top: document.body.scrollHeight /3-600,
+            top: 5*document.body.scrollHeight /9-300,
             left: 0,
             behavior: 'smooth'
           })
