@@ -57,9 +57,7 @@ export default function ActionAreaCard() {
             behavior: 'smooth'
           })
     }
-    function jumptoinformation(){
-        windowObjectReference = window.open(information)
-    }
+
     const [open, setOpen] = React.useState(false);
 
     const handleClickOpen = () => {
@@ -235,7 +233,7 @@ export default function ActionAreaCard() {
                   variant = "contained"  
                 //   href = {subpage}
                   onClick = {jumptosubpage}
-                  >{t('DianJiChaKanGengDuo')}</Button>
+                  >{t('DianJiTiaoZhuanXiangQing')}</Button>
             </Grid>
             
         {/* </CardActionArea> */}

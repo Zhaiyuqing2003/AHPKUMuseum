@@ -105,7 +105,7 @@ export default function ActionAreaCard() {
                   variant = "contained"  
                 //   href = {subpage}
                   onClick = {jumptosubpage}
-                  >{t('DianJiChaKanGengDuo')}</Button>
+                  >{t('DianJiTiaoZhuanXiangQing')}</Button>
             </Grid>
          
         {/* </CardActionArea> */}
