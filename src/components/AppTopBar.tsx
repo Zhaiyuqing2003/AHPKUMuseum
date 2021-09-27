@@ -523,7 +523,7 @@ export default function ({
             {([''] as const ).map((anchor) => (
             <React.Fragment key={anchor} >
               <IconButton edge="end" color = "inherit" size = "large"  onClick={toggleDrawer(anchor, true) }>{anchor} <MenuIcon/></IconButton>
-                <SwipeableDrawer  anchor={'top'} open={state[anchor]}   onOpen={toggleDrawer(anchor, true)} onClose={toggleDrawer(anchor, false)} style = {{backdropFilter:  "blur(8px)", color : 'primary', WebkitBackdropFilter: "blur(8px)"}}>
+                <SwipeableDrawer  anchor={'top'} open={state[anchor]}   onOpen={toggleDrawer(anchor, true)} onClose={toggleDrawer(anchor, false)} style = {{ color : 'primary', }}>
                   {list(anchor)}
                 </SwipeableDrawer>
                 

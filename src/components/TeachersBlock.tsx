@@ -113,7 +113,7 @@ export default function ActionAreaCard() {
                     onClose={handleClose}
                     aria-labelledby="alert-dialog-title"
                     aria-describedby="alert-dialog-description"
-                    sx = {{backdropFilter : "blur(10px)", WebkitBackdropFilter : "blur(10px)"}}
+                    sx = {{ WebkitBackdropFilter : "blur(10px)"}}
               
                 >
                     <DialogTitle id="alert-dialog-title">{t('JiaoShiFengCai')}</DialogTitle>
