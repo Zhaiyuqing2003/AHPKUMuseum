@@ -130,21 +130,21 @@ export default function ActionAreaCard() {
                         // }
                         >
                         <ListItemButton onClick={() => {
-                        window.open('https://bdfz-my.sharepoint.com/:f:/g/personal/zhaiyuqing_i_pkuschool_edu_cn/Eu6Pep9Tvt1Drcw-EJH2rGoBbUD7P9AtoRx_1KrSADrr7g?e=g3NFTn') }}>
+                        window.open('https://bdfz-my.sharepoint.com/:f:/g/personal/zhaiyuqing_i_pkuschool_edu_cn/EmdpTUE_opVMrAQEkq2foCgBPFKM7qmloJiZXtyPxYblFA?e=qY4kyq') }}>
                             <ListItemIcon>
                             <PeopleRoundedIcon />
                             </ListItemIcon>
                             <ListItemText primary={t('JiaoGongJiTi')} />
                         </ListItemButton>
                         <ListItemButton onClick={() => {
-                        window.open('https://bdfz-my.sharepoint.com/:f:/g/personal/zhaiyuqing_i_pkuschool_edu_cn/EqEFHUl9VcpAqNd7GLoRXosBIBLZV01W9KxmmLW4mcxE4A?e=GRg4Tf') }}>
+                        window.open('https://bdfz-my.sharepoint.com/:f:/g/personal/zhaiyuqing_i_pkuschool_edu_cn/Erz2eUcpn6JAiaOlITgATxgBP1HeMUrm6b8abCj5XUmXiQ?e=GosRPM') }}>
                             <ListItemIcon>
                             <WeekendRoundedIcon />
                             </ListItemIcon>
                             <ListItemText primary={t('DaShiJiangZuo')} />
                         </ListItemButton>
                         <ListItemButton onClick={() => {
-                        window.open('https://bdfz-my.sharepoint.com/:f:/g/personal/zhaiyuqing_i_pkuschool_edu_cn/EqEFHUl9VcpAqNd7GLoRXosBIBLZV01W9KxmmLW4mcxE4A?e=GRg4Tf') }}>
+                        window.open('https://bdfz-my.sharepoint.com/:f:/g/personal/zhaiyuqing_i_pkuschool_edu_cn/Ei7QibS0EGhDi7zUnVV68Q8BaGVpbsPHCkdF2lX6F4HIRg?e=2qmqxh') }}>
                             <ListItemIcon>
                             <EmojiPeopleRoundedIcon />
                             </ListItemIcon>
@@ -159,31 +159,31 @@ export default function ActionAreaCard() {
                     </ListItemButton>
                     <Collapse in={open} timeout="auto" unmountOnExit>
                         <List component="div" disablePadding>
-                        <ListItemButton sx={{ pl: 4 }} onClick = {()=>{window.open('https://bdfz-my.sharepoint.com/:f:/g/personal/zhaiyuqing_i_pkuschool_edu_cn/EncWDKFjRRlMoV7MuW_IMQoBSCnzgxidyAV50nWTPS_WeQ?e=9PExaE')}}>
+                        <ListItemButton sx={{ pl: 4 }} onClick = {()=>{window.open('https://bdfz-my.sharepoint.com/:f:/g/personal/zhaiyuqing_i_pkuschool_edu_cn/EuwThSLb75ROrMKazKJqmlsB8P6HDk6BDkErl3cP-JBQSg?e=R8g8Yo')}}>
                             <ListItemIcon>
                             <StarBorder />
                             </ListItemIcon>
                             <ListItemText primary={t("TeJiJiaoShiBiaoZhunXiang")} />
                         </ListItemButton>
-                        <ListItemButton sx={{ pl: 4 }} onClick = {()=>{window.open('https://bdfz-my.sharepoint.com/:f:/g/personal/zhaiyuqing_i_pkuschool_edu_cn/Eg7xMX-tMDlDgwBy-psj-bUBxoqlCaCmV3plHkBsa7lGIQ?e=acJ1iT')}}>
+                        <ListItemButton sx={{ pl: 4 }} onClick = {()=>{window.open('https://bdfz-my.sharepoint.com/:f:/g/personal/zhaiyuqing_i_pkuschool_edu_cn/EgQL__xI5nVEtHbq9ppe-XQBtCoEK5VdiPH-k6pJfitd0g?e=E12Baw')}}>
                             <ListItemIcon>
                             <StarBorder />
                             </ListItemIcon>
                             <ListItemText primary={t("TeJiJiaoShiFengJingZhao")} />
                         </ListItemButton>
-                        <ListItemButton sx={{ pl: 4 }} onClick = {()=>{window.open('https://bdfz-my.sharepoint.com/:f:/g/personal/zhaiyuqing_i_pkuschool_edu_cn/Ek8EcB1TLpRFpCslHHM6dQEBZ1dCaDboBo272fiR-g0-eA?e=vIi6Ge')}}>
+                        <ListItemButton sx={{ pl: 4 }} onClick = {()=>{window.open('https://bdfz-my.sharepoint.com/:f:/g/personal/zhaiyuqing_i_pkuschool_edu_cn/Er18thQ1Vh5Hu_xCeyCx89ABfLAbqxri5Ug2xqdANNk4aw?e=8XkhQm')}}>
                             <ListItemIcon>
                             <StarBorder />
                             </ListItemIcon>
                             <ListItemText primary={t("GuGanJiaoShi")} />
                         </ListItemButton>
-                        <ListItemButton sx={{ pl: 4 }} onClick = {()=>{window.open('https://bdfz-my.sharepoint.com/:f:/g/personal/zhaiyuqing_i_pkuschool_edu_cn/EsjfUerhzzNLk2hppMbIrrYBHVi6NSx_y52IGrKopgpMTw?e=gASeGZ')}}>
+                        <ListItemButton sx={{ pl: 4 }} onClick = {()=>{window.open('https://bdfz-my.sharepoint.com/:f:/g/personal/zhaiyuqing_i_pkuschool_edu_cn/Ev5xJ5kKXq1JvvmxDbFmCjIBUMncOx-yB2Eno_Fdql3ucA?e=phNseA')}}>
                             <ListItemIcon>
                             <StarBorder />
                             </ListItemIcon>
                             <ListItemText primary={t("JiaoGongXianJin")} />
                         </ListItemButton>
-                        <ListItemButton sx={{ pl: 4 }} onClick = {()=>{window.open('https://bdfz-my.sharepoint.com/:f:/g/personal/zhaiyuqing_i_pkuschool_edu_cn/EukwtWjxiONFpZgX4XWbPZYBhaBKZnhcx3MT8ZsI9l9MrA?e=0rjII8')}}>
+                        <ListItemButton sx={{ pl: 4 }} onClick = {()=>{window.open('https://bdfz-my.sharepoint.com/:f:/g/personal/zhaiyuqing_i_pkuschool_edu_cn/EkFdAvJnsKFHuqSdA05YVfwBA5R287IIcDX4DVGZ8fTTLQ?e=d4CYrM')}}>
                             <ListItemIcon>
                             <StarBorder />
                             </ListItemIcon>
