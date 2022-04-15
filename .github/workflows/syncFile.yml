@@ -48,8 +48,8 @@ jobs:
           # Hostname or IP address of the server.
           host: 62.234.147.251
           # Username for authentication.
-          username: ubuntu
+          username: root
           # Password for password-based user authentication.
-          password: ${{ secrets.SSH_PASSWORD }}
+          password: bohai73.10
           # Clean directory before uploading.
           rmRemote: true
