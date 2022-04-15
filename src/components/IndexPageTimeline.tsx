@@ -9,7 +9,7 @@ import TimelineDot from '@material-ui/lab/TimelineDot';
 import Typography from '@material-ui/core/Typography';
 import Avatar from "@material-ui/core/Avatar";
 import Grid from "@material-ui/core/Grid";
-import { Box, Paper, CardHeader, Card, CardMedia, CardContent } from "@material-ui/core";
+import { Box, Paper, CardHeader, Card, CardMedia, CardContent, Link, Button } from "@material-ui/core";
 import { makeStyles, useTheme } from "@material-ui/styles"
 import { Theme } from "@material-ui/core/styles"
 import useMediaQuery from '@material-ui/core/useMediaQuery'
@@ -73,6 +73,8 @@ import headmasterNine from "../images/index/headmasters/headmasterNine.jpg"
 import headmasterTen from "../images/index/headmasters/headmasterTen.jpg"
 
 //@ts-ignore
+import headmasterEleven from  "../images/index/headmasters/headmasterEleven.jpg"
+//@ts-ignore
 import greatwall from "../images/index/backgrounds/GreatWall.jpg"
 
 
@@ -86,6 +88,7 @@ const headmasters: headmasterItem[] = [{
     positiontwo : '',
     year : '1960-1966',
     picture: headmasterOne,
+    link : "http://edu.sina.com.cn/zhongkao/2010-09-28/1807269502.shtml",
 }, 
 {
     name: "LiuMeiDe",
@@ -93,18 +96,22 @@ const headmasters: headmasterItem[] = [{
     positiontwo : '',
     year : '1960-1972',
     picture: headmasterTwo,
+    link : "http://edu.sina.com.cn/zhongkao/2010-09-25/1622268871.shtml",
 }, {
     name: "JiaShiQi",
     position : 'GeWeiHuiZhuRen',
     positiontwo : '',
     year: '1968-1971',
     picture: headmasterThree,
+    link : "http://edu.sina.com.cn/y/news/2005-09-05/101742965.html",
 }, {
     name: "MengGuangPing",
     position : "GeWeiHuiZhuRen",
     positiontwo : "XiaoZhang",
     year :"1971-1980",
     picture: headmasterFour,
+    link : "http://edu.sina.com.cn/y/news/2005-08-15/105841572.html",
+    
 }, {
     name: "XiaXueZhi",
     position : "DaiXiaoZhang",
@@ -112,36 +119,51 @@ const headmasters: headmasterItem[] = [{
     year : "1980.7-1984.4",
     yeartwo: '1985-1992',
     picture: headmasterFive,
+    link : "http://edu.sina.com.cn/zhongkao/2010-09-25/1624268875.shtml",
 }, {
     name: "ChenJianGang",
     position : "XiaoZhang",
     positiontwo : '',
     year : "1984.5-1985.1",
     picture: headmasterSix,
+    link : "http://edu.sina.com.cn/y/news/2005-08-10/204041362.html",
 }, {
     name: "MaoMeiHua",
     position : "XiaoZhang",
     positiontwo : '',
     year : "1992.7-1997.7",
     picture: headmasterSeven,
+    link : "https://baike.baidu.com/item/%E6%AF%9B%E7%BE%8E%E5%8D%8E",
 }, {
     name: "ZhaoYuLin",
     position : "XiaoZhang",
     year : "1997.7-2001.10",
     picture: headmasterEight,
+    link : "https://baike.baidu.com/item/%E8%B5%B5%E9%92%B0%E7%90%B3",
 }, {
     name: "KangJian",
     position : "XiaoZhang",
     positiontwo : '',
     year : "2001.11-2009",
     picture: headmasterNine,
+    link : "https://baike.baidu.com/item/%E5%BA%B7%E5%81%A5/4112753?fr=aladdin",
 }, {
     name: "WangZheng",
     position : "XiaoZhang",
     positiontwo : '',
     year : '2009-2021',
     picture: headmasterTen,
-}]
+    link : 'https://baike.baidu.com/item/%E7%8E%8B%E9%93%AE/1753777?fr=aladdin'
+}, {
+    name: "MaYuGuo",
+    position : "XiaoZhang",
+    positiontwo : 'DangWeiFuShuJi',
+    year : '2021- ',
+    picture: headmasterEleven,
+    link : 'https://www.chem.pku.edu.cn/mayg/dsjj/index.htm'
+}
+]
+
 
 
 
@@ -159,7 +181,7 @@ function DesktopTimeline() {
         <Typography variant = 'h4' textAlign = 'center' paddingTop = '80px'>{t('XiaoZhangShiJianXian')}</Typography>
         {/* <FormControlLabel control={<Switch checked={checked} onChange={handleChange} />}label="Show"/> */}
         <Timeline position="alternate" >
-            {headmasters.map(({ name, year,yeartwo, position, positiontwo, picture }, index) => ( 
+            {headmasters.map(({ name, year,yeartwo, position, positiontwo, picture, link }, index) => ( 
         <>
         <TimelineItem key = { index }>
            
@@ -196,7 +218,14 @@ function DesktopTimeline() {
                                     }} />
                             </Grid>
                             <Grid item padding = {1} sx = {{width:140}}>
-                                    <Typography variant = 'h5'>{ t(name) }</Typography>
+                                    <Link
+                                        onClick ={() => {
+                                            window.open(link)}}
+                                      
+                                        color = "inherit" underline = "always"
+                                        underline="none"> 
+                                        <Typography variant = 'h5'>{ t(name) }</Typography>
+                                    </Link>
                                 <Typography align = {index % 2 === 0 ? "left" : "right"} variant = 'subtitle1' color = 'textSecondary'>{ t(year) }</Typography>
                                 <Typography align = {index % 2 === 0 ? "left" : "right"} variant = 'subtitle1' color = 'textSecondary'>{ t(position) }</Typography>
                                 <Typography align = {index % 2 === 0 ? "left" : "right"} variant = 'subtitle1' color = 'textSecondary'>{ t(yeartwo) }</Typography>
@@ -239,7 +268,7 @@ function Mobiletimeline(){
     <Typography variant = 'h4' textAlign = 'center' paddingTop = '30px'>{t('XiaoZhangShiJianXian')}</Typography>
     <Timeline position="alternate">{
 
-        headmasters.map(({ name, year, yeartwo, position, positiontwo, picture }, index) => ( 
+        headmasters.map(({ name, year, yeartwo, position, positiontwo, picture, link }, index) => ( 
     <>
     <TimelineItem key = { index }>
        
@@ -263,7 +292,13 @@ function Mobiletimeline(){
                     }>
                         
                             <Grid item >
+                            <Link
+                                onClick ={() => {
+                                window.open(link)}} 
+                                color = "inherit" underline = "always"
+                                underline="none"> 
                                     <Typography variant = 'h5'>{ t(name) }</Typography>
+                            </Link>
                                 <Typography align = {index % 2 === 0 ? "left" : "right"} variant = 'subtitle1' color = 'textSecondary'>{ t(year) }</Typography>
                                 <Typography align = {index % 2 === 0 ? "left" : "right"} variant = 'subtitle1' color = 'textSecondary'>{ t(position) }</Typography>
                                 <Typography align = {index % 2 === 0 ? "left" : "right"} variant = 'subtitle1' color = 'textSecondary'>{ t(yeartwo) }</Typography>
