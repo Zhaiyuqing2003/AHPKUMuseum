@@ -48,6 +48,8 @@ function srcset(image: string, size: number, rows = 1, cols = 1) {
   ${image}?w=${size * cols}&h=${size * rows}&fit=crop&auto=format&dpr=2 2x`;
 }
 
+//@ts-ignore
+
 function ImageListBig() {
   const { t } = useTranslation("indexPageSchoolView");
   return (

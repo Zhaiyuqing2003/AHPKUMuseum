@@ -242,6 +242,7 @@ function FuckIWantWhatEverIWant(input){
     const Daddy = FuckIWantWhatEverIWant(input)
     // const component = FuckIWantWhatEverIWant(input)
 
+
     return (
         // <Grid container spacing= {2}>
     
@@ -257,7 +258,7 @@ function FuckIWantWhatEverIWant(input){
             
                         
                         <Card sx={{ maxWidth: 500, height: 250, boxShadow:10,borderRadius : 0 }} className = {classes.floatcard} >
-        
+                        <></>
                             <Grid
                                 container
                                 direction="row" 

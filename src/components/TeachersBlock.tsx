@@ -40,6 +40,8 @@ import house from "../images/index/teachers/teachers.webp"
 const subpage = '../Subpages/subPageSchoolView.html'
 const information = "https://mp.weixin.qq.com/s/Vxd-xz4RhJtbrSNJPvpmzA"
 
+//@ts-ignore
+
 export default function ActionAreaCard() {
     let theme = useTheme();
     let { between, down, up, values } = theme.breakpoints;

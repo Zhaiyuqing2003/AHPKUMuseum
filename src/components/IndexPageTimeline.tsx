@@ -78,7 +78,7 @@ import headmasterEleven from  "../images/index/headmasters/headmasterEleven.jpg"
 import greatwall from "../images/index/backgrounds/GreatWall.jpg"
 
 //@ts-ignore
-// fuckfuckfuckzenmeshibai
+
 
 import { useTranslation } from "react-i18next"
 

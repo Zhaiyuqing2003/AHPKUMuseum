@@ -62,6 +62,8 @@ import GavelIcon from '@material-ui/icons/Gavel';
 import { useTranslation } from "react-i18next"
 import BreakPointsType from "../utils/BreakPointsType";
 
+//@ts-ignore
+
 const useAppBarStyle = makeStyles((theme) => ({
     iconButton : {
         margin : theme.spacing(0, 0)
