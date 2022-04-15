@@ -48,6 +48,7 @@ import XuBingBlur from "../images/index/alumni/blur/XB.webp"
 import ZhangXinLingBlur from "../images/index/alumni/blur/ZXL.webp"
 import { SixtyFpsTwoTone } from '@material-ui/icons';
 
+// fuckfuckfuckzenmeshibai
 
 declare module '@material-ui/styles'{
     interface DefaultTheme extends Theme{}
