@@ -230,9 +230,8 @@ function FuckIWantWhatEverIWant(input){
                 </Card>
             </CardMedia>
         
-    // </Grid>
+  
     ))}</Card>
-    // </Grid>
 
   )};
 
@@ -247,9 +246,9 @@ function FuckIWantWhatEverIWant(input){
         // <Grid container spacing= {2}>
     
         <>
-    
+
             <Card  sx={{ maxWidth: 300, display: 'flex', height:370, borderRadius : 14 }}> {(Daddy).map(({ title, picture, pictureblur, headings, content }, index) => (
-            // <Grid item  key = {  index }>
+
                 
                 
                     <CardMedia
@@ -302,7 +301,7 @@ function FuckIWantWhatEverIWant(input){
                                         </Card>     
                     </CardMedia>
                 
-            // </Grid>
+         
             ))}</Card>
         </>
     

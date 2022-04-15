@@ -16,7 +16,7 @@ interface State {
 function BigSearch() {
     const { t } = useTranslation("translation");
     function openit(){
-        windowObjectReference = window.open('http://www.pkuschool.edu.cn/jsjg.jsp?wbtreeid=1066&searchScope=0&currentnum=2&newskeycode2='+ Buffer.from(values.amount).toString('base64') + '#')
+        window.open('http://www.pkuschool.edu.cn/jsjg.jsp?wbtreeid=1066&searchScope=0&currentnum=2&newskeycode2='+ Buffer.from(values.amount).toString('base64') + '#')
     }
     const [values, setValues] = React.useState<State>({
         amount: ''
@@ -88,8 +88,7 @@ function BigSearch() {
       <Divider sx={{ height: 35, m: 0.5 }} orientation="vertical" />
       <IconButton
             color = "primary"
-            disableElevation
-            variant = "contained"
+      
             onClick = {openit}
             
             
@@ -109,7 +108,7 @@ function BigSearch() {
 function SmallSearch(){
     const { t } = useTranslation("translation");
     function openit(){
-        windowObjectReference = window.open('http://www.pkuschool.edu.cn/jsjg.jsp?wbtreeid=1066&searchScope=0&currentnum=2&newskeycode2='+ Buffer.from(values.amount).toString('base64') + '#')
+        window.open('http://www.pkuschool.edu.cn/jsjg.jsp?wbtreeid=1066&searchScope=0&currentnum=2&newskeycode2='+ Buffer.from(values.amount).toString('base64') + '#')
     }
     const [values, setValues] = React.useState<State>({
         amount: ''
@@ -167,12 +166,8 @@ function SmallSearch(){
       <Divider sx={{ height: 35, m: 0.5 }} orientation="vertical" />
       <IconButton
             color = "primary"
-            disableElevation
-            variant = "contained"
-            onClick = {openit}
-            
-       
-            >
+      
+            onClick = {openit}>
             <SearchIcon /><Typography paddingRight = '5px' >{t("SouSuo")}</Typography>
         </IconButton>
         
