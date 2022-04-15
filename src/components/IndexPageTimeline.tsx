@@ -220,11 +220,12 @@ function DesktopTimeline() {
                             </Grid>
                             <Grid item padding = {1} sx = {{width:140}}>
                                     <Link
+                                        underline="none"
                                         onClick ={() => {
                                             window.open(link)}}
                                       
-                                        color = "inherit" underline = "always"
-                                        underline="none"> 
+                                        color = "inherit" 
+                                        > 
                                         <Typography variant = 'h5'>{ t(name) }</Typography>
                                     </Link>
                                 <Typography align = {index % 2 === 0 ? "left" : "right"} variant = 'subtitle1' color = 'textSecondary'>{ t(year) }</Typography>
@@ -296,7 +297,7 @@ function Mobiletimeline(){
                             <Link
                                 onClick ={() => {
                                 window.open(link)}} 
-                                color = "inherit" underline = "always"
+                                color = "inherit" 
                                 underline="none"> 
                                     <Typography variant = 'h5'>{ t(name) }</Typography>
                             </Link>

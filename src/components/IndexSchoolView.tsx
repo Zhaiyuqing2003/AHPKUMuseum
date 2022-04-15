@@ -32,7 +32,7 @@ export default function ActionAreaCard() {
           })
     }
     function jumptoinformation(){
-        windowObjectReference = window.open(information)
+        window.open(information)
     }
     
   return (
