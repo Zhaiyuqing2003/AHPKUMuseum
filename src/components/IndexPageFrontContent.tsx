@@ -230,6 +230,7 @@ const useFrontContentDividerMarginTop = (languageType: LanguageType) => {
     }
 }
 
+// hello
 const ImageSubscript = ({ languageType, seasonType, t } : ImageSubscriptProps) => {
     const theme = useTheme();
     const seasonText = useSeasonText(seasonType);
