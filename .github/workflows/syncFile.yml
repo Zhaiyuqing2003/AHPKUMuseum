@@ -48,7 +48,7 @@ jobs:
           # Hostname or IP address of the server.
           host: 62.234.147.251
           # Username for authentication.
-          username: ubuntu
+          username: ${{ secrets.SSH_USERNAME }}
           # Password for password-based user authentication.
           password: ${{ secrets.SSH_PASSWORD }}
           # Clean directory before uploading.
