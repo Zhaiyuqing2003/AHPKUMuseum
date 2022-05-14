@@ -13,7 +13,8 @@ import {
 import DWCIcon from "./MuseumIcon";
 import { makeStyles } from "@material-ui/styles"
 import { useTranslation } from "react-i18next";
-// strange comment to force update
+// strange comment to force update, big dog small cat
+const dummyVariable = 0;
 
 const useAppBottomBarStyle = makeStyles((theme) => ({
     dwcIcon : {
