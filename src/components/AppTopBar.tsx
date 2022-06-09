@@ -150,6 +150,7 @@ function useTitleTypeString(deviceWidthQuery: CustomBreakPointsType, languageTyp
                 case BreakPointsType.tablet:
                     return "websiteTitleMiddle"
                 case BreakPointsType.laptop:
+                    return "websiteTitleMiddle"
                 case BreakPointsType.desktop:
                     return "websiteTitleLong"
                 case BreakPointsType.fourK:
@@ -166,7 +167,9 @@ function useTitleTypeString(deviceWidthQuery: CustomBreakPointsType, languageTyp
                 case BreakPointsType.mobileL:
                     return "websiteTitleMiddle"
                 case BreakPointsType.tablet:
+                    return "websiteTitleMiddle"
                 case BreakPointsType.laptop:
+                    return "websiteTitleLong"
                 case BreakPointsType.desktop:
                     return "websiteTitleLong"
                 case BreakPointsType.fourK:
