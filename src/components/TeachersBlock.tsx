@@ -89,7 +89,7 @@ export default function ActionAreaCard() {
             sx={{ height: isLargerThanDesktop ? 650 : 350, maxWidth: 650}}
             image={ house }
             />
-            <CardContent sx={{ height: isLargerThanDesktop ? 50 : 80, maxWidth: 650}}>
+            <CardContent sx={{ height: isLargerThanDesktop ? 50 : 100, maxWidth: 650}}>
             {/* <Grid padding = {1}> */}
             <Typography gutterBottom variant="h4" component="div">
                 {t('JiaoShiFengCai')}
@@ -217,7 +217,7 @@ export default function ActionAreaCard() {
             sx={{ height: isLargerThanDesktop ? 530 : 350, maxWidth: isLargerThanDesktop ? 650 : 350}}
             image={ summerDesktop }
             />
-            <CardContent   sx={{ height: isLargerThanDesktop ? 170 : 80, maxWidth: isLargerThanDesktop ? 650 : 350}}>
+            <CardContent   sx={{ height: isLargerThanDesktop ? 170 : 100, maxWidth: isLargerThanDesktop ? 650 : 350}}>
             {/* <Grid padding = {1}> */}
             <Typography gutterBottom variant={isLargerThanDesktop ? "h4" : "h5"} component="div">
                 {t('XueShengShengHuo')}
