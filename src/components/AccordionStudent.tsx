@@ -69,7 +69,7 @@ function Accordiontwo() {
           <Box sx = {{padding : 1, paddingBottom : 3}}>
             <Typography  variant = 'h4' textAlign = 'center'>{t('XueShengShengHuo')}</Typography>
           </Box>
-        
+        <></>
         <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
