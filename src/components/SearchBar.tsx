@@ -16,7 +16,8 @@ interface State {
 function BigSearch() {
     const { t } = useTranslation("translation");
     function openit(){
-        window.open('http://www.pkuschool.edu.cn/jsjg.jsp?wbtreeid=1066&searchScope=0&currentnum=2&newskeycode2='+ Buffer.from(values.amount).toString('base64') + '#')
+              {/*         window.open('http://www.pkuschool.edu.cn/jsjg.jsp?wbtreeid=1066&searchScope=0&currentnum=2&newskeycode2='+ Buffer.from(values.amount).toString('base64') + '#') */}
+              window.open('https://www.pkuschool.edu.cn/searchs.html?keywords='+ (values.amount))
     }
     const [values, setValues] = React.useState<State>({
         amount: ''
@@ -108,7 +109,9 @@ function BigSearch() {
 function SmallSearch(){
     const { t } = useTranslation("translation");
     function openit(){
-        window.open('http://www.pkuschool.edu.cn/jsjg.jsp?wbtreeid=1066&searchScope=0&currentnum=2&newskeycode2='+ Buffer.from(values.amount).toString('base64') + '#')
+
+              {/*         window.open('http://www.pkuschool.edu.cn/jsjg.jsp?wbtreeid=1066&searchScope=0&currentnum=2&newskeycode2='+ Buffer.from(values.amount).toString('base64') + '#') */}
+        window.open('https://www.pkuschool.edu.cn/searchs.html?keywords='+ (values.amount))
     }
     const [values, setValues] = React.useState<State>({
         amount: ''
