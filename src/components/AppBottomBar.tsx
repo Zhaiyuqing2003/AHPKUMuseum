@@ -155,9 +155,32 @@ function ContactFacultyGrid(){
         <Typography className = { classes.facultyAddress } component = "a">
             Tanchuping@i.pkuschool.edu.cn
         </Typography>
+        <Typography variant = "h6" component = "div">
+            <Box fontWeight = "bold" component = "span">
+                {t('GanXieZhiChiMao')}
+            </Box>
+        </Typography>
+        <Typography className = { classes.facultyAddress } component = "a">
+            maohuajun@i.pkuschool.edu.cn
+
+        </Typography>
     </Grid>)
 }
+function ContactTeacherGrid(){
+    const { t } = useTranslation("AppBottomBar");
+    const classes = useAppBottomBarStyle()
+    return (<Grid item>
+        <Typography variant = "h6" component = "div">
+            <Box fontWeight = "bold" component = "span">
+                {t('GanXieZhiChiMao')}
+            </Box>
+        </Typography>
+        <Typography className = { classes.facultyAddress } component = "a">
+            maohuajun@i.pkuschool.edu.cn
 
+        </Typography>
+    </Grid>)
+}
 export default function AppBottomBar(){
     const { t } = useTranslation("AppBottomBar");
     const theme = useTheme()
@@ -195,7 +218,9 @@ export default function AppBottomBar(){
                 <AddressGrid />
                 <InformationForGrid />
                 <ContactFacultyGrid />
-                <DevelopedByGrid />
+
+                <DevelopedByGrid />                
+       
                 <PoweredByGrid />
             </Grid>
         </Grid>
