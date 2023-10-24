@@ -68,7 +68,7 @@ function ImageListBig() {
             {t('XiaoQingTuPianJingXuan')}
             </Typography>
             <Button variant = 'outlined' onClick ={() => {
-                        window.open('https://bdfz-my.sharepoint.com/:f:/g/personal/zhaiyuqing_i_pkuschool_edu_cn/EoZOTtiRpIVIsZxLSJO-Od4BjCiCeQlXxiterJwHBmC-Dg?e=GsVkiq') }}
+                        window.open('https://bdfz-my.sharepoint.com/:f:/g/personal/zhaiyuqing_i_pkuschool_edu_cn/EoZOTtiRpIVIsZxLSJO-Od4BjCiCeQlXxiterJwHBmC-Dg') }}
                         >{t('ChaKanGengDuo')}</Button>
             </>
             }</ListSubheader>

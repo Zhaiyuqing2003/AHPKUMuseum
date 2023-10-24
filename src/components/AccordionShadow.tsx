@@ -89,7 +89,7 @@ function ControlledAccordions() {
                 </Grid>
                 <Grid item>
                     <Link component="button" onClick={() => {
-                        window.open('https://bdfz-my.sharepoint.com/:f:/g/personal/zhaiyuqing_i_pkuschool_edu_cn/EqhlGBXfs-1IpCVG5rwxflYBa3dgzFSondgMHhzpB2YAag?e=c8znK9') }}
+                        window.open('https://bdfz-my.sharepoint.com/:f:/g/personal/zhaiyuqing_i_pkuschool_edu_cn/EqhlGBXfs-1IpCVG5rwxflYBa3dgzFSondgMHhzpB2YAag') }}
                         color="primary" variant = 'body1'>
                         {t('ChaKan')}
                     </Link>
@@ -100,7 +100,7 @@ function ControlledAccordions() {
                 </Grid>
                 <Grid item>
                     <Link component="button" onClick={() => {
-                        window.open('https://bdfz-my.sharepoint.com/:f:/g/personal/zhaiyuqing_i_pkuschool_edu_cn/EnZlWLQIhwtKrscv9RJp6t4Bx5gzEyYkzR9-Ck8mFLt9jg?e=yW4dDu') }}
+                        window.open('https://bdfz-my.sharepoint.com/:f:/g/personal/zhaiyuqing_i_pkuschool_edu_cn/EnZlWLQIhwtKrscv9RJp6t4Bx5gzEyYkzR9-Ck8mFLt9jg') }}
                         color="primary" variant = 'body1'>
                         {t('ChaKan')}
                     </Link>
@@ -110,7 +110,7 @@ function ControlledAccordions() {
                 </Grid>
                 <Grid item>
                     <Link component="button" onClick={() => {
-                        window.open('https://bdfz-my.sharepoint.com/:f:/g/personal/zhaiyuqing_i_pkuschool_edu_cn/EiUdHpdQsEZPlWwJcA0hMMQBMd6BoYQacSXdpWmrF09IAA?e=tpZRUK') }}
+                        window.open('https://bdfz-my.sharepoint.com/:f:/g/personal/zhaiyuqing_i_pkuschool_edu_cn/EiUdHpdQsEZPlWwJcA0hMMQBMd6BoYQacSXdpWmrF09IAA') }}
                         color="primary" variant = 'body1'>
                         {t('ChaKan')}
                     </Link>
@@ -120,7 +120,7 @@ function ControlledAccordions() {
                 </Grid>
                 <Grid item>
                     <Link component="button" onClick={() => {
-                        window.open('https://bdfz-my.sharepoint.com/:f:/g/personal/zhaiyuqing_i_pkuschool_edu_cn/Ermdlf7W1B9BiQKVUJnX6dsBs6Rz51hdeDdy964DXjeh4w?e=ch7cLy') }}
+                        window.open('https://bdfz-my.sharepoint.com/:f:/g/personal/zhaiyuqing_i_pkuschool_edu_cn/Ermdlf7W1B9BiQKVUJnX6dsBs6Rz51hdeDdy964DXjeh4w') }}
                         color="primary" variant = 'body1'>
                         {t('ChaKan')}
                     </Link>
@@ -150,7 +150,7 @@ function ControlledAccordions() {
                 </Grid>
                 <Grid item>
                     <Link component="button" onClick={() => {
-                        window.open('https://bdfz-my.sharepoint.com/:f:/g/personal/zhaiyuqing_i_pkuschool_edu_cn/EiacU7DQaNNClgTg6jsZJ_EBaqbIfslscnRQv_Uucf2YTA?e=82N9Jb') }}
+                        window.open('https://bdfz-my.sharepoint.com/:f:/g/personal/zhaiyuqing_i_pkuschool_edu_cn/EiacU7DQaNNClgTg6jsZJ_EBaqbIfslscnRQv_Uucf2YTA') }}
                         color="primary" variant = 'body1'>
                         {t('ChaKan')}
                     </Link>
@@ -161,7 +161,7 @@ function ControlledAccordions() {
                 </Grid>
                 <Grid item>
                     <Link component="button" onClick={() => {
-                        window.open('https://bdfz-my.sharepoint.com/:f:/g/personal/zhaiyuqing_i_pkuschool_edu_cn/EqRgQRDYWX9ApYMBQ8u461cBvCDiQ4UyyMsFBETjzQjDXA?e=0oaSTi') }}
+                        window.open('https://bdfz-my.sharepoint.com/:f:/g/personal/zhaiyuqing_i_pkuschool_edu_cn/EqRgQRDYWX9ApYMBQ8u461cBvCDiQ4UyyMsFBETjzQjDXA') }}
                         color="primary" variant = 'body1'>
                         {t('ChaKan')}
                     </Link>
@@ -171,7 +171,7 @@ function ControlledAccordions() {
                 </Grid>
                 <Grid item>
                     <Link component="button" onClick={() => {
-                        window.open('https://bdfz-my.sharepoint.com/:f:/g/personal/zhaiyuqing_i_pkuschool_edu_cn/EgSpm4hJ7wFDtM4W0cR6lGQBvw9HtEn0w-tCrWl7Xx5EPg?e=fxUSfb') }}
+                        window.open('https://bdfz-my.sharepoint.com/:f:/g/personal/zhaiyuqing_i_pkuschool_edu_cn/EgSpm4hJ7wFDtM4W0cR6lGQBvw9HtEn0w-tCrWl7Xx5EPg') }}
                         color="primary" variant = 'body1'>
                         {t('ChaKan')}
                     </Link>
@@ -181,7 +181,7 @@ function ControlledAccordions() {
                 </Grid>
                 <Grid item>
                     <Link component="button" onClick={() => {
-                        window.open('https://bdfz-my.sharepoint.com/:f:/g/personal/zhaiyuqing_i_pkuschool_edu_cn/Emj29_UQkJlOjcP-y65CHGoBcSGyvD4_kWq30Alt9IANqg?e=eYXfAj') }}
+                        window.open('https://bdfz-my.sharepoint.com/:f:/g/personal/zhaiyuqing_i_pkuschool_edu_cn/Emj29_UQkJlOjcP-y65CHGoBcSGyvD4_kWq30Alt9IANqg') }}
                         color="primary" variant = 'body1'>
                         {t('ChaKan')}
                     </Link>
@@ -191,7 +191,7 @@ function ControlledAccordions() {
                 </Grid>
                 <Grid item>
                     <Link component="button" onClick={() => {
-                        window.open('https://bdfz-my.sharepoint.com/:f:/g/personal/zhaiyuqing_i_pkuschool_edu_cn/EqawStdA09FOvWwSeANsBaQBYgltwMFFsROyw6Qo8Y7Ing?e=mlrHCn') }}
+                        window.open('https://bdfz-my.sharepoint.com/:f:/g/personal/zhaiyuqing_i_pkuschool_edu_cn/EqawStdA09FOvWwSeANsBaQBYgltwMFFsROyw6Qo8Y7Ing') }}
                         color="primary" variant = 'body1'>
                         {t('ChaKan')}
                     </Link>
@@ -201,7 +201,7 @@ function ControlledAccordions() {
                 </Grid>
                 <Grid item>
                     <Link component="button" onClick={() => {
-                        window.open('https://bdfz-my.sharepoint.com/:f:/g/personal/zhaiyuqing_i_pkuschool_edu_cn/EhfJJH_9-wFHvG6MaLlYOrIBDAGcDxWoXc1PZgQ7VFeKXA?e=Bqt5eI') }}
+                        window.open('https://bdfz-my.sharepoint.com/:f:/g/personal/zhaiyuqing_i_pkuschool_edu_cn/EhfJJH_9-wFHvG6MaLlYOrIBDAGcDxWoXc1PZgQ7VFeKXA') }}
                         color="primary" variant = 'body1'>
                         {t('ChaKan')}
                     </Link>
@@ -211,7 +211,7 @@ function ControlledAccordions() {
                 </Grid>
                 <Grid item>
                     <Link component="button" onClick={() => {
-                        window.open('https://bdfz-my.sharepoint.com/:f:/g/personal/zhaiyuqing_i_pkuschool_edu_cn/EkBLgL8TYxpCp0v-XQTytl8BKgRo4xlWj8gxZ3YkkQvwRg?e=Cnj4Qx') }}
+                        window.open('https://bdfz-my.sharepoint.com/:f:/g/personal/zhaiyuqing_i_pkuschool_edu_cn/EkBLgL8TYxpCp0v-XQTytl8BKgRo4xlWj8gxZ3YkkQvwRg') }}
                         color="primary" variant = 'body1'>
                         {t('ChaKan')}
                     </Link>
@@ -221,7 +221,7 @@ function ControlledAccordions() {
                 </Grid>
                 <Grid item>
                     <Link component="button" onClick={() => {
-                        window.open('https://bdfz-my.sharepoint.com/:f:/g/personal/zhaiyuqing_i_pkuschool_edu_cn/EsTHnPCkpGVGgbiCMT637f4BJBjSR7-JkR55GX7GHmFMEw?e=XKGlmC') }}
+                        window.open('https://bdfz-my.sharepoint.com/:f:/g/personal/zhaiyuqing_i_pkuschool_edu_cn/EsTHnPCkpGVGgbiCMT637f4BJBjSR7-JkR55GX7GHmFMEw') }}
                         color="primary" variant = 'body1'>
                         {t('ChaKan')}
                     </Link>
@@ -231,7 +231,7 @@ function ControlledAccordions() {
                 </Grid>
                 <Grid item>
                     <Link component="button" onClick={() => {
-                        window.open('https://bdfz-my.sharepoint.com/:f:/g/personal/zhaiyuqing_i_pkuschool_edu_cn/Ek6nHBFTaAhCn_5VyXjMkVwBzo7bEQguMy22y_xAn8eKKQ?e=plUgsv') }}
+                        window.open('https://bdfz-my.sharepoint.com/:f:/g/personal/zhaiyuqing_i_pkuschool_edu_cn/Ek6nHBFTaAhCn_5VyXjMkVwBzo7bEQguMy22y_xAn8eKKQ') }}
                         color="primary" variant = 'body1'>
                         {t('ChaKan')}
                     </Link>
@@ -241,7 +241,7 @@ function ControlledAccordions() {
                 </Grid>
                 <Grid item>
                     <Link component="button" onClick={() => {
-                        window.open('https://bdfz-my.sharepoint.com/:f:/g/personal/zhaiyuqing_i_pkuschool_edu_cn/EmsJclDy2C5KsepUisWXZe8BxEjDrTNTiolUoVzf9BUhkA?e=8Lc0QT') }}
+                        window.open('https://bdfz-my.sharepoint.com/:f:/g/personal/zhaiyuqing_i_pkuschool_edu_cn/EmsJclDy2C5KsepUisWXZe8BxEjDrTNTiolUoVzf9BUhkA') }}
                         color="primary" variant = 'body1'>
                         {t('ChaKan')}
                     </Link>
@@ -251,7 +251,7 @@ function ControlledAccordions() {
                 </Grid>
                 <Grid item>
                     <Link component="button" onClick={() => {
-                        window.open('https://bdfz-my.sharepoint.com/:f:/g/personal/zhaiyuqing_i_pkuschool_edu_cn/EumKnUxNcQtAtDrqLpWEgLIBlTXAdlozA7ZZtRFidDAMbw?e=JPtDuR') }}
+                        window.open('https://bdfz-my.sharepoint.com/:f:/g/personal/zhaiyuqing_i_pkuschool_edu_cn/EumKnUxNcQtAtDrqLpWEgLIBlTXAdlozA7ZZtRFidDAMbw') }}
                         color="primary" variant = 'body1'>
                         {t('ChaKan')}
                     </Link>
@@ -261,7 +261,7 @@ function ControlledAccordions() {
                 </Grid>
                 <Grid item>
                     <Link component="button" onClick={() => {
-                        window.open('https://bdfz-my.sharepoint.com/:f:/g/personal/zhaiyuqing_i_pkuschool_edu_cn/EqCRU1248j1ElRGYjNNnIgoBC5F_LgiGgM5wJil46FYqbA?e=F14f8Y') }}
+                        window.open('https://bdfz-my.sharepoint.com/:f:/g/personal/zhaiyuqing_i_pkuschool_edu_cn/EqCRU1248j1ElRGYjNNnIgoBXnzpVyVaPxMJCZPJOjhHbQ') }}
                         color="primary" variant = 'body1'>
                         {t('ChaKan')}
                     </Link>
@@ -271,7 +271,7 @@ function ControlledAccordions() {
                 </Grid>
                 <Grid item>
                     <Link component="button" onClick={() => {
-                        window.open('https://bdfz-my.sharepoint.com/:f:/g/personal/zhaiyuqing_i_pkuschool_edu_cn/Elg2SAWDSUZNuqJAvei6N60BmnLBT5_Z_0uNM_XWe53GmA?e=2TeXp9') }}
+                        window.open('https://bdfz-my.sharepoint.com/:f:/g/personal/zhaiyuqing_i_pkuschool_edu_cn/Elg2SAWDSUZNuqJAvei6N60BmnLBT5_Z_0uNM_XWe53GmA') }}
                         color="primary" variant = 'body1'>
                         {t('ChaKan')}
                     </Link>
@@ -300,7 +300,7 @@ function ControlledAccordions() {
                 </Grid>
                 <Grid item>
                     <Link component="button" onClick={() => {
-                        window.open('https://bdfz-my.sharepoint.com/:f:/g/personal/zhaiyuqing_i_pkuschool_edu_cn/EtlV-5FCFRZCo7XcXmNB8l0BtRSuY-XrSK-lgwt_FivmhA?e=LtyhSa') }}
+                        window.open('https://bdfz-my.sharepoint.com/:f:/g/personal/zhaiyuqing_i_pkuschool_edu_cn/EtlV-5FCFRZCo7XcXmNB8l0BtRSuY-XrSK-lgwt_FivmhA') }}
                         color="primary" variant = 'body1'>
                         {t('ChaKan')}
                     </Link>
@@ -311,7 +311,7 @@ function ControlledAccordions() {
                 </Grid>
                 <Grid item>
                     <Link component="button" onClick={() => {
-                        window.open('https://bdfz-my.sharepoint.com/:f:/g/personal/zhaiyuqing_i_pkuschool_edu_cn/EiXTct549ulKjf39lcJbwNYBWUaLNjbNN7R3HZij1oq6Dg?e=e0o6Ef') }}
+                        window.open('https://bdfz-my.sharepoint.com/:f:/g/personal/zhaiyuqing_i_pkuschool_edu_cn/EiXTct549ulKjf39lcJbwNYBWUaLNjbNN7R3HZij1oq6Dg') }}
                         color="primary" variant = 'body1'>
                         {t('ChaKan')}
                     </Link>
@@ -321,7 +321,7 @@ function ControlledAccordions() {
                 </Grid>
                 <Grid item>
                     <Link component="button" onClick={() => {
-                        window.open('https://bdfz-my.sharepoint.com/:f:/g/personal/zhaiyuqing_i_pkuschool_edu_cn/EgmTNP05wxBDhIcDzub6TkwBKvRck6rhNVl0WiZxIU_v-A?e=3N4a2A') }}
+                        window.open('https://bdfz-my.sharepoint.com/:f:/g/personal/zhaiyuqing_i_pkuschool_edu_cn/EgmTNP05wxBDhIcDzub6TkwBKvRck6rhNVl0WiZxIU_v-A') }}
                         color="primary" variant = 'body1'>
                         {t('ChaKan')}
                     </Link>
@@ -349,7 +349,7 @@ function ControlledAccordions() {
                </Grid>
                <Grid item>
                    <Link component="button" onClick={() => {
-                       window.open('https://bdfz-my.sharepoint.com/:f:/g/personal/zhaiyuqing_i_pkuschool_edu_cn/EkK0FVxwPPlCsYELGhqjy40B2QGehCrpSz4JBO7kreTYcQ?e=Bn1tT2') }}
+                       window.open('https://bdfz-my.sharepoint.com/:f:/g/personal/zhaiyuqing_i_pkuschool_edu_cn/EkK0FVxwPPlCsYELGhqjy40B2QGehCrpSz4JBO7kreTYcQ') }}
                        color="primary" variant = 'body1'>
                        {t('ChaKan')}
                    </Link>
@@ -360,7 +360,7 @@ function ControlledAccordions() {
                </Grid>
                <Grid item>
                    <Link component="button" onClick={() => {
-                       window.open('https://bdfz-my.sharepoint.com/:f:/g/personal/zhaiyuqing_i_pkuschool_edu_cn/ElD0W2zVPmZKpGW2ZOrJDgUBMqFbnGIjFiA3X65gXs97XQ?e=Tw9GcG') }}
+                       window.open('https://bdfz-my.sharepoint.com/:f:/g/personal/zhaiyuqing_i_pkuschool_edu_cn/ElD0W2zVPmZKpGW2ZOrJDgUBMqFbnGIjFiA3X65gXs97XQ') }}
                        color="primary" variant = 'body1'>
                        {t('ChaKan')}
                    </Link>
@@ -389,7 +389,7 @@ function ControlledAccordions() {
                </Grid>
                <Grid item>
                    <Link component="button" onClick={() => {
-                       window.open('https://bdfz-my.sharepoint.com/:f:/g/personal/zhaiyuqing_i_pkuschool_edu_cn/EhU8egGmepNCvp-U6yEdnOcBBujVZoqbF7vGBJ0xm5-4tw?e=koa6JA') }}
+                       window.open('https://bdfz-my.sharepoint.com/:f:/g/personal/zhaiyuqing_i_pkuschool_edu_cn/EiXmv6OA3zhIo_3YL_3T0BABHB8g3Vb2AzLKomvuulWYbA') }}
                        color="primary" variant = 'body1'>
                        {t('ChaKan')}
                    </Link>
@@ -400,7 +400,7 @@ function ControlledAccordions() {
                </Grid>
                <Grid item>
                    <Link component="button" onClick={() => {
-                       window.open('https://bdfz-my.sharepoint.com/:f:/g/personal/zhaiyuqing_i_pkuschool_edu_cn/EuzD7F5aKGdJlSy7KATE_okBPPRskoMjSLiIRXtZ87m7Uw?e=kyrWGv') }}
+                       window.open('https://bdfz-my.sharepoint.com/:f:/g/personal/zhaiyuqing_i_pkuschool_edu_cn/EpDvH34csKNIgCiaQoStiVUBTntW57SHoOb2zlcsJZepPg') }}
                        color="primary" variant = 'body1'>
                        {t('ChaKan')}
                    </Link>
